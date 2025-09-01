@@ -25,5 +25,5 @@ local.properties
 /app/keystore.jks
 /app/google-services.json
 /app/src/dev/google-services.json
-/app/src/development/google-services.json
+/app/src/devlopment/google-services.json
 /app/src/production/google-services.json
