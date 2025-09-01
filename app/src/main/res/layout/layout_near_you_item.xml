@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.radarqr.dating.android.ui.home.settings.prodileModel.ProfileData" />
+
+        <variable
+            name="subscriptionStatus"
+            type="SubscriptionStatus" />
+
+        <import type="com.radarqr.dating.android.subscription.SubscriptionStatus"/>
+
+        <import type="com.radarqr.dating.android.utility.BaseUtils" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cvParent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/_16sdp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clItem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.radarqr.dating.android.utility.cutomImageViews.RectangleImageView
+                    android:id="@+id/ivUser"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:background="@color/imageBackground"
+                    android:scaleType="centerCrop"
+                    app:imageUrl="@{data.profile_pic}"
+                    app:isCircular="@{false}"
+                    app:isMediumOrThumb="@{true}"
+                    app:isBlured="@{subscriptionStatus == SubscriptionStatus.NON_PLUS}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <!--
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/ivUser"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:scaleType="centerCrop"
+                                app:imageUrl="@{data.profile_pic}"
+                                app:isCircular="@{false}"
+                                app:layout_constraintBottom_toTopOf="@id/guideline_image"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+                            -->
+
+                <View
+                    android:id="@+id/guideline"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="@id/ivUser"
+                    app:layout_constraintEnd_toEndOf="@id/ivUser"
+                    app:layout_constraintStart_toStartOf="@id/ivUser"
+                    app:layout_constraintTop_toTopOf="@id/ivUser"
+                    app:layout_constraintVertical_bias="0.6" />
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivBackground"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="-2dp"
+                    android:layout_marginBottom="-1dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_near_you_angle"
+                    app:layout_constraintBottom_toBottomOf="@id/ivUser"
+                    app:layout_constraintEnd_toEndOf="@id/ivUser"
+                    app:layout_constraintStart_toStartOf="@id/ivUser"
+                    app:layout_constraintTop_toBottomOf="@id/guideline" />
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivLikeIcon"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:src="@drawable/ic_like_round_filled"
+                    app:layout_constraintEnd_toEndOf="@id/ivBackground"
+                    app:layout_constraintTop_toTopOf="@id/ivBackground" />
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivGenderSign"
+                    android:layout_width="@dimen/_8sdp"
+                    android:layout_height="@dimen/_8sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:layout_marginBottom="@dimen/_3sdp"
+                    android:tint="@color/lightSalmonPink"
+                    app:imageAccordingToGender="@{data.gender}"
+                    app:layout_constraintBottom_toBottomOf="@id/tvName"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tvName"
+                    tools:src="@drawable/ic_female_sign" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvName"
+                    style="@style/Widget.Radar.Text.MediumBody.Bold"
+                    android:layout_width="0dp"
+                    android:layout_marginStart="@dimen/_28sdp"
+                    android:ellipsize="end"
+                    android:gravity="end"
+                    android:maxLines="1"
+                    android:text="@{data.name}"
+                    android:textColor="@color/black_color"
+                    app:layout_constraintBottom_toBottomOf="@id/ivUser"
+                    app:layout_constraintEnd_toStartOf="@id/ivGenderSign"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ivUser"
+                    tools:text="h" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivChat"
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="-6dp"
+                android:visibility="invisible"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:src="@drawable/ic_chat_round_dark"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/clItem" />
+
+            <LinearLayout
+                android:id="@+id/llBottomLocation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@id/ivChat"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivChat"
+                app:layout_constraintTop_toTopOf="@id/ivChat">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvAge"
+                    style="@style/Widget.Radar.Text.MediumBody"
+                    android:layout_width="wrap_content"
+                    android:layout_marginStart="@dimen/_2sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:gravity="center"
+                    android:text="@{data.age}"
+                    android:textAlignment="center"
+                    android:textColor="@color/blackColorHalf"
+                    android:visibility="@{data.show_age ? View.GONE : View.VISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="@id/ivChat"
+                    app:layout_constraintEnd_toStartOf="@id/ivDot"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@id/ivChat"
+                    app:layout_constraintTop_toTopOf="@id/tvLocation"
+                    tools:text="34" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivDot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:src="@drawable/ic_dot_grey"
+                    android:visibility="@{(BaseUtils.INSTANCE.getLocationString(data).isEmpty() || data.show_age)? View.INVISIBLE:View.VISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="@id/tvLocation"
+                    app:layout_constraintEnd_toStartOf="@id/tvLocation"
+                    app:layout_constraintStart_toEndOf="@id/tvAge"
+                    app:layout_constraintTop_toTopOf="@id/tvLocation"
+                    tools:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvLocation"
+                    style="@style/Widget.Radar.Text.MediumBody"
+                    android:layout_width="wrap_content"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:ellipsize="end"
+                    android:gravity="end|center"
+                    android:maxLines="1"
+                    android:paddingEnd="@dimen/_3sdp"
+                    android:text="@{BaseUtils.INSTANCE.getLocationString(data)}"
+                    android:textColor="@color/blackColorHalf"
+                    android:visibility="@{BaseUtils.INSTANCE.getLocationString(data).isEmpty()?View.GONE : View.VISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="@id/ivChat"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toEndOf="@id/ivDot"
+                    app:layout_constraintTop_toTopOf="@id/ivChat"
+                    tools:text="San Fraglkdsfkjsdlckawoeinavvewavaeasveaesevesveasv"
+                    tools:visibility="visible" />
+
+
+            </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/parentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_1sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_1sdp"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:background="@drawable/rect_white"
+        android:elevation=".3dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivUser"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_margin="@dimen/_3sdp"
+            android:scaleType="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize20Percent"
+            tools:background="@color/teal_200" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvMoveCount"
+            android:visibility="gone"
+            style="@style/Widget.Radar.Text.Small"
+            android:background="@drawable/bg_round_teal_fill"
+            android:textColor="@color/white"
+            android:paddingStart="@dimen/_2sdp"
+            android:paddingEnd="@dimen/_2sdp"
+            app:layout_constraintBottom_toBottomOf="@id/ivUser"
+            app:layout_constraintEnd_toEndOf="@id/ivUser"
+            app:layout_constraintStart_toStartOf="@id/ivUser"
+            app:layout_constraintTop_toBottomOf="@id/ivUser"
+            tools:text="New" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivFavourite"
+            android:layout_width="@dimen/_12sdp"
+            android:layout_height="@dimen/_12sdp"
+            android:layout_margin="@dimen/_3sdp"
+            app:layout_constraintBottom_toBottomOf="@id/ivUser"
+            app:layout_constraintEnd_toEndOf="@id/ivUser" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvName"
+            style="@style/Widget.Radar.Text.Bold"
+            android:layout_width="0dp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            app:layout_constraintBottom_toTopOf="@id/tvMessage"
+            app:layout_constraintEnd_toStartOf="@id/tvTime"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@id/ivUser"
+            app:layout_constraintTop_toTopOf="@id/ivUser"
+            tools:text="aklsdjfhalkjsdfhalksjdfhalksjdfhaslkjfdhasldjdafsdfasfdasdfasfasdfasdfkfaljsdfhl" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvMessage"
+            style="@style/Widget.Radar.Text.MediumBody"
+            android:layout_width="0dp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/icons_color"
+            app:layout_constraintBottom_toBottomOf="@id/ivUser"
+            app:layout_constraintEnd_toStartOf="@id/ivRedDot"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@id/ivUser"
+            app:layout_constraintTop_toBottomOf="@id/tvName"
+            tools:text="asjdklfhaslkdjfhalsdjfhalsdjasdfadfasfdasdfafasdfakfh" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTime"
+            style="@style/Widget.Radar.Text.Small"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ivUser"
+            tools:text="4:15 AM" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivRedDot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:src="@drawable/ic_red_dot"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/ivUser"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewClickHandler"
+            type="com.radarqr.dating.android.utility.handler.ViewClickHandler" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/teal_200">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineHorizontalHalf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineVerticalHalf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".5" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivUserFirst"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_marginEnd="-5dp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@color/teal_200"
+            android:scaleType="center"
+            android:elevation="@dimen/_5sdp"
+            app:layout_constraintBottom_toTopOf="@id/guidelineHorizontalHalf"
+            app:layout_constraintEnd_toStartOf="@id/guidelineVerticalHalf"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.50" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivUserSecond"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:layout_marginStart="-5dp"
+            android:layout_marginBottom="@dimen/_25sdp"
+            android:background="@color/teal_200"
+            android:elevation="@dimen/_5sdp"
+            android:scaleType="center"
+            app:layout_constraintBottom_toTopOf="@id/guidelineHorizontalHalf"
+            app:layout_constraintStart_toEndOf="@id/guidelineVerticalHalf"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.50" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:elevation="@dimen/_5sdp"
+            android:src="@drawable/ic_love_its_a_match"
+            app:layout_constraintBottom_toBottomOf="@id/guidelineHorizontalHalf"
+            app:layout_constraintEnd_toEndOf="@id/ivUserSecond"
+            app:layout_constraintStart_toStartOf="@id/ivUserFirst"
+            app:layout_constraintTop_toTopOf="@id/ivUserFirst"
+            app:layout_constraintVertical_bias="0.65" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvItsAMatch"
+            style="@style/Widget.Radar.Text.HeaderLarge.White.SemiBold"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:text="@string/yay_it_s_a_match"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guidelineHorizontalHalf" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvBody"
+            style="@style/Widget.Radar.Text.White"
+            android:gravity="center"
+            android:text="@string/make_a_move_saying_anything_is_nalways_better_than_nothing"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvItsAMatch" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvGoToConnection"
+            style="@style/Widget.Radar.Text.Content.White"
+            android:layout_width="0dp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="@drawable/bg_round_white"
+            android:gravity="center"
+            android:onClick="@{viewClickHandler::onClick}"
+            android:padding="@dimen/_10sdp"
+            android:text="@string/send_a_message"
+            android:textColor="@color/teal_200"
+            app:fontFamily="@font/poppins_bold"
+            app:layout_constraintBottom_toTopOf="@id/tvGoBack"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvBody" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminateTint="@color/white"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/tvGoBack"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvBody" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvGoBack"
+            style="@style/Widget.Radar.Text.White.Bold"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:gravity="center"
+            android:onClick="@{viewClickHandler::onClick}"
+            android:text="@string/go_back"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

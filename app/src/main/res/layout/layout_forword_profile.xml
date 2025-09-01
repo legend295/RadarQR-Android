@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="forwardProfileFragment"
+            type="com.radarqr.dating.android.ui.home.forwardProfile.ForwardProfileFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/rl_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_45sdp"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/activity_toolbar_back"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:paddingStart="@dimen/_10sdp"
+                android:src="@drawable/ic_back" />
+
+            <ImageView
+                android:id="@+id/layout_toolbar_title"
+                android:layout_width="@dimen/_90sdp"
+                android:layout_height="@dimen/_23sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/logo_black" />
+
+            <TextView
+                android:id="@+id/tv_faq"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:layout_marginEnd="@dimen/_16sdp"
+                android:fontFamily="@font/hkgrotesk_regular"
+                android:text="FAQ"
+                android:visibility="gone"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp" />
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/screen_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rl_toolbar" />
+
+        <ScrollView
+            android:id="@+id/sv_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rl_toolbar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/_15sdp"
+                android:background="@color/screen_back"
+                android:paddingBottom="@dimen/_10sdp">
+
+                <TextView
+                    android:id="@+id/tv_forword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_13sdp"
+                    android:text="@string/forword"
+                    android:textColor="@color/mobile_back"
+                    android:textSize="@dimen/_16sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_forword">
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/iv_image1"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_240sdp"
+                        android:layout_marginStart="@dimen/_25sdp"
+                        android:layout_marginEnd="@dimen/_25sdp"
+                        android:background="@drawable/rect_grey_back"
+                        android:scaleType="centerCrop"
+                        app:riv_corner_radius="@dimen/_10sdp"
+                        app:riv_mutate_background="true"
+                        app:riv_oval="false" />
+
+                    <ProgressBar
+                        android:id="@+id/progress_bar1"
+                        style="?android:attr/progressBarStyle"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_centerInParent="true"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:indeterminateTint="@color/mobile_back" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_15sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rl_image" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_text_msg"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_marginStart="@dimen/_25sdp"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:layout_marginEnd="@dimen/_25sdp"
+                    android:background="@drawable/green_fill_rect"
+                    android:gravity="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_name">
+
+                    <ImageView
+                        android:id="@+id/iv_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_text_msg"
+                        android:layout_centerInParent="true"/>
+
+                    <TextView
+                        android:id="@+id/tv_textProfile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_45sdp"
+                        android:gravity="center"
+                        android:text="@string/text_profile"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_16sdp"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_toRightOf="@+id/iv_view"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_email_msg"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_marginStart="@dimen/_25sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_25sdp"
+                    android:background="@drawable/rect_white"
+                    android:gravity="center"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rl_text_msg">
+
+                    <ImageView
+                        android:id="@+id/iv_view1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/ic_mail"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_emailProfile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_45sdp"
+                        android:gravity="center"
+                        android:textSize="@dimen/_16sdp"
+                        android:fontFamily="@font/hkgrotesk_medium"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_toRightOf="@+id/iv_view1"
+                        android:text="@string/email_profilee"
+                        android:textColor="@color/black" />
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/forword_text"
+                    app:layout_constraintTop_toBottomOf="@+id/rl_email_msg"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:paddingEnd="@dimen/_25sdp"
+                    android:paddingStart="@dimen/_25sdp"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:textSize="@dimen/_10sdp"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/hkgrotesk_regular"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

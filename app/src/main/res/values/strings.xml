@@ -1,0 +1,620 @@
+<resources>
+    <string name="facebook_app_id">291815899513836</string>
+    <string name="fb_login_protocol_scheme">fb291815899513836</string>
+    <string name="facebook_client_token">01c26bdb17f4a367e2a6939e1bffb6f4</string>
+    <string name="app_name">RadarQR</string>
+    <!--    <string name="google_api_key">AIzaSyBO4DkrT-Lcfqs23BZKD1T5DGE2y5nKR-w</string>-->
+    <string name="continue_mobile">Continue with Phone Number</string>
+    <string name="facebook">Continue with Facebook</string>
+    <string name="google">Continue with Google</string>
+    <string name="whats_your">What\'s your number?</string>
+    <string name="send_verification">Radar will send you a text with a verification code. Message and data rates may apply.</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="continuee">Continue</string>
+    <string name="verify_num">Verify Number</string>
+    <string name="enter_phone_number">Enter you phone number</string>
+    <string name="never_share">We never share this with anyone and it won\'t be on your profile.</string>
+    <string name="need_to">We need to verify \nyour phone</string>
+    <string name="send_code">We have sent you an SMS with a code to </string>
+    <string name="terms">Terms &amp; \nConditions</string>
+    <string name="dont_worry">Don\'t worry! we never post to facebook</string>
+    <string name="change"><font color="#06B8A1"><b><u>Change</u></b></font></string>
+    <string name="dont_get">Didn\'t get a text? <font color="#A1DFD7"><b><u>Resend</u></b></font></string>
+    <string name="we_never">We never share this with anyone and it won\'t be on your profile</string>
+    <string name="number"></string>
+    <string name="setting">Settings</string>
+    <string name="timerr"><font color="#091E31">Seconds</font></string>
+    <string name="what_first">What\'s your first name?</string>
+    <string name="wont_able">You won\'t be able to change this later</string>
+    <string name="first_name">First Name</string>
+    <string name="enter_name">Enter your First Name</string>
+    <string name="littel_info">Tell us a bit about yourself…</string>
+    <string name="digitss">ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz </string>
+    <string name="add_picture">Add Your Profile Picture</string>
+    <string name="choose_a">Choose a photo where you can clearly see \nyour face. you can change this later</string>
+    <string name="choose_photo">Choose a photo</string>
+    <string name="you_radar">You\'re On My Radar...</string>
+    <string name="power_by">Powered By :</string>
+    <string name="replace_photo">Replace Photo</string>
+    <string name="replace_video">Replace Video</string>
+    <string name="add_facebook">Add from Facebook</string>
+    <string name="not_sure">Not sure what to upload? <font color="#06B8A1"><b><u>Check out our guidelines</u></b></font></string>
+    <string name="add_more">Add More Photos</string>
+    <string name="more_photo">More Photos</string>
+    <string name="more_photos">Profiles with 6 or more photos are 57% more likely to get a match. You can change this later.</string>
+    <string name="drag">Drag to order</string>
+    <string name="when_birthday">When Is Your Birthday?</string>
+    <string name="choose_right">Choose the right date to get \naccurate match</string>
+    <string name="this_cant">This can\'t be changed later</string>
+    <string name="make_sure">Make sure this is your correct age \nas you can\'t change this later\n</string>
+    <string name="cancel">Cancel</string>
+    <string name="user_not">The scanned profile QR code is invalid. Please verify and try again.</string>
+    <string name="done">Done</string>
+    <string name="how_do">How Do You Identify?</string>
+    <string name="everyone">Everyone\'s welcome on Radar!</string>
+    <string name="women">Woman</string>
+    <string name="man">Man</string>
+
+    <string name="couple">Couple</string>
+    <string name="non_binary">Non Binary</string>
+    <string name="interest_in">Who Are You \nInterested In?</string>
+    <string name="you_can">You can change this later</string>
+    <string name="interst_in_man">I\'m interested in Men</string>
+    <string name="interst_in_woman">I\'m interested in Women</string>
+    <string name="interst_in_couple">I\'m interested in Couples</string>
+    <string name="interst_in_non_binary">I\'m interested in Non Binary</string>
+    <string name="interst_in_everyone">I\'m interested in Everyone</string>
+    <string name="what_email">What\'s Your Email\nAddress?</string>
+    <string name="we_use">We use this to secure your account \nby recovering if you can\'t log in.</string>
+    <string name="your_email">Your Email</string>
+    <string name="enter_email">Enter your email address</string>
+    <string name="get_start">Get Started</string>
+
+    <string name="screen_one">Meet In Person</string>
+    <string name="screen_one_des">Connect with singles who you meet in person, we will be your Wingman. Too shy to make a move? We help you get creative.</string>
+
+    <string name="screen_three">Meet Online</string>
+    <string name="screen_three_des">For the paths which haven\'t crossed yet - discover &amp; connect with singles in our search feature!</string>
+
+    <string name="screen_four">See Who Likes You</string>
+    <string name="screen_four_des">Trust us - there\'s someone out there for everyone! If they happen to find you first, this is where they\'ll be patiently waiting!</string>
+
+    <string name="screen_five">Talk To Your Connections</string>
+    <string name="screen_five_des">QR Cards provide an alternative to handing out your phone number to every ”hottie” who crosses your path. Connect in various ways &amp; chat safely through our platform</string>
+
+    <string name="screen_six">More Than a Dating App</string>
+    <string name="screen_six_des"><![CDATA[RadarQR is for singles who want to connect both online and in REAL life. We know that when someone is ”on your Radar”, you know it. You can fell it. We work to empower singles to ”find their bold” and make real moves.]]></string>
+
+    <string name="screen_two">Invite to Your Profile</string>
+    <string name="got_it">Got it</string>
+    <string name="empowers">Radar Empowers Singles to Make the First Move</string>
+    <string name="different">How are we different?\nWith Radar you can:</string>
+    <string name="point1">1. Meet people in person and give them your QR card or let them scan your QR code to instantly connect without providing your personal information. It’s safe, secure, &amp; fun!</string>
+    <string name="point2">2. Browse local singles and select the people that you want to meet.</string>
+    <string name="before_use">Before You Use This App</string>
+    <string name="before_use_des">Welcome! We\'re excited to be apart of you love journey \n\nHere we treat everyone with kindness and respect, no matter their race, religion, nationality, ethnicity, skin color, ability, size, sex, gender identity, or sexual orientation.\n\nIn our mission are to actively keep <font color="#06B8A1">Radar</font>. safe and inclusive, we ask you to join us by signing to our <font color="#06B8A1"><u>guidelines</u></font>.</string>
+    <string name="with_love">With Huge Love,</string>
+    <string name="radar_team">Radar Team</string>
+    <string name="agree">I agree</string>
+    <string name="forword">Forward this profile to a friend </string>
+    <string name="text_profile">Text Profile</string>
+    <string name="email_profilee">Email Profile</string>
+    <!--    <string name="forword_text">Sometimes we see/meet great people who just aren\'t for us.... But may be perfect for a friend! Share the love and recommend singles to friends! </string>-->
+    <string name="forword_text">Remember: Please be polite. It took a lot of courage to give you my information. History rewards the bold!</string>
+    <string name="aws_image_path_url_full">https://%1$s.amazonaws.com/%2$s</string>
+    <string name="aws_image_path_url_medium">https://%1$s.amazonaws.com/%2$s</string>
+    <string name="aws_image_path_url_thumb">https://%1$s.amazonaws.com/%2$s</string>
+    <!--    <string name="s3_bucket">dev-datingapp-assets.s3.us-west-2</string>-->
+
+    <string name="s3_bucket"> radar-profile-images.s3.us-east-2</string>
+
+    <string name="find_replace">Find a Replacement</string>
+    <string name="upload">Upload Photo</string>
+    <string name="connections">Connections</string>
+    <string name="add_media">Add Media</string>
+    <string name="take">Camera</string>
+    <string name="capture_video">Take Video</string>
+    <string name="gallery">Gallery</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="sometime">Sometimes</string>
+    <string name="open">Open to all</string>
+    <string name="require">Is This A Requirement?</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="show_scan_qr">Scan or show Radar QR Code</string>
+    <string name="share_profile">Share Profile</string>
+    <string name="preference">Preferences</string>
+    <string name="account">Account</string>
+    <string name="help">Help Center</string>
+    <string name="logout">Logout</string>
+    <string name="drag_to">Drag to change order</string>
+    <string name="my_photo">My Photos &amp; Videos</string>
+    <string name="about_me">About Me</string>
+
+    <string name="basic_info">Basic Info</string>
+    <string name="work_edu">Work &amp; Education</string>
+    <string name="hobby_inter">Hobbies &amp; Interests</string>
+    <string name="my_general">General</string>
+    <string name="my_preference">My Preferences</string>
+    <string name="name">Name</string>
+    <string name="gender">Gender</string>
+    <string name="age">Age</string>
+    <string name="hight">Height</string>
+    <string name="location">Location</string>
+    <string name="max_distance">Maximum Distance</string>
+    <string name="want_meet">I want to meet</string>
+    <string name="zodic_sign">Zodiac Sign</string>
+    <string name="drinking">Drinking</string>
+    <string name="smoking">Smoking</string>
+    <string name="looking_for">Looking for</string>
+    <string name="childern">Children</string>
+    <string name="ethnicity">Ethnicity</string>
+
+    <string name="my_work">My Work &amp; Education</string>
+    <string name="job">Job</string>
+
+    <string name="job_title">Job Title</string>
+    <string name="school">School</string>
+    <string name="education_level">Education Level</string>
+    <string name="save_prefe">Save Preferences</string>
+    <string name="my_hobby">My Hobbies &amp; Interests</string>
+    <string name="add_interest">Add more interests</string>
+    <string name="edit">Edit</string>
+    <string name="reconnect">Reconnect</string>
+    <string name="view_mode">View Mode</string>
+    <string name="all_likes">All Likes</string>
+    <string name="all">All</string>
+    <string name="online">Online</string>
+    <string name="inperson">In Person</string>
+    <string name="scan">Scan</string>
+    <string name="my_code">My Code</string>
+    <string name="print_my">Print My Code</string>
+    <string name="share_my">Share My Code</string>
+    <string name="save_to">Save To Phone</string>
+    <string name="on_my_radar">On My Radar</string>
+    <string name="match">Match With Carol</string>
+    <string name="describe">Describe yourself</string>
+    <string name="write_message">Write text here</string>
+    <string name="likes_error"> You don\'t have any likes yet!\n<font color="#0CDEC2"><b>Browse singles</b></font> or more likes now.</string>
+    <!--    <string name="sender_id">460033685149</string>-->
+    <string name="home_error">You\'ve seen everyone who fits your\n<font color="#0CDEC2">Preferences</font>, but check back soon for new people.</string>
+    <string name="photo_discription">Profiles with photos have more chances to get match and spark more conversations</string>
+    <string name="chat_error">New connections will appear here.\n<font color="#0CDEC2">View Profiles</font>, to find connections now.</string>
+
+
+    <!--<quick blox></quick>-->
+    <string name="chat">Chat</string>
+    <string name="profile">Profile</string>
+    <string name="menu_chat_info">Chat Info</string>
+    <string name="menu_add_users_to_chat">Add Users to Chat</string>
+    <string name="menu_leave_chat">Leave Chat</string>
+    <string name="menu_delete_chat">Delete Chat</string>
+    <string name="menu_dialogs_logout">Logout</string>
+    <string name="menu_dialogs_delete">Delete</string>
+    <string name="menu_dialogs_app_info">App Info</string>
+    <string name="menu_create">Create</string>
+    <string name="menu_done">Done</string>
+    <string name="menu_finish">Finish</string>
+    <string name="menu_send">Send</string>
+    <string name="menu_save_attachment">Save attachment</string>
+
+    <string name="menu_message_edit">Edit</string>
+    <string name="menu_message_delete">Delete</string>
+    <string name="menu_message_forward">Forward</string>
+    <string name="menu_message_delivered_to">Delivered to…</string>
+    <string name="menu_message_viewed_by">Viewed by…</string>
+    <string name="menu_file_save">Save File</string>
+
+    <string name="field_name_user_login">User name</string>
+    <string name="field_name_user_fullname">User Full Name</string>
+
+    <string name="dlg_loading">Loading</string>
+    <string name="dlg_relogin">Relogin</string>
+    <string name="dlg_restoring_chat_session">Restoring chat session…</string>
+    <string name="dlg_login">Login…</string>
+    <string name="dlg_logout">Logout…</string>
+    <string name="dlg_retry">Retry</string>
+    <string name="dlg_hide">Hide</string>
+    <string name="dlg_choose_file_from">Select file from…</string>
+    <string name="dlg_sending">Sending…</string>
+    <string name="create_chat">Creating chat…</string>
+    <string name="dlg_deleting_chats">Deleting chats…</string>
+    <string name="dlg_updating">Updating…</string>
+    <string name="dlg_delete_private_dialog">Delete dialog</string>
+    <string name="dlg_delete_private_question">Are you sure you want to leave dialog?</string>
+    <string name="dlg_leave_group_dialog">Leave dialog</string>
+    <string name="dlg_leave_group_question">Are you sure you want to leave dialog?</string>
+    <string name="dlg_delete_question">Are you sure you want to delete dialogs?</string>
+    <string name="dlg_leave">Leave</string>
+    <string name="dlg_delete">Delete</string>
+    <string name="dlg_cancel">Cancel</string>
+
+    <string name="new_chat_created">%s created the group chat \"%s\"</string>
+    <string name="occupant_added">%s added %s</string>
+    <string name="occupant_left">%s has left</string>
+
+    <string name="chat_still_joining">You\'re still joining a group chat, please wait a bit</string>
+    <string name="chat_error_send_message">Can\'t send a message, You are not connected to chat</string>
+
+    <string name="placeholder_username_you">%s (you)</string>
+    <string name="error_recreate_session">Login Chat error</string>
+
+    <string name="splash_app_version">v %s</string>
+
+    <string name="login_chat_login_error">Login to Chat error. Please relogin. </string>
+    <string name="login_toolbar_title">Enter to chat</string>
+    <string name="login_welcoming_message">Please enter your login \nand display name</string>
+    <string name="login_label_login">Login</string>
+    <string name="login_label_button_login">Login</string>
+    <string name="login_label_username">Display name</string>
+    <string name="login_login_hint">Use your email or alphanumeric characters in a range from 3 to 50. First character must be a letter.</string>
+    <string name="login_username_hint">Use alphanumeric characters and spaces in a range from 3 to 20. Cannot contain more than one space in a row.</string>
+    <string name="login_sign_up_error">Sign up error.</string>
+    <string name="login_save">Save Login and Username for further sessions</string>
+
+    <string name="dialogs_logged_in_as">Logged in as %s</string>
+    <string name="dialogs_cannot_delete_chat">You can not leave from dialog %s</string>
+    <string name="dialogs_creation_error">Dialog creation errors</string>
+    <string name="dialogs_deletion_error">Dialog deletion errors</string>
+    <string name="dialogs_actionmode_title">Delete Chats</string>
+    <string name="dialogs_actionmode_subtitle">%s chats selected</string>
+    <string name="dialogs_actionmode_subtitle_single">%s chat selected</string>
+
+    <string name="today">Today</string>
+    <string name="yesterday">Yesterday</string>
+
+    <string name="select_users_search_hint">Search</string>
+    <string name="select_users_create_chat_title">New Chat</string>
+    <string name="select_users_create_chat_subtitle">%s users selected</string>
+    <string name="select_users_create_chat_subtitle_single">%s user selected</string>
+    <string name="select_users_edit_chat">Add Occupants</string>
+    <string name="select_users_get_users_error">Get users errors</string>
+    <string name="select_users_get_dialog_error">Error getting dialog from server</string>
+    <string name="select_users_get_users_dialog_error">Error getting users dialog from server</string>
+    <string name="select_users_choose_users">Please, choose at least one participant</string>
+    <string name="select_users_not_found">No user with that name</string>
+
+    <string name="you">You</string>
+    <string name="chat_send">Send</string>
+    <string name="chat_edit_text_hint">Type your message</string>
+    <string name="chat_me">Me</string>
+    <string name="chat_send_message_error">Failed to send a message</string>
+    <string name="chat_load_users_error">Load chat users errors</string>
+    <string name="chat_attachment">Attachment</string>
+    <string name="chat_empty_you_are_alone_here">No Connectios</string>
+    <string name="chat_unsupported_type">Unsupported dialog type</string>
+    <string name="chat_wait_for_attachments_to_upload">Wait for all attachments to upload</string>
+    <string name="notification_title">Quickblox Chat Notification</string>
+    <string name="connection_error">Chat connection has been dropped</string>
+    <string name="reconnect_alert">Reconnecting in %s seconds</string>
+    <string name="reconnect_failed">Reconnecting Failed</string>
+
+    <string name="update_dialog_error">Update Dialog error</string>
+
+    <string name="chat_info_subtitle">%s members</string>
+    <string name="chat_info_add_people_error">Add people errors</string>
+
+    <string name="message_forwarded_from">Forwarded from\u0020</string>
+    <string name="message_info_delivered_to">Message Delivered to</string>
+    <string name="message_info_read_by">Message Viewed by</string>
+
+    <string name="message_info_noone">no one</string>
+    <string name="message_info_single_user">1 member</string>
+    <string name="message_info_multiple_users"> members</string>
+
+    <string name="forward_to">Forward to</string>
+
+    <string name="public_group_chat_cannot_be_deleted">Public Group chat can be deleted only by owner</string>
+    <string name="error_leave_chat">Error leaving room</string>
+
+    <string name="appinfo_application_version">Application version:</string>
+    <string name="appinfo_qbsdk_version">QuickBlox SDK version:</string>
+    <string name="appinfo_application_id">Application ID:</string>
+    <string name="appinfo_authorization_key">Authorization key:</string>
+    <string name="appinfo_authorization_secret">Authorization secret:</string>
+    <string name="appinfo_account_key">Account key:</string>
+    <string name="appinfo_api_domain">API domain:</string>
+    <string name="appinfo_chat_domain">Chat domain:</string>
+    <string name="appinfo_title">App Info</string>
+    <string name="appinfo_qa_verion">QA version:</string>
+
+    <string name="typing_postfix_singular">is typing…</string>
+    <string name="typing_postfix_plural">are typing…</string>
+    <string name="typing_ellipsis">…</string>
+
+    <string name="dialog_chat_name">Chat Name</string>
+    <string name="dialog_chat_name_hint">Must be in a range from 3 to 20 characters</string>
+
+    <string name="added_users">The users have been added</string>
+
+    <!--Error strings-->
+    <string name="error_qb_credentials_empty">Credentials are wrong or empty. You have to set:
+        Application ID, Authentification Key, Authentification Secret, Account Key in constants in App.java
+        and you have to set Sender ID in the string resources to launch application.
+        If you haven\'t them you can register new account and application at https://admin.quickblox.com
+        then put Application credentials from Overview page + Account key from https://admin.quickblox.com/account/settings</string>
+    <string name="error_chat_credentails_empty">Some parameter for Chat Settings is wrong. Please check the Chat Settings</string>
+    <string name="error_connection">Connection failed. Please check your internet connection.</string>
+    <string name="error_response_timeout">No response received within reply timeout</string>
+    <string name="no_server_connection">Server connection timeout</string>
+    <string name="error_load_image">Error load image</string>
+    <string name="error_load_video">Can not play video file. It might be corrupt</string>
+    <string name="error_attachment_corrupted">Attachment is corrupted</string>
+    <string name="error_attachment_size">The uploaded file exceeds maximum file size (100MB)</string>
+    <string name="error_forwarding_not_connected">Unable to forward message. Not Connected to Chat</string>
+    <string name="error_attachment_count">You can send 1 attachment per message</string>
+    <string name="error_logout">Unable to Logout: </string>
+    <string name="error_joining_chat">Unable to Join chat</string>
+    <string name="error_getting_chat_service">Unable to get Chat Service</string>
+    <string name="my_profile">My Profile</string>
+    <string name="pause_profile">Pause Profile</string>
+    <string name="phone_amp_email"><![CDATA[Phone & Email]]></string>
+    <string name="email">Email</string>
+    <string name="phone">Phone</string>
+    <string name="notifications">Notifications</string>
+    <string name="push_notification">Push Notification</string>
+    <string name="legal">Legal</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="term_of_service">Term of Service</string>
+    <string name="download_my_data">Download my data</string>
+    <string name="privacy_preferences">Privacy Preferences</string>
+    <string name="update">Update</string>
+    <string name="unpause_profile">Unpause Profile</string>
+    <string name="default_notification_channel_id">1556</string>
+    <string name="radar_notification">radar_qr_notifications</string>
+    <string name="select">Please Select</string>
+    <string name="select_mi">Select mi</string>
+    <string name="select_age">Select Age</string>
+
+    <string name="text_left">Left text</string>
+    <string name="text_right">Right text</string>
+    <string name="text_center">Center text</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="next_in_line">Next In Line</string>
+    <string name="version">Version</string>
+    <string name="report">Report</string>
+    <string name="your_report_is_private">Your report is private</string>
+    <string name="i_m_not_interested_in_this_person">I\'m not interested in this person</string>
+    <string name="profile_is_fake_spam_or_scammer">Profile is fake, spam, or scammer</string>
+    <string name="inappropriate_content">Inappropriate content</string>
+    <string name="underage_or_minor">Underage or minor</string>
+    <string name="offline_behaviour">Offline behaviour</string>
+    <string name="someone_is_in_danger">Someone is in danger</string>
+    <string name="delete_account">Delete Account</string>
+    <string name="are_you_sure">Are you sure?</string>
+    <string name="deleting_your_account_will_permanently_erase_convos_with_your_connections">Are you sure you want to delete your account from RadarQR. This will delete all the details associated with your account. It includes your pictures, profile info and all matches.</string>
+    <string name="confirm_delete">Confirm delete</string>
+    <string name="not_now">Not now</string>
+    <string name="my_hobbies_amp_interest"><![CDATA[My Hobbies & Interests]]></string>
+    <string name="choose_up_to_5_interests_fr_your_profile">Choose up to 5 interests for your profile</string>
+    <string name="save">Save</string>
+    <string name="message">Message</string>
+    <string name="dont_want_to_say">Don\'t Want to Say</string>
+    <string name="post_grad">Postgrad</string>
+    <string name="phone_updated_successfully_message">Your phone number has been updated successfully.</string>
+    <string name="find_a_replacement">Find a replacement</string>
+    <string name="upload_photo_video">Upload Photo/Video</string>
+    <string name="screen_two_des"><![CDATA[We connect the dots between “hello’ & “this is me”! Share your code via QR card, scan, text, download, print to swag and more!]]></string>
+    <string name="radarqr_website">RadarQR Website</string>
+    <string name="tips_amp_tricks"><![CDATA[Tips & Tricks]]></string>
+    <string name="like">Likes</string>
+    <string name="age_range">Age range</string>
+    <string name="your_move">Your Move</string>
+    <string name="no_internet_msg">You are not connected to the internet. Please check your connection and <font color='#06B8A1'>retry</font></string>
+    <string name="no_chat_history_found_n_say_hello_to_initiate_chat">No messages here yet…</string>
+    <string name="remove">Remove</string>
+    <string name="skip"><u>Skip</u></string>
+    <string name="skip_without_underline">Skip</string>
+    <string name="next">Next</string>
+    <string name="resend"><u>Resend</u></string>
+    <string name="verification_code">Verification Code</string>
+    <string name="enter_your_phone_number">Enter your phone number</string>
+    <string name="please_enter_your_mobile_number_you_will_receive_a_code_to_verify_mobile_number">Please enter your mobile number. You will receive a code to verify mobile number.</string>
+    <string name="your_first_name">Your First Name</string>
+    <string name="you_won_t_be_able_to_change_this_later">This is the name that will be printed on your QR cards.</string>
+    <string name="first_name_text">First Name</string>
+    <string name="profile_photo">Profile Photo</string>
+    <string name="add_photo_from_facebook">Add Photo from Facebook</string>
+    <string name="choose_one_photo_to_get_your_profile_started_nyou_can_change_amp_add_more_later"><![CDATA[Choose one photo to get your profile started.\nYou can change & add more later.]]></string>
+    <string name="edit_photo">Edit Photo</string>
+    <string name="when_is_your_birthday">When Is Your Birthday?</string>
+    <string name="choose_the_right_date_to_get_accurate_matches">Choose the right date to get accurate matches.</string>
+    <string name="confirm">Confirm</string>
+    <string name="everyone_is_welcome_on_radarqr">Everyone is welcome on RadarQR!</string>
+    <string name="what_s_your_email">What\'s Your Email?</string>
+    <string name="you_deserve_to_choose">YOU DESERVE TO CHOOSE.</string>
+    <string name="follow_your">FOLLOW YOUR</string>
+    <string name="enable">Enable</string>
+    <string name="enable_location">Enable Location</string>
+    <string name="help_us_help_you_if_your_location_is_nenabled_we_can_better_link_you_to_others_nwithin_your_location_preferences">Help us help you! If your location is\nenabled, we can better link you to others\nwithin your location preferences.</string>
+    <string name="recommended">Recommended</string>
+    <string name="near_you">Near you</string>
+    <string name="the_app_with_swag">THE APP WITH SWAG!</string>
+    <string name="maximize_your_reach_with_qr_swag_think_t_shirts_hello_festivals_stickers_tag_you_re_cute_backpacks_fake_tattoos_and_more_you_ve_got_swag_baby_don_t_let_dating_apps_take_that_away">Maximize your reach with QR Swag! Think T-Shirts (Hello FESTIVALS), Stickers (tag you\'re cute), Backpacks, Fake Tattoos and MORE! You\'ve got SWAG baby don\'t let dating apps take that away!</string>
+    <string name="yolo">#YOLO</string>
+    <string name="add_more_u"><u>+ Add More</u></string>
+    <string name="view_mode_u"><u>View mode</u></string>
+    <string name="select_u"><u>Select</u></string>
+    <string name="enable_gps_msg">Please enable you location.</string>
+    <string name="profile_comment">Profile Comment</string>
+    <string name="match_">Match</string>
+    <string name="my_code_">My Code</string>
+    <string name="scan_code">Scan Code</string>
+    <string name="or">Or</string>
+    <string name="order_qr_cards">Order QR Cards</string>
+    <string name="print_qr_code">Order Profile QR cards</string>
+    <string name="all_connections">All Connections</string>
+    <string name="real_life">Real Life</string>
+    <string name="favorites">Favorites</string>
+    <string name="non_negotiable">Non-Negotiable</string>
+    <string name="take_a_break">Take a Break!</string>
+    <string name="you_ve_requested_to_pause_your_profile_n_nyou_will_be_unable_to_search_and_your_profile_will_only_be_visible_to_your_connections_and_those_you_ve_previously_liked">You\'ve requested to pause your profile.\n\nYou will be unable to search and your profile will only be visible to your connections and those you\'ve previously liked.</string>
+    <string name="unpause_long_txt">You\'ve paused your profile.\n\nYou will be unable to search and your profile will only be visible to your connections and those you\'ve previously liked.</string>
+    <string name="this_can_t_be_changed_later">This can\'t be changed later</string>
+    <string name="age_18">Age 18</string>
+    <string name="go_back">Go Back</string>
+    <string name="make_a_move_saying_anything_is_nalways_better_than_nothing">Make a move - saying ANYTHING is\nalways better than NOTHING.</string>
+    <string name="yay_it_s_a_match">Yay! It’s a Match</string>
+    <string name="mi_away">mi away</string>
+    <string name="please_choose_a_profile_image">Please choose a profile image</string>
+    <string name="female">Female</string>
+    <string name="male">Male</string>
+    <string name="home_error_msg">Recommendations are based on your <font color="#0CDEC2">preferences</font>. Try widening your <font color="#0CDEC2">preferences</font>, otherwise, check back when we find more singles that match your needs.</string>
+    <string name="chat_error_msg">Sharing your QR code with other singles to \nmake REAL life connections.</string>
+    <string name="send_a_message">Send a message</string>
+    <string name="unpause_to_search">Unpause to Search</string>
+    <string name="newTxt">New</string>
+    <string name="thank_you">Thank you</string>
+    <string name="welcome_to_radarqr">Welcome + Tips</string>
+    <string name="welcome_message">We\'re thrilled to introduce our innovative dating app, RadarQR. As we\'re still in the early stages, there may be some technical issues we encounter along the way. We appreciate your patience as we correct them and grow. To help you make the most of this new platform, here are some tips:</string>
+    <string name="add_a_new_hot_spot">Add a new Hot Spot</string>
+    <string name="add_or_edit_your_n_hot_spot_nvenues">Add or Edit Your \'\'Hot Spot\'\' Venues</string>
+    <string name="your_venues">Your Venues</string>
+    <string name="tell_us_about_your_venue">Tell Us About Your Venue</string>
+    <string name="click_buttons_for_options">Click Buttons for options</string>
+    <string name="delete_venue">Delete Venue</string>
+    <string name="character_remaining">Characters Remaining %1$s</string>
+    <string name="venue_details">Venue Details</string>
+    <string name="certified_hot_spot">Certified Hot Spot</string>
+    <string name="user_name">User Name</string>
+    <string name="_1_add_a_photo_while_at_your_favourite_n_hot_spot"><font color="#0CDEC2"><b>1.</b></font>  Add a photo while at your favorite\nHot Spot!</string>
+    <string name="tag_your_self_msg"><font color="#0CDEC2"><b>2.</b></font>  Tag yourself &amp; Close Friends to help\ndirect other singles to your profiles.</string>
+    <string name="upload_text">Upload</string>
+    <string name="tagging_is_my_life">Tagging is my life</string>
+    <string name="venue_album">Venue Album</string>
+    <string name="singles_in_this_venue">Singles In This Venue</string>
+    <string name="click_photo_twice_to_see_tagged_profiles">Click photo twice to see tagged profiles</string>
+    <string name="view_venue">View Venue</string>
+    <string name="action_needed">Action Needed</string>
+    <string name="approved">Approved</string>
+    <string name="submitted">Submitted</string>
+    <string name="send_for_approval">Send For Approval</string>
+    <string name="fill_required_information">Fill Required Information</string>
+    <string name="venue_name">Venue Name</string>
+    <string name="venue_handle">Venue Handle</string>
+    <string name="percentage_complete">% Completed</string>
+    <string name="venue_name_amp_handle"><![CDATA[Venue Name & Handle]]></string>
+    <string name="venue_photos">Venue Photos</string>
+    <string name="add_three_venue_photos">Add three venue photos</string>
+    <string name="no_thanks">No Thanks</string>
+    <string name="send_venue_for_approval">Send Venue for Approval</string>
+    <string name="create_a_venue_name_and_unique_handle_to_it">Create a venue name and unique handle to it.</string>
+    <string name="add_required_details_to_venue_and_submit_for_approval">Add required details to venue and submit for approval.</string>
+    <string name="get_your_venue_approved_and_let_singles_explore_it">Get your venue approved and let singles explore it.</string>
+    <string name="how_venue_s_work">How Venue\'s Work</string>
+    <string name="register_to_be_hotspot_long_txt"><![CDATA[Our goal at RadarQR is to better facilitate singles meeting in REAL LIFE! To do this, we partner with venues to give our singles trendy\'\'Hot Spot\'\' to find & meet other like minded singles in real life from the App.\n\nWe drive traffic to your venue through the App. In return, we require that Hot Spots display our App info proudly to facilitate singles loading the App to connect in your spot. They load, they find you, you\'re on the radar as a Hot Spot. Everyone wins!\n\nRegister to be a certified Hot Spot through RadarQR today!]]></string>
+    <string name="register_to_be_a_hot_spot">Register to be a Hot Spot</string>
+    <string name="description_about">Description / About</string>
+    <string name="special_offers">Special Offers</string>
+    <string name="are_you_sure_want_to_delete_venue">Are you certain you want to\ndelete the venue?\n\nGood news, you will be able to re-\nadd it later. Bad news, any time\nspent off the radar can\'t\nbe reimbursed or adjusted. Great\nnews, you\'re welcome to rejoin\nour dating community, just let us\nknow when the time is right.</string>
+    <string name="i_agree">I Agree</string>
+    <string name="required">Required</string>
+    <string name="request">Requests</string>
+    <string name="close_friends">Close Friends</string>
+    <string name="find_my_friend">Find My Friend</string>
+    <string name="venues">Venues</string>
+    <string name="hot_spots">Hot Spots</string>
+    <string name="add">Add</string>
+    <string name="please_choose_a_unique_username_it_help_other_users_to_search_and_add_you_as_close_friends">Please choose a unique username. It help other users to search and add you as close friends.</string>
+    <string name="choose_username">Choose username</string>
+    <string name="ready_to_send_your_venue_nfor_approval">Ready to send your venue\nfor approval?</string>
+    <string name="add_a_close_friend">Add a Close Friend</string>
+    <string name="yes_please">Yes Please!</string>
+    <string name="confirm_close_friend">Confirm Close Friend</string>
+    <string name="accept">Accept</string>
+    <string name="reject">Reject</string>
+    <string name="remove_close_friend">Remove Close Friend</string>
+    <string name="decline">Decline</string>
+    <string name="no_users_found">No users found.</string>
+    <string name="request_sent">Request Sent</string>
+    <string name="request_received">Request Received</string>
+    <string name="pending">Pending</string>
+    <string name="decline_request">Decline Request</string>
+    <string name="extend_timer">Extend Timer &amp; Show me Singles</string>
+    <string name="set_timer_amp_show_me_singles"><![CDATA[Set timer & Show Me Singles]]></string>
+    <string name="no_timer_amp_don_t_show_singles"><![CDATA[No Timer & Don’t Show Singles]]></string>
+    <string name="stop_timer_amp_don_t_show_singles">Stop Timer &amp; Don\'t show me Singles</string>
+    <string name="roaming_timer">Roaming Timer</string>
+    <string name="let_s_explore_the_venue">Let\'s Explore the Venue</string>
+    <string name="singles_are_ready_to_meet_here">Singles are ready to meet here!</string>
+    <string name="thanks">Thanks</string>
+    <string name="sorry_please_reach_the_venue">Sorry, Please reach the Venue</string>
+    <string name="enable_roaming_timer">Enable Roaming Timer</string>
+    <string name="okay">Okay</string>
+    <string name="share">Share</string>
+    <string name="add_more_photo_message"><font color="#000000"><b>1.</b></font> Your main profile photo will have a slant design so crop it accordingly. Choose your best photo for this. \n<font color="#000000"><b>2.</b></font> Upload photos in groups of 3 to build grids.\n<font color="#000000"><b>3.</b></font> Go wild! Upload up to 15 photos/videos.</string>
+    <string name="upload_image_venue_message">Please upload three photos for your Venue page.</string>
+    <string name="venue_album_first">Tag yourself &amp; close friends to allow other singles to "shoot their shot" with you.</string>
+    <string name="venue_album_second">Click twice to see tagged users in photos.</string>
+    <string name="venue_album_third">Photos are deleted after 48 hours, so make your move!</string>
+    <string name="venue_album_info_title">Discover singles of your \nfavorite hot spots</string>
+    <string name="tv_msg_tag">Tap photo to begin tagging your approved close friends! Add close friends by searching their user names in the close friends page found under settings.</string>
+    <string name="no_just_sharing">NO, Just Sharing</string>
+    <string name="yes_let_s_tag">YES, Let’s TAG</string>
+    <string name="would_you_like_to_tag_yourself_nand_or_friends">Would you like to tag yourself\nand / or friends?</string>
+    <string name="we_love_it">We Love it!</string>
+    <string name="in_progress">In progress</string>
+    <string name="waiting_for_review">Waiting for review</string>
+    <string name="venue_approved_can_not_update_location">Venue is approved and certified hotspot. You can\'t update the contact info once the venue is approved. Please contact support for more help.</string>
+    <string name="send_email">Send Email</string>
+    <string name="by_signing_up_for_radarqr_you_agree_to_our_terms_amp_conditions_learn_how_we_process_your_data_in_our_nprivacy_policy"><![CDATA[By signing up for RadarQR, you agree to our Terms & Conditions. Learn how we process your data in our \nPrivacy Policy.]]></string>
+    <string name="venue_subscription_promotion_msg">Are you ready to heat up your\nbusiness and become the ultimate\nspot for singles to mingle?\nRadarQR has got you covered!\n\nOur “Hot Spots” advertising\npartnerships bring new customers\nstraight to your venue\'s doorstep for\nsome real-life match-making magic.</string>
+    <string name="yes_let_s_do_it">YES, Let\'s Do It!</string>
+    <string name="we_ve_got_the_singles">WE\'VE GOT THE SINGLES!</string>
+    <string name="you_ve_got_the_venue">YOU\'VE GOT THE VENUE</string>
+    <string name="share_your_profile_qr_code_to_match_on_nthe_go_check_out_our_swag_shop_for_ninspiration_and_orders">Invite singles to your profile by sharing your profile QR code! (Visit the SWAG SHOP for inspiration).</string>
+    <string name="go_to_hot_spots_to_be_where_the_nsingles_are_amp_learn_who_they_are_once_nyou_check_in">Add Close Friends to play matchmaker with friends in tagged venue photos!</string>
+    <string name="play_matchmaker_amp_tag_your_close_friends_nin_hot_spots_turn_dating_into_a_fun_nsocial_experience">Visit “Hot Spots” to immerse yourself in a room full of singles on the spot!</string>
+    <string name="browse_albums_in_hot_spots_to_discover_nnew_singles_who_are_tagged_in_the_photos">Browse Albums in “Hot Spots” to discover\nnew singles who are tagged in venue\nphotos.</string>
+    <string name="remember_have_fun_stay_safe_and_enjoy_nthis_revolutionary_dating_experience">Remember to have fun, stay safe, and\nenjoy this groundbreaking dating\nexperience!</string>
+    <string name="allowed_venue_types_nbars_breweries_coffee_shops_ngyms_and_restaurants">Example Venue Types:\nBars, Breweries, Coffee Shops,\nGyms and Restaurants.</string>
+    <string name="venue_promotion_short_message">Once submitted, our team will review\nand approve it, then you\'ll be live!</string>
+    <string name="add_my_venues">Add My Venues</string>
+    <string name="ok">@android:string/ok</string>
+    <string name="login_with_facebook">Login with Facebook</string>
+    <string name="login_with_google">Login with Google</string>
+    <string name="fetching_location">Fetching location…</string>
+    <string name="please_wait">Please wait…</string>
+    <string name="venue_paused">Venue Paused</string>
+    <string name="uh_oh">Uh Oh!</string>
+    <string name="show_me_new_venues">Show Me New Venues</string>
+    <string name="upgrade_to_radarqr_plus">Upgrade to <font color="#1FEBD0">RadarQR</font> Plus!</string>
+    <string name="open_swag_shop">Open <font color="#1FEBD0">SWAG</font> Shop</string>
+    <string name="swag_shop">Swag <font color="#000000">Shop!</font></string>
+    <string name="upgrade_to_radarqr_plus_white">Upgrade to <font color="#FFFFFF">RadarQR</font> Plus!</string>
+    <string name="radarqr_plus"><font color="#1FEBD0">RadarQR</font> Plus</string>
+    <string name="enhance_your_dating_game_with_our_exclusive_features">Enhance Your Dating Game\nwith Our Exclusive Features!</string>
+    <string name="dsv_ex_msg_dont_set_lm">You should not set LayoutManager on DiscreteScrollView.class instance. Library uses a special one. Just don\'t call the method.</string>
+    <string name="dsv_ex_msg_adapter_wrong_recycler">InfiniteScrollAdapter is supposed to work only with DiscreteScrollView</string>
+    <string name="by_tapping_susbcribe_you_will_be_charged_your_subscription_will_auto_renew_for_the_same_price_and_package_length_until_you_cancel_via_app_store_settings_and_you_agree_to_our_terms">By tapping Subscribe. you will be charged, your subscription will auto-renew for the same price and package length until you cancel via Play Store settings, and you agree to our Terms</string>
+    <string name="see_all_benefits">See all benefits</string>
+    <string name="new_txt">New</string>
+    <string name="radarqr_plus_activated"><font color="#1FEBD0">RadarQR</font> Plus Activated</string>
+    <string name="refresh">Refresh</string>
+    <string name="updating">Updating...</string>
+    <string name="chemistry_swipes"><![CDATA[Chemistry > Swipes]]></string>
+    <string name="life_is_short_connect_for_nreal_with_radarqr">Life is short. Connect for\nREAL with RadarQR!</string>
+    <string name="discover_where_amp_who_the_singles_are">Discover <font color="#1FEBD0">WHERE</font> &amp; <font color="#1FEBD0">WHO</font> The Singles Are</string>
+    <string name="find_the_hottest_sports_in_town_to_nfind_love_in_the_room">Find the Hottest Sports in town to \nfind love in the room!</string>
+    <string name="subscription">Subscription</string>
+    <string name="subscribe_to_radarqr_plus">Subscribe to RadarQR Plus</string>
+    <string name="restore_subscription">Restore Subscription</string>
+    <string name="subscribed_to_radarqr_plus">Subscribed to RadarQR Plus</string>
+    <string name="to_manage_your_subscription_please_refer_to_the_device_on_which_the_original_purchase_was_made">To manage your subscription, please refer to the device on which the original purchase was made.</string>
+    <string name="subscribed">Subscribed</string>
+    <string name="subscriptionInfoTxt">By subscribing, you agree to the displayed price. Recurring charges will continue until you cancel through Play Store settings. Your acceptance of the Terms is implied.</string>
+    <string name="discover_the_trendiest_spots_in_town_ncheck_in_and_immerse_yourself_in_the_nultimate_singles_experience">Discover the trendiest spots in town!\nCheck in and immerse yourself in the\nultimate singles experience!</string>
+    <string name="to_continue_add_one_photo_to_your_profile">To continue add one photo to your profile.</string>
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="stand_out_more">Stand Out More</string>
+    <string name="upload_photo">Upload Photo</string>
+    <string name="search_hint_text">Search…</string>
+    <string name="no_result_found">Results not found</string>
+    <string name="select_country">Select a country</string>
+    <string name="dismiss_button_content_description">Dismiss</string>
+    <string name="clear_search_button_content_description">Clear search</string>
+    <!--  <string name="aws_image_pv">https://%1$s.amazonaws.com/developmentnew/%2$s</string>
+      <string name="s3_bucket_east_2">s3.us-east-2</string>-->
+
+</resources>

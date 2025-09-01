@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_root_message_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:background="@color/white"
+    android:orientation="horizontal">
+
+    <!--Avatar Container-->
+    <RelativeLayout
+        android:id="@+id/rl_avatar_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivAvatar"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:scaleType="center"
+            android:background="@color/teal_200"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize30Percent" />
+
+        <TextView
+            android:id="@+id/tv_avatar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:paddingBottom="2dp"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            android:textStyle="normal"
+            tools:text="E" />
+    </RelativeLayout>
+
+    <!--Message Container-->
+    <LinearLayout
+        android:id="@+id/ll_message_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:orientation="vertical">
+
+
+        <!--Message Body Container-->
+        <LinearLayout
+            android:id="@+id/ll_message_body_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_35sdp"
+            android:background="@drawable/chatleftback"
+            android:minWidth="@dimen/_60sdp"
+            android:minHeight="@dimen/_34sdp"
+            android:orientation="vertical"
+            android:gravity="center|start"
+            android:paddingTop="@dimen/_4sdp"
+            android:paddingBottom="@dimen/_4sdp"
+            android:paddingStart="@dimen/_9sdp"
+            android:paddingEnd="@dimen/_9sdp"
+            android:visibility="visible">
+
+            <!--Forward Container-->
+            <LinearLayout
+                android:id="@+id/ll_forwarded_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/text_message_body"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tv_forwarded_from"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/message_forwarded_from"
+                    android:textColor="@color/text_light"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tv_forwarded_from_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_light"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="bold"
+                    tools:text="Alexparvus" />
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_message_body"
+                style="@style/Widget.Radar.Text.Content"
+                android:gravity="start"
+                android:textSize="@dimen/_12sdp"
+                tools:text="hi" />
+        </LinearLayout>
+
+        <!--Image Attachment Container-->
+        <RelativeLayout
+            android:id="@+id/rl_image_attach_container"
+            android:layout_width="260dp"
+            android:layout_height="200dp"
+            android:background="@drawable/chatleftback"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <ImageView
+                android:id="@+id/iv_attach_image_preview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop" />
+
+            <!--Image Forwarded Container-->
+            <LinearLayout
+                android:id="@+id/ll_image_forwarded_container"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/chatleftback"
+                android:orientation="horizontal"
+                android:paddingLeft="8dp"
+                android:paddingTop="10dp"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <TextView
+                    android:id="@+id/tv_image_forward_from"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/message_forwarded_from"
+                    android:textColor="@color/text_light"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tv_image_forward_from_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_light"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    tools:text="Alexparvus" />
+            </LinearLayout>
+
+            <ProgressBar
+                android:id="@+id/pb_attach_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <!--Video Attachment Container-->
+        <RelativeLayout
+            android:id="@+id/rl_video_attach_container"
+            android:layout_width="260dp"
+            android:layout_height="200dp"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <RelativeLayout
+                android:id="@+id/rl_video_attach_preview_container"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:background="@drawable/chatleftback">
+
+                <ImageView
+                    android:id="@+id/iv_attach_video_preview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop" />
+
+                <ImageView
+                    android:id="@+id/iv_attach_video_play_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_button_send" />
+
+                <ProgressBar
+                    android:id="@+id/pb_attach_video"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:indeterminateOnly="false"
+                    android:max="100"
+                    android:visibility="gone"
+                    tools:progress="40"
+                    tools:visibility="visible" />
+            </RelativeLayout>
+
+            <!--Video Forwarded Container-->
+            <LinearLayout
+                android:id="@+id/ll_video_forwarded_container"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/chatleftback"
+                android:orientation="horizontal"
+                android:paddingLeft="8dp"
+                android:paddingTop="10dp"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <TextView
+                    android:id="@+id/tv_video_forward_from"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/message_forwarded_from"
+                    android:textColor="@color/text_light"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tv_video_forward_from_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="middle"
+                    android:singleLine="true"
+                    android:textColor="@color/text_light"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    tools:text="Alexparvus" />
+            </LinearLayout>
+
+            <!--Video Info Container-->
+            <LinearLayout
+                android:id="@+id/ll_attach_video_info_container"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/chatleftback"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/tv_attach_video_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="middle"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    tools:text="video-07-12-2018.mp4" />
+
+                <TextView
+                    android:id="@+id/tv_attach_video_size"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_light"
+                    android:textSize="15sp"
+                    tools:text="41.2 MB" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <!--File Attachment Container-->
+        <RelativeLayout
+            android:id="@+id/rl_file_attach_container"
+            android:layout_width="260dp"
+            android:layout_height="200dp"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <RelativeLayout
+                android:id="@+id/rl_file_attach_preview_container"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:background="@drawable/chatleftback">
+
+                <ProgressBar
+                    android:id="@+id/pb_attach_file"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:indeterminateOnly="false"
+                    android:max="100"
+                    android:visibility="gone"
+                    tools:progress="40"
+                    tools:visibility="visible" />
+            </RelativeLayout>
+
+            <!--File Forwarded Container-->
+            <LinearLayout
+                android:id="@+id/ll_file_forwarded_container"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/chatleftback"
+                android:orientation="horizontal"
+                android:paddingLeft="8dp"
+                android:paddingTop="10dp"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <TextView
+                    android:id="@+id/tv_file_forward_from"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/message_forwarded_from"
+                    android:textColor="@color/text_light"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tv_file_forward_from_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="middle"
+                    android:singleLine="true"
+                    android:textColor="@color/text_light"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    tools:text="Alexparvus" />
+            </LinearLayout>
+
+            <!--File Info Container-->
+            <LinearLayout
+                android:id="@+id/ll_attach_file_info_container"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/chatleftback"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/tv_attach_file_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="middle"
+                    android:singleLine="true"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    tools:text="For my dear customer.pdf" />
+
+                <TextView
+                    android:id="@+id/tv_attach_file_size"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_light"
+                    android:textSize="15sp"
+                    tools:text="1.3 MB" />
+            </LinearLayout>
+        </RelativeLayout>
+        <!--Message Info Container-->
+        <LinearLayout
+            android:id="@+id/ll_message_info_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:gravity="left"
+            android:paddingStart="@dimen/_5sdp"
+            android:paddingEnd="@dimen/_5sdp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:layout_weight="1"
+                android:gravity="start"
+                android:text="ABC"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_time_sent"
+                style="@style/Widget.Radar.Text.Body"
+                android:gravity="end"
+                tools:text="20:00"
+                android:textColor="@color/icons_color"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

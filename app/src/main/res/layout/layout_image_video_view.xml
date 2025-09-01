@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewHandler"
+            type="com.radarqr.dating.android.utility.handler.ViewClickHandler" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/image_video_view_height"
+        android:layout_margin="@dimen/_3sdp"
+        android:visibility="gone"
+        app:cardCornerRadius="@dimen/_10sdp"
+        tools:visibility="visible">
+
+        <View
+            android:id="@+id/viewTop"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_gravity="top" />
+
+        <com.radarqr.dating.android.utility.imageZoom.ZoomImageView
+            android:id="@+id/iv_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/rect_grey_back"
+            android:scaleType="centerCrop" />
+
+        <com.google.android.exoplayer2.ui.PlayerView
+            android:id="@+id/video_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleX="1.04"
+            android:scaleY="1.04"
+            app:use_controller="false" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivVolume"
+            android:layout_width="@dimen/_27sdp"
+            android:layout_height="@dimen/_27sdp"
+            android:layout_margin="@dimen/_8sdp"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_baseline_volume_mute_24"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/mobile_back" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar_video"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="@dimen/_20sdp"
+            android:visibility="gone"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/mobile_back" />
+
+        <View
+            android:id="@+id/viewBottom"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_gravity="bottom" />
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

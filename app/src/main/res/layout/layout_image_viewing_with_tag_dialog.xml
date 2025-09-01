@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/_10sdp">
+
+            <View
+                android:id="@+id/view"
+                style="@style/Widget.Radar.Text"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/viewCenter"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="-10dp"
+                android:layout_marginBottom="-10dp"
+                android:background="@drawable/rect_white"
+                app:layout_constraintBottom_toBottomOf="@id/tvPostTime"
+                app:layout_constraintTop_toTopOf="@id/tvUserName" />
+
+            <View
+                android:id="@+id/tv"
+                style="@style/Widget.Radar.Text"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:text="Maren Calzon;kasdjf;alsdkfj;alkdsfja;lksdf;aksdfi"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivUser"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivUser"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_user_big"
+                app:layout_constraintBottom_toBottomOf="@id/tvMessage"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvUserName"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.50" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvUserName"
+                style="@style/Widget.Radar.Text"
+                android:layout_width="0dp"
+                android:layout_marginStart="@dimen/_10sdp"
+                app:layout_constraintBottom_toTopOf="@id/tvMessage"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/ivDelete"
+                app:layout_constraintStart_toEndOf="@id/ivUser"
+                tools:text="Maren Calzoni" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvMessage"
+                style="@style/Widget.Radar.Text.Small"
+                android:layout_width="0dp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:text="@string/click_photo_twice_to_see_tagged_profiles"
+                android:textColor="@color/text_light"
+                app:layout_constraintBottom_toTopOf="@id/ivPostedImage"
+                app:layout_constraintEnd_toStartOf="@id/ivDelete"
+                app:layout_constraintStart_toEndOf="@id/ivUser" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:src="@drawable/ic_delete_venue"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/ivUser"
+                app:layout_constraintEnd_toEndOf="@id/ivPostedImage"
+                app:layout_constraintTop_toTopOf="@id/ivUser"
+                tools:visibility="gone" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/ivUser"
+                app:layout_constraintEnd_toEndOf="@id/ivPostedImage"
+                app:layout_constraintTop_toTopOf="@id/ivUser" />
+
+            <com.radarqr.dating.android.utility.instatag.InstaTag
+                android:id="@+id/ivPostedImage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                app:canWeAddTags="false"
+                app:carrotTopColor="@color/teal_200"
+                app:instaBackgroundColor="@color/teal_200"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/ivUser"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:background="@color/teal_200" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivTaggedUsersIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:src="@drawable/ic_tagged_users_indicator"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/ivPostedImage"
+                app:layout_constraintStart_toStartOf="@id/ivPostedImage" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvLocation"
+                style="@style/Widget.Radar.Text"
+                android:layout_width="0dp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="@id/ivPostedImage"
+                app:layout_constraintStart_toStartOf="@id/ivUser"
+                app:layout_constraintTop_toBottomOf="@id/ivPostedImage"
+                tools:text="Venue: Mad Oak, San Francisco" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPostTime"
+                style="@style/Widget.Radar.Text"
+                android:layout_width="0dp"
+                android:textColor="@color/text_light"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/ivUser"
+                app:layout_constraintTop_toBottomOf="@id/tvLocation"
+                tools:text="Posted on 03 Feb 2023" />
+
+            <View
+                android:id="@+id/closeViewTop"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@id/viewCenter"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/closeViewBottom"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/viewCenter" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+
+</layout>

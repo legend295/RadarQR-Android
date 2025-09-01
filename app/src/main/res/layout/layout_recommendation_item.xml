@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.radarqr.dating.android.ui.home.settings.prodileModel.ProfileData" />
+
+        <import type="com.radarqr.dating.android.utility.BaseUtils" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_marginEnd="@dimen/_5sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/_15sdp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clItem"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.radarqr.dating.android.utility.cutomImageViews.SquareImageView
+                android:id="@+id/ivUser"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/imageBackground"
+                android:scaleType="centerCrop"
+                app:imageUrl="@{data.profile_pic}"
+                app:isCircular="@{false}"
+                app:isMediumOrThumb="@{false}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivAngle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="-1dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_angle_image"
+                app:layout_constraintBottom_toBottomOf="@id/ivUser"
+                app:layout_constraintEnd_toEndOf="@id/ivUser"
+                app:layout_constraintStart_toStartOf="@id/ivUser" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvLocation"
+                style="@style/Widget.Radar.Text.Title"
+                android:layout_width="0dp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:gravity="end|center"
+                android:paddingEnd="@dimen/_5sdp"
+                android:text="@{BaseUtils.INSTANCE.getLocationString(data)}"
+                android:textColor="@color/blackColorHalf"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="Location" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivDot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:src="@drawable/ic_dot_grey"
+                android:visibility="@{(BaseUtils.INSTANCE.getLocationString(data).isEmpty() || data.show_age)? View.GONE:View.VISIBLE,default=gone}"
+                app:layout_constraintBottom_toBottomOf="@id/tvLocation"
+                app:layout_constraintEnd_toStartOf="@id/tvLocation"
+                app:layout_constraintTop_toTopOf="@id/tvLocation" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/Widget.Radar.Text.Title"
+                android:layout_height="0dp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:gravity="center"
+                android:text="@{data.age}"
+                android:textAlignment="center"
+                android:textColor="@color/blackColorHalf"
+                android:visibility="@{data.show_age ? View.GONE : View.VISIBLE,default=gone}"
+                app:layout_constraintBottom_toBottomOf="@id/tvLocation"
+                app:layout_constraintEnd_toStartOf="@id/ivDot"
+                app:layout_constraintTop_toTopOf="@id/tvLocation"
+                tools:text="34" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivGenderSign"
+                android:layout_width="@dimen/_12sdp"
+                android:layout_height="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:tint="@color/lightSalmonPink"
+                app:imageAccordingToGender="@{data.gender}"
+                app:layout_constraintBottom_toBottomOf="@id/tvName"
+                app:layout_constraintEnd_toEndOf="@id/tvLocation"
+                app:layout_constraintTop_toTopOf="@id/tvName"
+                tools:src="@drawable/ic_female_sign" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineVerticalHalf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".4" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvName"
+                style="@style/Widget.Radar.Text.Title.Bold"
+                android:layout_width="0dp"
+                android:layout_marginEnd="@dimen/_2sdp"
+                android:ellipsize="end"
+                android:gravity="end"
+                android:maxLines="1"
+                android:text="@{data.name}"
+                android:textColor="@color/black_color"
+                app:layout_constraintBottom_toTopOf="@id/tvLocation"
+                app:layout_constraintEnd_toStartOf="@id/ivGenderSign"
+                app:layout_constraintStart_toEndOf="@id/guidelineVerticalHalf"
+                tools:text="Name" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDistance"
+            style="@style/Widget.Radar.Text"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:drawableEnd="@drawable/ic_location"
+            android:drawablePadding="@dimen/_5sdp"
+            android:textColor="@color/teal_200" />
+    </androidx.cardview.widget.CardView>
+</layout>

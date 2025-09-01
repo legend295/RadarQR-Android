@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.radarqr.dating.android.ui.home.settings.prodileModel.ProfileData" />
+
+        <variable
+            name="subscriptionStatus"
+            type="SubscriptionStatus" />
+
+        <import type="com.radarqr.dating.android.subscription.SubscriptionStatus" />
+
+        <import type="com.radarqr.dating.android.utility.BaseUtils" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_top_round_white">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivUser"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:scaleType="centerCrop"
+            app:imageUrl="@{data.profile_pic}"
+            app:isBlured="@{subscriptionStatus == SubscriptionStatus.NON_PLUS}"
+            app:isCircular="@{false}"
+            app:isMediumOrThumb="@{true}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize18Percent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivGender"
+            android:layout_width="@dimen/_10sdp"
+            android:layout_height="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            app:imageAccordingToGender="@{data.gender}"
+            app:layout_constraintBottom_toBottomOf="@id/tvName"
+            app:layout_constraintStart_toEndOf="@id/ivUser"
+            app:layout_constraintTop_toTopOf="@id/tvName"
+            tools:src="@drawable/ic_female_sign" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvName"
+            style="@style/Widget.Radar.Text.Content.Bold"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:text="@{data.name}"
+            android:textColor="@color/black_color"
+            app:layout_constraintStart_toEndOf="@id/ivGender"
+            app:layout_constraintTop_toTopOf="@id/ivUser"
+            tools:text="Jennifer" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvLocation"
+            style="@style/Widget.Radar.Text.Body"
+            android:layout_width="wrap_content"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:gravity="end|center"
+            android:paddingEnd="@dimen/_3sdp"
+            android:text="@{BaseUtils.INSTANCE.getLocationString(data)}"
+            android:textColor="@color/blackColorHalf"
+            android:visibility="@{BaseUtils.INSTANCE.getLocationString(data).isEmpty()?View.GONE : View.VISIBLE}"
+            app:layout_constraintStart_toStartOf="@id/ivGender"
+            app:layout_constraintTop_toBottomOf="@id/tvName"
+            tools:text="37. San Francisco"
+            tools:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvProfileComment"
+            style="@style/Widget.Radar.Text.Small"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:gravity="end|center"
+            android:paddingEnd="@dimen/_3sdp"
+            android:text="@string/profile_comment"
+            android:textColor="@color/blackColorHalf"
+            app:layout_constraintStart_toStartOf="@id/ivUser"
+            app:layout_constraintTop_toBottomOf="@id/ivUser" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvComment"
+            style="@style/Widget.Radar.Text.MediumBody"
+            android:layout_width="0dp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:textColor="@color/black_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tvProfileComment"
+            app:layout_constraintTop_toBottomOf="@id/tvProfileComment"
+            tools:text="Cute dog! We should meet for a dog play date!" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivCancelRequest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="@drawable/ic_dislike"
+            app:layout_constraintBottom_toBottomOf="@id/ivChat"
+            app:layout_constraintEnd_toStartOf="@id/ivChat"
+            app:layout_constraintTop_toTopOf="@id/ivChat"
+            tools:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivChat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:src="@drawable/ic_chat_round_dark"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvComment" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivSendRequest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:background="@drawable/ic_love"
+            app:layout_constraintBottom_toBottomOf="@id/ivChat"
+            app:layout_constraintStart_toEndOf="@id/ivChat"
+            app:layout_constraintTop_toTopOf="@id/ivChat"
+            tools:visibility="visible" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvName" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

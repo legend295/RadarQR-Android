@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.radarqr.dating.android.ui.home.settings.prodileModel.ProfileData" />
+
+        <variable
+            name="isMatching"
+            type="Boolean" />
+
+        <variable
+            name="viewClickHandler"
+            type="com.radarqr.dating.android.utility.handler.ViewClickHandler" />
+
+        <import type="com.radarqr.dating.android.utility.BaseUtils" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clParent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guidelineVerticalHalf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent=".4" />
+
+                <com.radarqr.dating.android.utility.cutomImageViews.SquareImageView
+                    android:id="@+id/ivUser"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/imageBackground"
+                    android:onClick="@{viewClickHandler::onClick}"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivMore"
+                    android:layout_width="@dimen/_28sdp"
+                    android:layout_height="@dimen/_28sdp"
+                    android:layout_margin="@dimen/_7sdp"
+                    android:visibility="gone"
+                    android:background="@drawable/round_white_bg"
+                    android:onClick="@{viewClickHandler::onClick}"
+                    android:padding="@dimen/_5sdp"
+                    android:src="@drawable/ic_options"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivBack"
+                    android:layout_width="@dimen/_28sdp"
+                    android:layout_height="@dimen/_28sdp"
+                    android:layout_margin="@dimen/_7sdp"
+                    android:background="@drawable/round_white_bg"
+                    android:onClick="@{viewClickHandler::onClick}"
+                    android:padding="@dimen/_7sdp"
+                    android:src="@drawable/ic_back"
+                    app:layout_constraintStart_toStartOf="@id/ivUser"
+                    app:layout_constraintTop_toTopOf="@id/ivUser" />
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivVideoIcon"
+                    android:layout_width="@dimen/_15sdp"
+                    android:layout_height="@dimen/_15sdp"
+                    android:layout_margin="@dimen/_7sdp"
+                    android:src="@drawable/ic_video"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@id/ivUser"
+                    app:layout_constraintTop_toTopOf="@id/ivUser"
+                    tools:tint="@color/icons_color"
+                    tools:visibility="gone" />
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    app:layout_constraintBottom_toBottomOf="@id/ivAngle"
+                    app:layout_constraintEnd_toEndOf="@id/ivAngle"
+                    app:layout_constraintStart_toStartOf="@id/ivAngle"
+                    app:layout_constraintTop_toTopOf="@id/ivAngle"
+                    app:layout_constraintVertical_bias=".6" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivAngle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="-1dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_angle_image"
+                    app:layout_constraintBottom_toBottomOf="@id/ivUser"
+                    app:layout_constraintEnd_toEndOf="@id/ivUser"
+                    app:layout_constraintStart_toStartOf="@id/ivUser" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivRequestStatus"
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:onClick="@{viewClickHandler::onClick}"
+                    android:src="@drawable/ic_send_request"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@id/tvName"
+                    app:layout_constraintEnd_toEndOf="@id/ivGenderSign" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvName"
+                    style="@style/Widget.Radar.Text.Header.Bold"
+                    android:layout_width="0dp"
+                    android:layout_marginEnd="@dimen/_2sdp"
+                    android:gravity="end"
+                    android:paddingStart="@dimen/_1sdp"
+                    android:text="@{data.name}"
+                    app:layout_constraintEnd_toStartOf="@id/ivGenderSign"
+                    app:layout_constraintStart_toStartOf="@id/guidelineVerticalHalf"
+                    app:layout_constraintTop_toBottomOf="@id/view"
+                    app:layout_constraintVertical_bias=".8"
+                    tools:text="Akshay9879879879" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivGenderSign"
+                    android:layout_width="@dimen/_10sdp"
+                    android:layout_height="0dp"
+                    android:tint="@color/lightSalmonPink"
+                    app:imageAccordingToGender="@{data.gender}"
+                    app:layout_constraintBottom_toBottomOf="@id/tvName"
+                    app:layout_constraintEnd_toEndOf="@id/tvLocation"
+                    app:layout_constraintTop_toTopOf="@id/tvName"
+                    tools:src="@drawable/ic_female_sign" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvLocation"
+                    style="@style/Widget.Radar.Text"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:text="@{BaseUtils.INSTANCE.getLocationString(data)}"
+                    android:textColor="@color/icons_color"
+                    app:layout_constraintEnd_toEndOf="@id/ivAngle"
+                    app:layout_constraintTop_toBottomOf="@id/tvName"
+                    tools:text="San Francisco" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivDot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:src="@drawable/ic_dot_grey"
+                    android:visibility="@{(BaseUtils.INSTANCE.getLocationString(data).isEmpty() || data.show_age)? View.GONE:View.VISIBLE, default=gone}"
+                    app:layout_constraintBottom_toBottomOf="@id/tvLocation"
+                    app:layout_constraintEnd_toStartOf="@id/tvLocation"
+                    app:layout_constraintTop_toTopOf="@id/tvLocation" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/Widget.Radar.Text.MediumBody"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:gravity="center"
+                    android:text="@{data.age}"
+                    android:textAlignment="center"
+                    android:textColor="@color/icons_color"
+                    android:visibility="@{data.show_age ? View.GONE : View.VISIBLE, default=gone}"
+                    app:layout_constraintBottom_toBottomOf="@id/tvLocation"
+                    app:layout_constraintEnd_toStartOf="@id/ivDot"
+                    app:layout_constraintHorizontal_bias="1"
+                    app:layout_constraintStart_toEndOf="@id/guidelineVerticalHalf"
+                    app:layout_constraintTop_toTopOf="@id/tvLocation"
+                    tools:text="34" />
+
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent=".03" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guidelineEnd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent=".97" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvAboutMe"
+                    style="@style/Widget.Radar.Text.Title.Bold"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:text="@string/about_me"
+                    android:visibility="@{(data.about_me == null || data.about_me.isEmpty())? View.GONE : View.VISIBLE, default=gone}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="@id/guideline"
+                    app:layout_constraintTop_toBottomOf="@id/tvLocation" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvAboutMeData"
+                    style="@style/Widget.Radar.Text"
+                    android:layout_width="0dp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="@{data.about_me == null? `` : data.about_me}"
+                    app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+                    app:layout_constraintStart_toStartOf="@id/guideline"
+                    app:layout_constraintTop_toBottomOf="@id/tvAboutMe"
+                    tools:text="Hello there, I am Jennifer and you can call me Jen. I am looking for someone to share my life with. I love playing guitar and going to movies." />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvExtraImages"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_1sdp"
+                    android:visibility="gone"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvAboutMeData"
+                    app:spanCount="3"
+                    tools:itemCount="1"
+                    tools:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvBasicInfo"
+                    style="@style/Widget.Radar.Text.Title.Bold"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:text="@string/basic_info"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@id/guideline"
+                    app:layout_constraintTop_toBottomOf="@id/rvExtraImages"
+                    tools:visibility="visible" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvBasicInfo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+                    app:layout_constraintStart_toStartOf="@id/guideline"
+                    app:layout_constraintTop_toBottomOf="@id/tvBasicInfo"
+                    tools:itemCount="1" />
+
+                <com.radarqr.dating.android.utility.cutomImageViews.ShapeableSquareImageView
+                    android:id="@+id/ivUserSecond"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:background="@color/imageBackground"
+                    android:onClick="@{viewClickHandler::onClick}"
+                    android:scaleType="centerCrop"
+                    android:visibility="@{data.images.size() >1 ? View.VISIBLE : View.GONE, default=gone}"
+                    app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+                    app:layout_constraintStart_toStartOf="@id/guideline"
+                    app:layout_constraintTop_toBottomOf="@id/rvBasicInfo"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize5Percent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivVideoIconSecond"
+                    android:layout_width="@dimen/_15sdp"
+                    android:layout_height="@dimen/_15sdp"
+                    android:layout_margin="@dimen/_7sdp"
+                    android:src="@drawable/ic_video"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@id/ivUserSecond"
+                    app:layout_constraintTop_toTopOf="@id/ivUserSecond"
+                    tools:tint="@color/icons_color"
+                    tools:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvHobbiesAndInterests"
+                    style="@style/Widget.Radar.Text.Title.Bold"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:text="@string/my_hobbies_amp_interest"
+                    android:visibility="@{(data.hobbies_interest == null || data.hobbies_interest.size() == 0) ? View.GONE : View.VISIBLE, default=gone}"
+                    app:layout_constraintStart_toStartOf="@id/guideline"
+                    app:layout_constraintTop_toBottomOf="@id/ivUserSecond" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvHobbiesAndInterests"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+                    app:layout_constraintStart_toStartOf="@id/guideline"
+                    app:layout_constraintTop_toBottomOf="@id/tvHobbiesAndInterests"
+                    tools:itemCount="1" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvExtraImagesSecond"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_1sdp"
+                    android:visibility="gone"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rvHobbiesAndInterests"
+                    app:spanCount="3"
+                    tools:itemCount="1"
+                    tools:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvWorkAndEducation"
+                    style="@style/Widget.Radar.Text.Title.Bold"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:text="@string/work_edu"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@id/guideline"
+                    app:layout_constraintTop_toBottomOf="@id/rvExtraImagesSecond"
+                    tools:visibility="visible" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvWork"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+                    app:layout_constraintStart_toStartOf="@id/guideline"
+                    app:layout_constraintTop_toBottomOf="@id/tvWorkAndEducation"
+                    tools:itemCount="1" />
+
+
+                <com.radarqr.dating.android.utility.cutomImageViews.ShapeableSquareImageView
+                    android:id="@+id/ivUserThird"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:background="@color/imageBackground"
+                    android:onClick="@{viewClickHandler::onClick}"
+                    android:scaleType="centerCrop"
+                    android:visibility="@{data.images.size() >2 ? View.VISIBLE : View.GONE, default=gone}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+                    app:layout_constraintStart_toStartOf="@id/guideline"
+                    app:layout_constraintTop_toBottomOf="@id/rvWork"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize5Percent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivVideoIconThird"
+                    android:layout_width="@dimen/_15sdp"
+                    android:layout_height="@dimen/_15sdp"
+                    android:layout_margin="@dimen/_7sdp"
+                    android:src="@drawable/ic_video"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="@id/ivUserThird"
+                    app:layout_constraintTop_toTopOf="@id/ivUserThird"
+                    tools:tint="@color/icons_color"
+                    tools:visibility="visible" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_cancel_request"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="@drawable/ic_dislike"
+            android:onClick="@{viewClickHandler::onClick}"
+            android:visibility="@{isMatching? View.VISIBLE : View.GONE, default=gone}"
+            app:layout_constraintBottom_toBottomOf="@id/ivChat"
+            app:layout_constraintEnd_toStartOf="@id/ivChat"
+            app:layout_constraintTop_toTopOf="@id/ivChat"
+            tools:visibility="gone" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivChat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_15sdp"
+            android:onClick="@{viewClickHandler::onClick}"
+            android:src="@drawable/ic_chat_round_dark"
+            android:visibility="@{isMatching? View.VISIBLE : View.GONE, default=gone}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivChatVenueSingle"
+            android:layout_width="@dimen/_65sdp"
+            android:layout_height="@dimen/_65sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:elevation="@dimen/_4sdp"
+            android:onClick="@{viewClickHandler::onClick}"
+            android:shadowColor="@color/black"
+            android:src="@drawable/initiate_chat_venue_single"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_send_request"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:background="@drawable/ic_love"
+            android:onClick="@{viewClickHandler::onClick}"
+            android:visibility="@{isMatching? View.VISIBLE : View.GONE, default=gone}"
+            app:layout_constraintBottom_toBottomOf="@id/ivChat"
+            app:layout_constraintStart_toEndOf="@id/ivChat"
+            tools:visibility="gone" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

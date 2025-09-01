@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewHandler"
+            type="com.radarqr.dating.android.utility.handler.ViewClickHandler" />
+
+        <variable
+            name="isUrlEmpty"
+            type="Boolean" />
+
+        <import type="android.view.View" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvCropper"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            app:cardBackgroundColor="@color/image_back"
+            app:cardCornerRadius="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.radarqr.dating.android.utility.cropper.InstaCropperView
+                android:id="@+id/instaCropper"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:backgroundColor="@android:color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivAdd"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:elevation="2dp"
+            android:src="@drawable/ic_add"
+            android:visibility="@{isUrlEmpty? View.VISIBLE:View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@id/cvCropper"
+            app:layout_constraintEnd_toEndOf="@id/cvCropper"
+            app:layout_constraintStart_toStartOf="@id/cvCropper"
+            app:layout_constraintTop_toTopOf="@id/cvCropper" />
+
+
+        <View
+            android:id="@+id/viewInstaCropper"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:onClick="@{viewHandler::onClick}"
+            app:layout_constraintBottom_toBottomOf="@id/cvCropper"
+            app:layout_constraintEnd_toEndOf="@id/cvCropper"
+            app:layout_constraintStart_toStartOf="@id/cvCropper"
+            app:layout_constraintTop_toTopOf="@id/cvCropper" />
+
+        <TextView
+            android:id="@+id/tv_replace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:background="@drawable/light_black"
+            android:elevation="@dimen/_2sdp"
+            android:fontFamily="@font/hkgrotesk_regular"
+            android:gravity="center"
+            android:onClick="@{viewHandler::onClick}"
+            android:paddingStart="@dimen/_22sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingEnd="@dimen/_22sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            android:text="@string/replace_photo"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10sdp"
+            android:visibility="@{isUrlEmpty? View.GONE : View.VISIBLE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivCamera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:src="@drawable/ic_upload_venue_photo_camera"
+            app:layout_constraintEnd_toEndOf="@id/cvCropper"
+            app:layout_constraintStart_toStartOf="@id/cvCropper"
+            app:layout_constraintTop_toBottomOf="@id/cvCropper" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvUpload"
+            style="@style/Widget.Radar.Text.Header.Bold"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:text="@string/upload_text"
+            app:layout_constraintBottom_toBottomOf="@id/tvTag"
+            app:layout_constraintEnd_toStartOf="@id/ivNextFirst"
+            app:layout_constraintTop_toTopOf="@id/tvTag" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivNextFirst"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:src="@drawable/ic_upload_venue_next"
+            app:layout_constraintBottom_toBottomOf="@id/tvTag"
+            app:layout_constraintEnd_toStartOf="@id/tvTag"
+            app:layout_constraintTop_toTopOf="@id/tvTag" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTag"
+            style="@style/Widget.Radar.Text.Header.Bold"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Tag"
+            app:layout_constraintEnd_toEndOf="@id/ivCamera"
+            app:layout_constraintStart_toStartOf="@id/ivCamera"
+            app:layout_constraintTop_toBottomOf="@id/ivCamera" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivNextSecond"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:src="@drawable/ic_upload_venue_next"
+            app:layout_constraintBottom_toBottomOf="@id/tvTag"
+            app:layout_constraintStart_toEndOf="@id/tvTag"
+            app:layout_constraintTop_toTopOf="@id/tvTag" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvMatch"
+            style="@style/Widget.Radar.Text.Header.Bold"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:text="Match"
+            app:layout_constraintBottom_toBottomOf="@id/tvTag"
+            app:layout_constraintStart_toEndOf="@id/ivNextSecond"
+            app:layout_constraintTop_toTopOf="@id/tvTag" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvMessageFirst"
+            style="@style/Widget.Radar.Text"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="@string/_1_add_a_photo_while_at_your_favourite_n_hot_spot"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTag" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvMessageSecond"
+            style="@style/Widget.Radar.Text"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="@string/tag_your_self_msg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvMessageFirst" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDone"
+            style="@style/Widget.Radar.Text.Content.Bold"
+            android:layout_width="0dp"
+            android:layout_margin="@dimen/_10sdp"
+            android:background="@drawable/green_fill_rect"
+            android:gravity="center"
+            android:onClick="@{viewHandler::onClick}"
+            android:padding="@dimen/_10sdp"
+            android:text="@string/upload_text"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvMessageSecond"
+            app:layout_constraintVertical_bias="1" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

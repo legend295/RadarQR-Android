@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_view1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_90sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:background="#1A0CDEC2"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize18Percent" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/iv_view1"
+            app:layout_constraintEnd_toEndOf="@+id/iv_view1"
+            app:layout_constraintStart_toStartOf="@+id/iv_view1"
+            app:layout_constraintTop_toTopOf="@id/iv_view1" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_transparent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            tools:visibility="visible"
+            android:layout_margin="@dimen/_6sdp"
+            android:src="@drawable/ic_round_transparent_white"
+            app:layout_constraintBottom_toBottomOf="@id/iv_view1"
+            app:layout_constraintEnd_toEndOf="@id/iv_view1" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_close1"
+            android:layout_width="19dp"
+            android:layout_height="18dp"
+            android:layout_margin="@dimen/_10sdp"
+            android:background="@drawable/ic_delete_white"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/iv_transparent"
+            app:layout_constraintEnd_toEndOf="@id/iv_transparent"
+            app:layout_constraintStart_toStartOf="@id/iv_transparent"
+            app:layout_constraintTop_toTopOf="@id/iv_transparent"
+            tools:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_user_teal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/iv_view1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar1"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:indeterminateTint="@color/mobile_back"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_add1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_15sdp"
+            android:src="@drawable/ic_add_round"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivPlus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_add_round"
+            android:visibility="gone"
+            tools:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@id/iv_view1"
+            app:layout_constraintStart_toStartOf="@id/iv_view1"
+            app:layout_constraintEnd_toEndOf="@id/iv_view1"
+            app:layout_constraintTop_toTopOf="@id/iv_view1" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_video"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_margin="@dimen/_7sdp"
+            android:src="@drawable/ic_video"
+            android:visibility="gone"
+            tools:visibility="visible"
+            app:layout_constraintStart_toStartOf="@id/iv_view1"
+            app:layout_constraintTop_toTopOf="@id/iv_view1" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="isProgressBarVisible"
+            type="Boolean" />
+
+        <variable
+            name="isSubscriptionActive"
+            type="Boolean" />
+
+        <variable
+            name="viewHandler"
+            type="com.radarqr.dating.android.utility.handler.ViewClickHandler" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/screen_back"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivDummy"
+                android:layout_width="@dimen/_150sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:scaleX="1.2"
+                android:scaleY="1.2"
+                android:src="@drawable/ic_register_to_be_hotspot"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvYouGotTheVenue"
+                style="@style/Widget.Radar.Text.Title.Bold"
+                android:text="@string/you_ve_got_the_venue"
+                android:textColor="@color/radish"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivDummy" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvWeGotTheSingles"
+                style="@style/Widget.Radar.Text.Title.Bold"
+                android:text="@string/we_ve_got_the_singles"
+                android:textColor="@color/teal_200"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvYouGotTheVenue" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvLongMessage"
+                style="@style/Widget.Radar.Text"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:text="@string/venue_subscription_promotion_msg"
+                app:layout_constraintEnd_toEndOf="@id/layer"
+                app:layout_constraintStart_toStartOf="@id/layer"
+                app:layout_constraintTop_toTopOf="@id/layer" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvShortMessage"
+                style="@style/Widget.Radar.Text"
+                android:textStyle="bold"
+                android:layout_width="0dp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:gravity="center"
+                android:text="@{isSubscriptionActive? @string/venue_promotion_short_message : @string/allowed_venue_types_nbars_breweries_coffee_shops_ngyms_and_restaurants, default=@string/allowed_venue_types_nbars_breweries_coffee_shops_ngyms_and_restaurants}"
+                app:layout_constraintEnd_toEndOf="@id/tvLongMessage"
+                app:layout_constraintStart_toStartOf="@id/tvLongMessage"
+                app:layout_constraintTop_toBottomOf="@id/tvLongMessage" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvLetsDoIt"
+                style="@style/Widget.Radar.Text.Content.Medium"
+                android:layout_width="match_parent"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@drawable/green_fill_rect"
+                android:gravity="center"
+                android:onClick="@{viewHandler::onClick}"
+                android:paddingStart="@dimen/_20sdp"
+                android:paddingTop="@dimen/_7sdp"
+                android:paddingEnd="@dimen/_20sdp"
+                android:paddingBottom="@dimen/_5sdp"
+                android:text="@{isSubscriptionActive? @string/add_my_venues:@string/yes_let_s_do_it,default=@string/yes_let_s_do_it}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_13sdp"
+                android:visibility="@{isProgressBarVisible? View.GONE : View.VISIBLE}"
+                app:layout_constraintBottom_toTopOf="@id/tvNoThanks"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvNoThanks"
+                style="@style/Widget.Radar.Text.Content.Medium"
+                android:layout_width="0dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/green_fill_rect"
+                android:backgroundTint="@color/philippineSilver"
+                android:gravity="center"
+                android:onClick="@{viewHandler::onClick}"
+                android:paddingStart="@dimen/_20sdp"
+                android:paddingTop="@dimen/_7sdp"
+                android:paddingEnd="@dimen/_20sdp"
+                android:paddingBottom="@dimen/_5sdp"
+                android:text="@string/no_thanks"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_13sdp"
+                android:visibility="@{isProgressBarVisible? View.GONE : isSubscriptionActive? View.GONE : View.VISIBLE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/tvLetsDoIt"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@id/tvLetsDoIt" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:visibility="@{isProgressBarVisible? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <androidx.constraintlayout.helper.widget.Layer
+                android:id="@+id/layer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                app:constraint_referenced_ids="tvLongMessage,tvShortMessage"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/guideline2"
+                app:layout_constraintTop_toTopOf="@id/tvWeGotTheSingles" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent=".5" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</layout>

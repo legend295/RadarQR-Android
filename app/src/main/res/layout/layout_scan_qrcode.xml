@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="scanQRFragment"
+            type="com.radarqr.dating.android.ui.home.qrCode.ScanQRFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fragment_login_linear"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/screen_back"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context=".ui.welcome.login.LoginFragment">
+
+        <com.budiyev.android.codescanner.CodeScannerView
+            android:id="@+id/scanner_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:autoFocusButtonColor="@android:color/black"
+            app:autoFocusButtonVisible="true"
+            app:flashButtonColor="@android:color/black"
+            app:flashButtonVisible="true"
+            app:frameAspectRatioHeight="1"
+            app:frameAspectRatioWidth="1"
+            app:frameColor="@color/screen_back"
+            app:frameCornersRadius="0dp"
+            app:frameCornersSize="0dp"
+            app:frameSize="0.8"
+            app:frameThickness=".1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:maskColor="@color/screen_back" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".5" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/Widget.Radar.Text.Header.Bold"
+            android:gravity="center"
+            android:text="OH \nSNAP"
+            android:textColor="@color/teal_200"
+            app:layout_constraintBottom_toTopOf="@id/tvCancel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guideline"
+            app:layout_constraintVertical_bias=".7" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvScanCode"
+            style="@style/Widget.Radar.Text.HeaderLarge.Bold"
+            android:gravity="center"
+            android:text="Scan Code"
+            app:layout_constraintBottom_toBottomOf="@id/guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias=".17" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/Widget.Radar.Text"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center"
+            android:text="To scan profile QR codes of other RadarQR members, simply align their code in the camera box below."
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvScanCode" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCancel"
+            style="@style/Widget.Radar.Text.Content.Bold"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:text="@string/cancel"
+            android:textColor="@color/icons_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="venue"
+            type="com.radarqr.dating.android.hotspots.helpers.VenueUtils.Venue" />
+
+        <variable
+            name="viewModel"
+            type="com.radarqr.dating.android.hotspots.createvenue.VenueUpdateViewModel" />
+
+        <variable
+            name="textValue"
+            type="String" />
+
+        <import type="com.radarqr.dating.android.hotspots.helpers.VenueUtils.Venue" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitle"
+            style="@style/Widget.Radar.Text"
+            android:layout_width="0dp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:text="@{venue == Venue.DESCRIPTION? `How would you describe your venue?` : `List any Specials or Offers your venue would like to give RadarQR users.`}"
+            app:fontFamily="@font/poppins_semibold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="asdfadf" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvMessage"
+            style="@style/Widget.Radar.Text"
+            android:layout_width="0dp"
+            android:text="Characters Remaining (200)"
+            android:textColor="@color/text_light"
+            app:layout_constraintEnd_toEndOf="@id/tvTitle"
+            app:layout_constraintStart_toStartOf="@id/tvTitle"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etInput"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rect_white_small_r"
+            android:backgroundTint="#F6F6F6"
+            android:gravity="start"
+            android:hint="@{venue == Venue.DESCRIPTION? `Tell us about venue...` : `Today's special offer...`,default=``}"
+            android:maxLength="200"
+            android:maxLines="6"
+            android:minLines="5"
+            android:padding="@dimen/_10sdp"
+            android:text="@={textValue}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/tvMessage"
+            app:layout_constraintStart_toStartOf="@id/tvMessage"
+            app:layout_constraintTop_toBottomOf="@id/tvMessage" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

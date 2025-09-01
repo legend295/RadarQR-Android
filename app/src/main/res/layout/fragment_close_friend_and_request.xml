@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="clickHandler"
+            type="com.radarqr.dating.android.utility.handler.ViewClickHandler" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/screen_back">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCloseFriends"
+            style="@style/Widget.Radar.Text.MediumBody"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/bg_round_with_radius_6_teal"
+            android:onClick="@{clickHandler::onClick}"
+            android:paddingStart="@dimen/_7sdp"
+            android:paddingTop="@dimen/_4sdp"
+            android:paddingEnd="@dimen/_7sdp"
+            android:paddingBottom="@dimen/_4sdp"
+            android:text="@string/close_friends"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvRequest"
+            style="@style/Widget.Radar.Text.MediumBody"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:background="@drawable/bg_round_stroke_with_radius_6"
+            android:gravity="center"
+            android:onClick="@{clickHandler::onClick}"
+            android:paddingStart="@dimen/_7sdp"
+            android:paddingTop="@dimen/_4sdp"
+            android:paddingEnd="@dimen/_7sdp"
+            android:paddingBottom="@dimen/_4sdp"
+            android:text="@string/request"
+            app:layout_constraintBottom_toBottomOf="@id/tvCloseFriends"
+            app:layout_constraintStart_toEndOf="@id/tvCloseFriends"
+            app:layout_constraintTop_toTopOf="@id/tvCloseFriends" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvRequestsCount"
+            style="@style/Widget.Radar.Text.Small"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:background="@drawable/ic_g_thumb_pressed"
+            android:backgroundTint="@color/textRed"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:padding="@dimen/_1sdp"
+            android:textColor="@color/white"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/tvRequest"
+            app:layout_constraintEnd_toEndOf="@id/tvRequest"
+            app:layout_constraintStart_toEndOf="@id/tvRequest"
+            app:layout_constraintTop_toTopOf="@id/tvRequest"
+            tools:text="183"
+            tools:visibility="visible" />
+
+        <FrameLayout
+            android:id="@+id/container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCloseFriends" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

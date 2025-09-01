@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewHandler"
+            type="com.radarqr.dating.android.utility.handler.ViewClickHandler" />
+
+        <variable
+            name="isMyVenue"
+            type="Boolean" />
+
+        <variable
+            name="isVenueCheckedIn"
+            type="Boolean" />
+
+        <variable
+            name="venueData"
+            type="com.radarqr.dating.android.hotspots.model.MyVenuesData" />
+
+        <import type="android.view.View" />
+
+        <import type="com.radarqr.dating.android.constant.Constants" />
+
+    </data>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/screen_back"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/_20sdp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:onClick="@{viewHandler::onClick}"
+                    android:padding="@dimen/_10sdp"
+                    android:scaleType="center"
+                    android:src="@drawable/ic_back"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvVenueDetail"
+                    style="@style/Widget.Radar.Text.Header.Bold"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:text="@string/venue_details"
+                    app:layout_constraintBottom_toBottomOf="@id/ivBack"
+                    app:layout_constraintStart_toEndOf="@id/ivBack"
+                    app:layout_constraintTop_toTopOf="@id/ivBack" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivEditVenue"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:onClick="@{viewHandler::onClick}"
+                    android:src="@drawable/ic_venue_edit"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@id/tvVenueDetail"
+                    app:layout_constraintEnd_toStartOf="@id/ivDelete"
+                    app:layout_constraintHorizontal_bias="0.88"
+                    app:layout_constraintStart_toEndOf="@id/tvVenueDetail"
+                    app:layout_constraintTop_toTopOf="@id/tvVenueDetail"
+                    tools:visibility="visible" />
+                <!--android:visibility="@{isMyVenue? View.VISIBLE: View.GONE,default=gone}"-->
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivDelete"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:onClick="@{viewHandler::onClick}"
+                    android:src="@drawable/ic_delete_venue"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@id/tvVenueDetail"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.93"
+                    app:layout_constraintStart_toEndOf="@id/tvVenueDetail"
+                    app:layout_constraintTop_toTopOf="@id/tvVenueDetail"
+                    tools:visibility="visible" />
+                <!--            android:visibility="@{isMyVenue? View.VISIBLE: View.GONE,default=gone}"-->
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivRoamingTimer"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:onClick="@{viewHandler::onClick}"
+                    android:src="@{isVenueCheckedIn?@drawable/ic_roaming_timer_red: @drawable/ic_roaming_timer, default=@color/transparent}"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@id/tvVenueDetail"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.93"
+                    app:layout_constraintStart_toEndOf="@id/tvVenueDetail"
+                    app:layout_constraintTop_toTopOf="@id/tvVenueDetail"
+                    tools:src="@drawable/ic_roaming_timer"
+                    tools:visibility="visible" />
+
+                <!-- <androidx.appcompat.widget.AppCompatImageView
+                     android:id="@+id/tvCheckIn"
+                     android:layout_width="@dimen/_25sdp"
+                     android:layout_height="@dimen/_25sdp"
+                     android:onClick="@{viewHandler::onClick}"
+                     android:src="@drawable/ic_venue_checkin"
+                     android:visibility="@{isMyVenue? View.GONE: isVenueCheckedIn? View.VISIBLE : View.GONE,default=gone}"
+                     app:layout_constraintBottom_toBottomOf="@id/tvVenueDetail"
+                     app:layout_constraintEnd_toEndOf="parent"
+                     app:layout_constraintHorizontal_bias="0.97"
+                     app:layout_constraintStart_toEndOf="@id/tvVenueDetail"
+                     app:layout_constraintTop_toTopOf="@id/tvVenueDetail"
+                     tools:visibility="visible" />
+     -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvTopImages"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:layout_marginEnd="1dp"
+                    android:visibility="gone"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvVenueDetail"
+                    app:layout_constraintVertical_bias="0.02"
+                    app:spanCount="3"
+                    tools:itemCount="6" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvVenueName"
+                    style="@style/Widget.Radar.Text.HeaderLarge.Bold"
+                    android:layout_width="0dp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="@{venueData.name,default=``}"
+                    app:layout_constraintEnd_toEndOf="@id/tvVenueType"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnViewAlbumCheckIn"
+                    app:layout_constraintVertical_bias="0.02"
+                    tools:text="Mad Oak" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnAddPhotos"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:background="@drawable/bg_round_with_radius_6"
+                    android:backgroundTint="@color/teal_200"
+                    android:drawableStart="@drawable/ic_venue_camera"
+                    android:gravity="center"
+                    android:onClick="@{viewHandler::onClick}"
+                    android:paddingStart="@dimen/_25sdp"
+                    android:paddingEnd="@dimen/_25sdp"
+                    android:text="Add Photos"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toStartOf="@id/btnViewAlbumCheckIn"
+                    app:layout_constraintStart_toStartOf="@id/tvVenueName"
+                    app:layout_constraintTop_toBottomOf="@id/rvTopImages"
+                    tools:visibility="visible" />
+                <!--android:visibility="@{isMyVenue? View.VISIBLE : isVenueCheckedIn? View.VISIBLE: View.GONE,default=gone}"-->
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnViewAlbumCheckIn"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+
+                    android:background="@drawable/bg_round_with_radius_6"
+                    android:backgroundTint="@color/teal_200"
+                    android:drawableStart="@drawable/ic_album"
+                    android:onClick="@{viewHandler::onClick}"
+                    android:paddingStart="@dimen/_25sdp"
+                    android:paddingEnd="@dimen/_25sdp"
+                    android:text="View Album"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="@id/tvVenueType"
+                    app:layout_constraintStart_toEndOf="@id/btnAddPhotos"
+                    app:layout_constraintTop_toBottomOf="@id/rvTopImages"
+                    tools:visibility="visible" />
+
+                <!--            android:visibility="@{isMyVenue? View.VISIBLE : isVenueCheckedIn? View.VISIBLE: View.GONE,default=gone}"-->
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvVenueType"
+                    style="@style/Widget.Radar.Text"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    app:layout_constraintBottom_toTopOf="@id/tvLocationAddress"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvVenueName"
+                    tools:text="Bar/Cafe" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivFire"
+                    android:layout_width="@dimen/_10sdp"
+                    android:layout_height="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_4sdp"
+                    android:src="@drawable/ic_fire_hot_spot"
+                    android:visibility="@{(venueData.status == Constants.VenueStatus.APPROVED || venueData.status == Constants.VenueStatus.VENUE_PAUSED)? View.VISIBLE : View.GONE, default = gone}"
+                    app:layout_constraintBottom_toBottomOf="@id/tvCertifiedHotSpot"
+                    app:layout_constraintEnd_toEndOf="@id/tvVenueName"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="@id/tvVenueName"
+                    app:layout_constraintTop_toTopOf="@id/tvCertifiedHotSpot"
+                    tools:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvCertifiedHotSpot"
+                    style="@style/Widget.Radar.Text.MediumBody"
+                    android:layout_marginStart="@dimen/_4sdp"
+                    android:text="@{venueData.status == Constants.VenueStatus.VENUE_PAUSED? `Venue is on hold` : @string/certified_hot_spot}"
+                    android:textColor="@color/red"
+                    android:visibility="@{(venueData.status == Constants.VenueStatus.APPROVED || venueData.status == Constants.VenueStatus.VENUE_PAUSED)? View.VISIBLE : View.GONE, default = gone}"
+                    app:layout_constraintBottom_toBottomOf="@id/ivFire"
+                    app:layout_constraintStart_toEndOf="@id/ivFire"
+                    app:layout_constraintTop_toBottomOf="@id/tvVenueName"
+                    tools:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_venue_location"
+                    android:visibility="@{(venueData.contactinfo.address == null || venueData.contactinfo.address.isEmpty())? View.GONE : View.VISIBLE,default= gone}"
+                    app:layout_constraintBottom_toBottomOf="@id/tvLocationAddress"
+                    app:layout_constraintStart_toStartOf="@id/tvVenueName"
+                    app:layout_constraintTop_toTopOf="@id/tvLocationAddress"
+                    tools:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvLocationAddress"
+                    style="@style/Widget.Radar.Text"
+                    android:layout_width="0dp"
+                    android:layout_marginStart="@dimen/_4sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="@{(venueData.contactinfo.address == null || venueData.contactinfo.address.isEmpty())? `` : venueData.contactinfo.address, default= ``}"
+                    android:textColor="@color/text_light"
+                    android:visibility="@{(venueData.contactinfo.address == null || venueData.contactinfo.address.isEmpty())? View.GONE : View.VISIBLE, default= gone}"
+                    app:layout_constraintEnd_toEndOf="@id/tvVenueType"
+                    app:layout_constraintStart_toEndOf="@id/ivLocation"
+                    app:layout_constraintTop_toBottomOf="@id/tvCertifiedHotSpot"
+                    tools:text="555 Lincoln Street, Oakland, CA 94555"
+                    tools:visibility="visible" />
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivPhone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_venue_phone"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@id/tvPhoneNumber"
+                    app:layout_constraintStart_toStartOf="@id/tvVenueName"
+                    app:layout_constraintTop_toTopOf="@id/tvPhoneNumber"
+                    tools:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvPhoneNumber"
+                    style="@style/Widget.Radar.Text"
+                    android:layout_marginStart="@dimen/_4sdp"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:textColor="@color/text_light"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toEndOf="@id/ivPhone"
+                    app:layout_constraintTop_toBottomOf="@id/tvLocationAddress"
+                    tools:text="(555) 555-5555"
+                    tools:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivGlobe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_venue_website"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@id/tvWebsiteLink"
+                    app:layout_constraintStart_toStartOf="@id/tvVenueName"
+                    app:layout_constraintTop_toTopOf="@id/tvWebsiteLink"
+                    tools:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvWebsiteLink"
+                    style="@style/Widget.Radar.Text"
+                    android:layout_width="0dp"
+                    android:layout_marginStart="@dimen/_4sdp"
+                    android:layout_marginTop="@dimen/_6sdp"
+                    android:textColor="@color/text_light"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="@id/tvVenueType"
+                    app:layout_constraintStart_toEndOf="@id/ivGlobe"
+                    app:layout_constraintTop_toBottomOf="@id/tvPhoneNumber"
+                    tools:text="madoak.com"
+                    tools:visibility="visible" />
+
+                <View
+                    android:id="@+id/viewBackground"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_50sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:background="@drawable/rect_white"
+                    android:onClick="@{viewHandler::onClick}"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@id/ivCircleRound"
+                    app:layout_constraintEnd_toEndOf="@id/tvVenueType"
+                    app:layout_constraintStart_toStartOf="@id/tvVenueName"
+                    app:layout_constraintTop_toTopOf="@id/ivCircleRound"
+                    tools:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivCircleRound"
+                    android:layout_width="@dimen/_45sdp"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
+                    android:src="@drawable/cluster_background_single"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.08"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvWebsiteLink"
+                    tools:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvSinglesCount"
+                    style="@style/Widget.Radar.Text.Bold"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:text="@{venueData.roamingtimeractiveuserscount + ``,default=``}"
+                    android:textColor="@color/white"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@id/ivCircleRound"
+                    app:layout_constraintEnd_toEndOf="@id/ivCircleRound"
+                    app:layout_constraintStart_toStartOf="@id/ivCircleRound"
+                    app:layout_constraintTop_toTopOf="@id/ivCircleRound"
+                    tools:text="43"
+                    tools:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvSinglesAreReady"
+                    style="@style/Widget.Radar.Text.Content"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:text="@string/singles_are_ready_to_meet_here"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@id/ivCircleRound"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.1"
+                    app:layout_constraintStart_toEndOf="@id/ivCircleRound"
+                    app:layout_constraintTop_toTopOf="@id/ivCircleRound"
+                    tools:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_info_view"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@id/tvSinglesAreReady"
+                    app:layout_constraintEnd_toEndOf="@id/viewBackground"
+                    app:layout_constraintHorizontal_bias="0.6"
+                    app:layout_constraintStart_toEndOf="@id/tvSinglesAreReady"
+                    app:layout_constraintTop_toTopOf="@id/tvSinglesAreReady" />
+
+                <!--Description/About-->
+
+                <View
+                    android:id="@+id/viewBackgroundSecond"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/rect_white"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@id/tvDescription"
+                    app:layout_constraintEnd_toEndOf="@id/tvVenueType"
+                    app:layout_constraintStart_toStartOf="@id/tvVenueName"
+                    app:layout_constraintTop_toTopOf="@id/tvDescriptionAbout"
+                    tools:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvDescriptionAbout"
+                    style="@style/Widget.Radar.Text.Content.Bold"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_15sdp"
+                    android:text="@string/description_about"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.08"
+                    app:layout_constraintStart_toStartOf="@id/tvVenueName"
+                    app:layout_constraintTop_toBottomOf="@id/viewBackground"
+                    app:layout_constraintVertical_bias="0.05"
+                    tools:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvDescription"
+                    style="@style/Widget.Radar.Text"
+                    android:layout_width="0dp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:paddingBottom="@dimen/_15sdp"
+                    android:textColor="@color/text_light"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="@id/tvVenueType"
+                    app:layout_constraintStart_toStartOf="@id/tvDescriptionAbout"
+                    app:layout_constraintTop_toBottomOf="@id/tvDescriptionAbout"
+                    app:layout_constraintVertical_bias="0"
+                    tools:text="Lorem ipsum dolor sit amet consectetur. Ut sem pdddddddddroin suscipit tasdlkfasjdflasdkfjasldfkjasf;askdlfj;alsdkfja;sdlf;dslkfja;dfempor suspendisse eget odio. Turpis fringilla adipiscing arcu tempor cursus. Nisl neque consequat enim nec."
+                    tools:visibility="visible" />
+
+                <View
+                    android:id="@+id/viewBackgroundThird"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/rect_white"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@id/tvSpecialOffer"
+                    app:layout_constraintEnd_toEndOf="@id/tvVenueType"
+                    app:layout_constraintStart_toStartOf="@id/tvVenueName"
+                    app:layout_constraintTop_toTopOf="@id/tvSpecialOfferTitle"
+                    tools:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvSpecialOfferTitle"
+                    style="@style/Widget.Radar.Text.Content.Bold"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_15sdp"
+                    android:text="@string/special_offers"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.08"
+                    app:layout_constraintStart_toStartOf="@id/tvVenueName"
+                    app:layout_constraintTop_toBottomOf="@id/viewBackgroundSecond"
+                    app:layout_constraintVertical_bias="0.05"
+                    tools:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvSpecialOffer"
+                    style="@style/Widget.Radar.Text"
+                    android:layout_width="0dp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:paddingBottom="@dimen/_15sdp"
+                    android:textColor="@color/text_light"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="@id/tvVenueType"
+                    app:layout_constraintStart_toStartOf="@id/tvSpecialOfferTitle"
+                    app:layout_constraintTop_toBottomOf="@id/tvSpecialOfferTitle"
+                    app:layout_constraintVertical_bias="0"
+                    tools:text="Lorem ipsum dolor sit amet consectetur. Ut sem pdddddddddroin suscipit tasdlkfasjdflasdkfjasldfkjasf;askdlfj;alsdkfja;sdlf;dslkfja;dfempor suspendisse eget odio. Turpis fringilla adipiscing arcu tempor cursus. Nisl neque consequat enim nec."
+                    tools:visibility="visible" />
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="?android:attr/progressBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+</layout>

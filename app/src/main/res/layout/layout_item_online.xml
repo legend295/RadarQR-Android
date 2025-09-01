@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <RelativeLayout
+
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        tools:ignore="RtlHardcoded">
+
+        <CheckBox
+            android:id="@+id/checkbox_dialogs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="@dimen/_12sdp"
+            android:clickable="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:visibility="visible"
+            tools:checked="true" />
+
+        <RelativeLayout
+            android:id="@+id/container_avatar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:layout_marginRight="@dimen/_9sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:gravity="center">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/image_dialog_icon"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_centerInParent="true"
+                android:background="@color/image_back"
+                android:scaleType="centerInside"
+                app:riv_border_color="@color/white"
+                app:riv_border_width="@dimen/_2sdp"
+                app:riv_mutate_background="true"
+                app:riv_oval="true" />
+
+            <TextView
+                android:id="@+id/text_dialog_avatar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_40sdp"
+                android:background="@drawable/green_half_rect"
+                android:paddingStart="@dimen/_5sdp"
+                android:paddingTop="@dimen/_2sdp"
+                android:paddingEnd="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_2sdp"
+                android:text="Your Move"
+
+                android:textColor="@color/white"
+                android:textSize="@dimen/_5sdp"
+                android:textStyle="normal" />
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/text_dialog_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_toLeftOf="@+id/text_last_msg_time"
+            android:layout_toRightOf="@+id/container_avatar"
+            android:ellipsize="end"
+            android:fontFamily="@font/hkgrotesk_bold"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_15sdp"
+            tools:text="Room name" />
+
+        <TextView
+            android:id="@+id/text_dialog_last_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_dialog_name"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_toLeftOf="@+id/text_unread_counter"
+            android:layout_toRightOf="@+id/container_avatar"
+            android:ellipsize="end"
+            android:fontFamily="@font/hkgrotesk_regular"
+            android:paddingBottom="@dimen/_2sdp"
+            android:singleLine="true"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12sdp"
+            tools:text="Long last message to see how margin on the right side works" />
+
+        <TextView
+            android:id="@+id/text_last_msg_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/_14sdp"
+            android:layout_marginRight="11dp"
+            android:fontFamily="@font/hkgrotesk_regular"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10sdp"
+            tools:text="17:12" />
+
+        <TextView
+            android:id="@+id/text_unread_counter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_last_msg_time"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/_1sdp"
+            android:layout_marginRight="@dimen/_1sdp"
+            android:layout_marginBottom="@dimen/_6sdp"
+            android:gravity="center"
+            android:minWidth="@dimen/_21sdp"
+            android:paddingLeft="@dimen/_4sdp"
+            android:paddingRight="@dimen/_4sdp"
+            android:textColor="@color/black"
+            android:visibility="visible"
+            tools:text="1" />
+    </RelativeLayout>
+</layout>

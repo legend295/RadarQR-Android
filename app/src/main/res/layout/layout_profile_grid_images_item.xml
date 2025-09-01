@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.radarqr.dating.android.utility.cutomImageViews.SquareImageView
+            android:id="@+id/ivUser"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_1sdp"
+            android:layout_marginTop="@dimen/_1sdp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivVideoIcon"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_margin="@dimen/_7sdp"
+            android:src="@drawable/ic_video"
+            android:visibility="gone"
+            tools:tint="@color/icons_color"
+            tools:visibility="visible"
+            app:layout_constraintStart_toStartOf="@id/ivUser"
+            app:layout_constraintTop_toTopOf="@id/ivUser" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,70 @@
+{
+  "project_info": {
+    "project_number": "650298106847",
+    "project_id": "radarqr-devstaging",
+    "storage_bucket": "radarqr-devstaging.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:650298106847:android:69ee6a85912e04c5721a6a",
+        "android_client_info": {
+          "package_name": "com.radarqr.dating.android.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "650298106847-bq3rk649sddhgddgsld76i55nhlktdnv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.radarqr.dating.android.dev",
+            "certificate_hash": "e521363cc6d859fc9dd87a930c595018d64c1f81"
+          }
+        },
+        {
+          "client_id": "650298106847-dgnbqmv9oc666sg8oqrre796vgvse6j9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.radarqr.dating.android.dev",
+            "certificate_hash": "ad9948cb5126324e2f69a1b0b0a8b2eccad8334b"
+          }
+        },
+        {
+          "client_id": "650298106847-qeq2k9sjrq2e5itbk9ontcaqhjkulalj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.radarqr.dating.android.dev",
+            "certificate_hash": "4d621c9206a870aa59b20cf05859c8c238356f13"
+          }
+        },
+        {
+          "client_id": "650298106847-h1teq8pqfih3691g04fqo6cjkgg7hqan.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUDH4QVYjmYtNQGC69xjh8MKymSe8qSHQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "650298106847-h1teq8pqfih3691g04fqo6cjkgg7hqan.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "650298106847-s69vdcslc84dombfa5q5kpav319m2hu9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.radarqr.dating.ios"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

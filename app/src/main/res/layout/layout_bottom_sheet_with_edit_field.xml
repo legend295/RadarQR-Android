@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="title"
+            type="String" />
+
+        <variable
+            name="body"
+            type="String" />
+
+        <variable
+            name="hint"
+            type="String" />
+
+        <variable
+            name="inputText"
+            type="String" />
+
+        <variable
+            name="minLines"
+            type="int" />
+
+        <variable
+            name="maxLines"
+            type="int" />
+
+        <variable
+            name="buttonText"
+            type="String" />
+
+        <variable
+            name="cancelText"
+            type="String" />
+
+        <variable
+            name="isCancelVisible"
+            type="Boolean" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_top_round_white"
+        android:padding="@dimen/_10sdp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitle"
+            style="@style/Widget.Radar.Text.Bold"
+            android:layout_width="0dp"
+            android:text="@{title,default=`Name`}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvBody"
+            style="@style/Widget.Radar.Text.Body"
+            android:layout_width="0dp"
+            android:text="@{body,default=`Name`}"
+            android:visibility="@{body.isEmpty()?View.GONE: View.VISIBLE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etInput"
+            style="@style/Widget.Radar.Text.MediumBody"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/rect_white_small_r"
+            android:backgroundTint="#F6F6F6"
+            android:gravity="start"
+            android:hint="@{hint,default=`Enter`}"
+            android:maxLength="160"
+            android:imeOptions="actionDone"
+            android:inputType="textMultiLine"
+            android:padding="@dimen/_10sdp"
+            android:text="@={inputText}"
+            app:layout_constraintBottom_toTopOf="@id/tv_continue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvBody" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_continue"
+            style="@style/Widget.Radar.Text.Content.SemiBold"
+            android:layout_width="0dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/green_fill_rect"
+            android:gravity="center"
+            android:padding="@dimen/_10sdp"
+            android:text="@{buttonText}"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etInput" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCancel"
+            style="@style/Widget.Radar.Text.Content.SemiBold"
+            android:layout_width="0dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/rect_grey"
+            android:gravity="center"
+            android:padding="@dimen/_10sdp"
+            android:text="@{cancelText}"
+            android:textColor="@color/quantum_grey600"
+            android:visibility="@{isCancelVisible? View.VISIBLE: View.GONE, default=gone}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_continue"
+            tools:text="@string/cancel" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

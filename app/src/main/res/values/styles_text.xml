@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Widget" />
+
+    <style name="Widget.Radar" />
+
+    <style name="Widget.Radar.Text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="fontFamily">@font/poppins_regular</item>
+        <item name="android:textSize">@dimen/_11sdp</item>
+        <item name="android:textColor">@color/iconsColorDark</item>
+    </style>
+
+    <style name="Widget.Radar.Text.White" parent="Widget.Radar.Text">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+
+    <style name="Widget.Radar.Text.Bold" parent="Widget.Radar.Text">
+        <item name="fontFamily">@font/poppins_bold</item>
+    </style>
+
+    <style name="Widget.Radar.Text.White.Bold" parent="Widget.Radar.Text.White">
+        <item name="fontFamily">@font/poppins_bold</item>
+    </style>
+
+    <style name="Widget.Radar.Text.SemiBold" parent="Widget.Radar.Text">
+        <item name="fontFamily">@font/poppins_semibold</item>
+    </style>
+
+
+    <style name="Widget.Radar.Text.AboutMe">
+        <item name="fontFamily">@font/poppins_semibold</item>
+        <item name="android:textSize">@dimen/_20sdp</item>
+    </style>
+
+    <!--Extra Small-->
+
+    <style name="Widget.Radar.Text.ExtraSmall" parent="Widget.Radar.Text">
+        <item name="android:textSize">@dimen/_6sdp</item>
+    </style>
+
+    <!--Small-->
+
+    <style name="Widget.Radar.Text.Small" parent="Widget.Radar.Text">
+        <item name="android:textSize">@dimen/_7sdp</item>
+    </style>
+
+    <!--Medium Body-->
+    <style name="Widget.Radar.Text.MediumBody" parent="Widget.Radar.Text">
+        <item name="android:textSize">@dimen/_10sdp</item>
+    </style>
+
+
+    <style name="Widget.Radar.Text.MediumBody.Bold" parent="Widget.Radar.Text.MediumBody">
+        <item name="fontFamily">@font/poppins_bold</item>
+    </style>
+
+    <!--Body-->
+    <style name="Widget.Radar.Text.Body" parent="Widget.Radar.Text">
+        <item name="android:textSize">@dimen/_9sdp</item>
+    </style>
+
+
+    <style name="Widget.Radar.Text.Body.Bold" parent="Widget.Radar.Text.Body">
+        <item name="fontFamily">@font/poppins_bold</item>
+    </style>
+
+    <!--Content-->
+    <style name="Widget.Radar.Text.Content" parent="Widget.Radar.Text">
+        <item name="android:textSize">@dimen/_12sdp</item>
+    </style>
+
+    <style name="Widget.Radar.Text.Content.White" parent="Widget.Radar.Text.Content">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Widget.Radar.Text.Content.Medium" parent="Widget.Radar.Text.Content">
+        <item name="fontFamily">@font/poppins_medium</item>
+    </style>
+
+    <style name="Widget.Radar.Text.Content.SemiBold" parent="Widget.Radar.Text.Content">
+        <item name="fontFamily">@font/poppins_semibold</item>
+    </style>
+
+    <style name="Widget.Radar.Text.Content.Bold" parent="Widget.Radar.Text.Content">
+        <item name="fontFamily">@font/poppins_bold</item>
+    </style>
+
+    <style name="Widget.Radar.Text.Content.Bold.Italic" parent="Widget.Radar.Text.Content.Bold">
+        <item name="android:textStyle">italic</item>
+    </style>
+
+
+    <!--Title-->
+    <style name="Widget.Radar.Text.Title" parent="Widget.Radar.Text">
+        <item name="android:textSize">@dimen/_14sdp</item>
+    </style>
+
+    <style name="Widget.Radar.Text.Title.Bold" parent="Widget.Radar.Text.Title">
+        <item name="fontFamily">@font/poppins_bold</item>
+    </style>
+
+    <!--Header-->
+    <style name="Widget.Radar.Text.Header" parent="Widget.Radar.Text">
+        <item name="android:textSize">@dimen/_16sdp</item>
+    </style>
+
+    <style name="Widget.Radar.Text.Header.Bold" parent="Widget.Radar.Text.Header">
+        <item name="fontFamily">@font/poppins_bold</item>
+    </style>
+
+    <!--Header-Large-->
+    <style name="Widget.Radar.Text.HeaderLarge" parent="Widget.Radar.Text">
+        <item name="android:textSize">@dimen/_18sdp</item>
+    </style>
+
+    <style name="Widget.Radar.Text.HeaderLarge.Bold" parent="Widget.Radar.Text.HeaderLarge">
+        <item name="fontFamily">@font/poppins_bold</item>
+    </style>
+
+    <style name="Widget.Radar.Text.HeaderLarge.SemiBold" parent="Widget.Radar.Text.HeaderLarge">
+        <item name="fontFamily">@font/poppins_semibold</item>
+    </style>
+
+    <style name="Widget.Radar.Text.HeaderLarge.White" parent="Widget.Radar.Text.HeaderLarge">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Widget.Radar.Text.HeaderLarge.White.Bold" parent="Widget.Radar.Text.HeaderLarge.Bold">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Widget.Radar.Text.HeaderLarge.White.SemiBold" parent="Widget.Radar.Text.HeaderLarge.SemiBold">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+
+    <!--Large-->
+    <style name="Widget.Radar.Text.Large" parent="Widget.Radar.Text">
+        <item name="android:textSize">@dimen/_23sdp</item>
+    </style>
+
+    <style name="Widget.Radar.Text.Large.Bold" parent="Widget.Radar.Text.Large">
+        <item name="fontFamily">@font/poppins_bold</item>
+    </style>
+
+    <style name="Widget.Radar.Text.Large.ExtraBold" parent="Widget.Radar.Text.Large">
+        <item name="fontFamily">@font/poppins_extrabold</item>
+    </style>
+
+
+</resources>

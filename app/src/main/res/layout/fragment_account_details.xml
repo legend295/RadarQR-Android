@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.radarqr.dating.android.ui.home.settings.prodileModel.GetProfileViewModel" />
+
+        <variable
+            name="clickHandler"
+            type="com.radarqr.dating.android.utility.handler.ViewClickHandler" />
+
+        <variable
+            name="isToggleOn"
+            type="Boolean" />
+
+        <variable
+            name="isPausedOrNot"
+            type="Boolean" />
+
+        <import type="android.view.View" />
+
+        <import type="com.radarqr.dating.android.utility.Utility" />
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/screen_back"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_account"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="@{isToggleOn? View.GONE : View.VISIBLE}">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/rl_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_38sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:onClick="@{clickHandler::onClick}"
+                    android:src="@drawable/ic_back"
+                    app:layout_constraintBottom_toBottomOf="@id/tvEditProfile"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tvEditProfile" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvEditProfile"
+                    style="@style/Widget.Radar.Text.Header.Bold"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:text="@string/account"
+                    app:layout_constraintStart_toEndOf="@id/ivBack"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/screen_back">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/clOrderProfileQrCode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:background="@drawable/bg_rect_round_red"
+                        android:onClick="@{clickHandler::onClick}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@id/full_layout"
+                        app:layout_constraintStart_toStartOf="@id/full_layout"
+                        app:layout_constraintTop_toBottomOf="@id/full_layout">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/ivBar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_10sdp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/ic_qr_code_g"
+                            android:tint="@color/white"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/Widget.Radar.Text.Content.Bold"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:text="@string/print_qr_code"
+                            android:textColor="@color/white"
+                            app:layout_constraintBottom_toBottomOf="@id/ivBar"
+                            app:layout_constraintStart_toEndOf="@id/ivBar"
+                            app:layout_constraintTop_toTopOf="@id/ivBar" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:src="@drawable/ic_next_round_white"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/rect_white"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_6sdp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/Widget.Radar.Text"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:paddingStart="@dimen/_4sdp"
+                            android:text="@string/pause_profile"
+                            android:textColor="@color/icons_color" />
+
+                        <androidx.appcompat.widget.SwitchCompat
+                            android:id="@+id/sc_pause_profile"
+                            style="@style/SwitchCompatStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="@{viewModel.data.data.pause_profile}"
+                            android:thumb="@drawable/switch_back"
+                            app:thumbTint="@color/switch_track_tint" />
+                    </LinearLayout>
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/Widget.Radar.Text.SemiBold"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:text="@string/phone_amp_email"
+                        android:textColor="@color/icons_color" />
+
+
+                    <LinearLayout
+                        android:id="@+id/ll_phone_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/rect_white"
+                        android:onClick="@{clickHandler::onClick}"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_10sdp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/Widget.Radar.Text"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/phone"
+                            android:textColor="@color/icons_color" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tvPhoneNumber"
+                            style="@style/Widget.Radar.Text.Bold"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:text="@{viewModel.data.data.phone_number == null? @string/select : Utility.INSTANCE.phoneFormat(viewModel.data.data.phone_number)}"
+                            tools:text="(123)-787-4351" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/rect_white"
+                        android:onClick="@{clickHandler::onClick}"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_10sdp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/Widget.Radar.Text"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".4"
+                            android:text="@string/email"
+                            android:textColor="@color/icons_color" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_looking"
+                            style="@style/Widget.Radar.Text.Bold"
+                            android:layout_width="0dp"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:layout_weight="1"
+                            android:ellipsize="end"
+                            android:gravity="end"
+                            android:maxLines="1"
+                            android:text="@{viewModel.data.data.email == null || viewModel.data.data.email.isEmpty()? `` : viewModel.data.data.email}"
+                            android:textColor="@color/black"
+                            tools:text="testslktajldkadsfkkadkjfhasdkjfasjkdf@gmail.com" />
+
+                        <ImageView
+                            android:id="@+id/iv_frwd5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/ic_forwd_black"
+                            android:visibility="gone" />
+
+                    </LinearLayout>
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/Widget.Radar.Text.SemiBold"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:text="@string/notifications"
+                        android:textColor="@color/icons_color" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/rect_white"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_6sdp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/Widget.Radar.Text"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:paddingStart="@dimen/_4sdp"
+                            android:text="@string/push_notification" />
+
+                        <androidx.appcompat.widget.SwitchCompat
+                            android:id="@+id/sc_push_notification"
+                            style="@style/SwitchCompatStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="@{viewModel.data.data.push_notification}"
+                            android:thumb="@drawable/switch_back"
+                            app:thumbTint="@color/switch_track_tint" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/rect_white"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_6sdp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/Widget.Radar.Text"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:paddingStart="@dimen/_4sdp"
+                            android:text="@string/email" />
+
+                        <androidx.appcompat.widget.SwitchCompat
+                            android:id="@+id/scEmail"
+                            style="@style/SwitchCompatStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="@{viewModel.data.data.email_notification}"
+                            android:thumb="@drawable/switch_back"
+                            app:thumbTint="@color/switch_track_tint" />
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/Widget.Radar.Text.SemiBold"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:text="@string/subscription"
+                        android:textColor="@color/icons_color" />
+
+                    <LinearLayout
+                        android:id="@+id/llBuySubscription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/rect_white"
+                        android:onClick="@{clickHandler::onClick}"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_10sdp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/Widget.Radar.Text"
+                            android:layout_width="0dp"
+                            android:id="@+id/tvSubscriptionStatus"
+                            android:layout_weight="1"
+                            android:text="@string/subscribe_to_radarqr_plus" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:visibility="gone"
+                            android:background="@drawable/ic_forwd_black" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llRestoreSubscription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/rect_white"
+                        android:onClick="@{clickHandler::onClick}"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_10sdp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/Widget.Radar.Text"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:text="@string/restore_subscription" />
+
+                        <androidx.core.widget.ContentLoadingProgressBar
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:id="@+id/progressBarRestore"
+                            android:visibility="gone"
+                            style="?android:attr/progressBarStyleSmall"
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llPromotion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:visibility="gone"
+                        android:background="@drawable/rect_white"
+                        android:onClick="@{clickHandler::onClick}"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_10sdp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/Widget.Radar.Text"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:text="Promotion Applied" />
+
+
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        style="@style/Widget.Radar.Text.SemiBold"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:text="@string/legal"
+                        android:textColor="@color/icons_color" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_privacy_policy"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/rect_white"
+                        android:onClick="@{clickHandler::onClick}"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_10sdp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/Widget.Radar.Text"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:text="@string/privacy_policy" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/ic_forwd_black" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/ll_term_of_services"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/rect_white"
+                        android:onClick="@{clickHandler::onClick}"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_10sdp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/Widget.Radar.Text"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:text="@string/term_of_service" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/ic_forwd_black" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/ll_privacy_preferences"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/rect_white"
+                        android:onClick="@{clickHandler::onClick}"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_10sdp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/Widget.Radar.Text"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:text="@string/radarqr_website" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/ic_forwd_black" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/llFeedback"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/rect_white"
+                        android:onClick="@{clickHandler::onClick}"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_10sdp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/Widget.Radar.Text"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:text="Feedback/Support" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/ic_forwd_black" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/ll_download_my_data"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/rect_white"
+                        android:onClick="@{clickHandler::onClick}"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_10sdp"
+                        android:visibility="gone">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/Widget.Radar.Text"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:text="@string/download_my_data" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="@drawable/ic_forwd_black" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@drawable/rect_white"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_10sdp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_delete_account"
+                            style="@style/Widget.Radar.Text"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:onClick="@{clickHandler::onClick}"
+                            android:text="@string/delete_account" />
+
+                        <ProgressBar
+                            android:id="@+id/progressBarMedium"
+                            style="?android:attr/progressBarStyle"
+                            android:layout_width="@dimen/_20sdp"
+                            android:layout_height="@dimen/_20sdp"
+                            android:layout_gravity="center"
+                            android:indeterminateTint="#A2A5B9"
+                            android:visibility="gone" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/ll_version_info"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:background="@drawable/rect_white"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/_10sdp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            style="@style/Widget.Radar.Text"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:text="@string/version" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_version"
+                            style="@style/Widget.Radar.Text"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            tools:text="asdf" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.core.widget.NestedScrollView>
+        </LinearLayout>
+
+        <include
+            android:id="@+id/include_pause_profile"
+            layout="@layout/layout_pause_profile"
+            android:visibility="@{isToggleOn? View.VISIBLE : View.GONE}"
+            app:clickHandler="@{clickHandler}"
+            app:isPausedOrNot="@{isPausedOrNot}"
+            app:response="@{viewModel.data}" />
+
+    </LinearLayout>
+
+
+</layout>

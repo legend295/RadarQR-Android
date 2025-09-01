@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.radarqr.dating.android.ui.home.settings.prodileModel.GetProfileViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_verify"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:src="@drawable/ic_first_name_screen_image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_enter_phone_number"
+                style="@style/Widget.Radar.Text.Title.Bold"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:text="@string/choose_username"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_verify" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_body"
+                style="@style/Widget.Radar.Text"
+                android:layout_width="0dp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:gravity="center"
+                android:text="@string/please_choose_a_unique_username_it_help_other_users_to_search_and_add_you_as_close_friends"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_enter_phone_number" />
+
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_15sdp"
+                android:background="@drawable/rect_white_half_round"
+                android:digits="1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="left|center"
+                android:hint="@string/user_name"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:maxLength="30"
+                android:padding="@dimen/_10sdp"
+                android:paddingStart="@dimen/_14sdp"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textColorHint="@color/text_light"
+                android:textSize="@dimen/_12sdp"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_body" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvErrorMessage"
+                style="@style/Widget.Radar.Text.MediumBody"
+                tools:text="Please choose other handles, as this is not available try to add some number to make it unique"
+                android:layout_width="0dp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:textColor="@color/crayola"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@id/etUsername"
+                app:layout_constraintStart_toStartOf="@id/etUsername"
+                app:layout_constraintTop_toBottomOf="@id/etUsername" />
+
+
+            <!--   android:digits="QWERTYUIOPASDFGHJKLZXCVBNM0123456789qwertzuiopasdfghjklyxcvbnm "
+                android:inputType="textCapCharacters"-->
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_continue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@drawable/green_fill_rect"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_continue"
+                    style="@style/Widget.Radar.Text.Content.SemiBold"
+                    android:layout_width="0dp"
+                    android:background="@drawable/green_fill_rect"
+                    android:fontFamily="@font/hkgrotesk_medium"
+                    android:gravity="center"
+                    android:padding="@dimen/_10sdp"
+                    android:text="@string/done"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <ProgressBar
+                    android:id="@+id/progress_bar"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_25sdp"
+                    android:indeterminateTint="@color/white"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

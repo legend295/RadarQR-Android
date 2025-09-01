@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <!-- <variable
+             name="chatFragment"
+             type="com.e.radardating.ui.home.QuickBlox.ChatFragment" />-->
+
+        <variable
+            name="viewHandler"
+            type="com.radarqr.dating.android.utility.handler.ViewClickHandler" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/layout_chat_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <RelativeLayout
+            android:id="@+id/rl_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_back"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_centerInParent="true"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:paddingStart="@dimen/_10sdp"
+                android:src="@drawable/ic_back"
+                android:visibility="visible" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/image_dialog_icon"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/_3sdp"
+                android:scaleType="center"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginEnd="@dimen/_3sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:layout_toRightOf="@+id/iv_back"
+                android:onClick="@{viewHandler::onClick}"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize20Percent" />
+
+            <!--  <com.makeramen.roundedimageview.RoundedImageView
+
+                  android:layout_width="@dimen/_40sdp"
+                  android:layout_height="@dimen/_40sdp"
+                  android:layout_centerInParent="true"
+                  android:layout_toRightOf="@+id/iv_back"
+                  android:background="@color/image_back"
+                  android:scaleType="centerInside"
+                  app:riv_border_color="@color/white"
+                  app:riv_border_width="@dimen/_2sdp"
+                  app:riv_mutate_background="true"
+                  app:riv_oval="true" />-->
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_name"
+                style="@style/Widget.Radar.Text.Title.Bold"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/_6sdp"
+                android:onClick="@{viewHandler::onClick}"
+                android:layout_toStartOf="@id/iv_more"
+                android:layout_toRightOf="@+id/image_dialog_icon"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:visibility="visible"
+                tools:text="dlaskfjasldkfjsdlkfjalsdkfjlsadkfjalfasdfasdflkasdjfladsfkjlasdkfsaldkfjds" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@drawable/ic_options" />
+
+            <ProgressBar
+                android:id="@+id/progressBarHeader"
+                android:layout_width="wrap_content"
+                android:visibility="gone"
+                android:layout_centerInParent="true"
+                android:layout_height="wrap_content"
+                style="?android:attr/progressBarStyleSmall"/>
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_below="@+id/rl_toolbar"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:background="@color/line_color"
+
+            android:visibility="gone" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/view1"
+            android:background="@color/white"
+            android:visibility="gone"
+            app:tabGravity="fill"
+            app:tabIconTint="@color/tab_icon"
+            app:tabIndicator="@color/mobile_back"
+            app:tabIndicatorColor="@color/mobile_back"
+            app:tabIndicatorHeight="@dimen/_2sdp"
+            app:tabInlineLabel="true"
+            app:tabSelectedTextColor="@color/mobile_back"
+            app:tabTextAppearance="@style/MyTabLayoutTextAppearance">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chat" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/profile" />
+        </com.google.android.material.tabs.TabLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_chat_messages"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/tv_typing_status"
+            android:layout_below="@+id/rl_toolbar"
+            android:background="@color/white"
+            android:listSelector="@android:color/transparent"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_10sdp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_no_chat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/hkgrotesk_semibold"
+            android:gravity="center"
+            android:text="@string/no_chat_history_found_n_say_hello_to_initiate_chat"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_14sdp"
+            android:visibility="gone" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:indeterminateTint="@color/mobile_back"
+            android:visibility="gone" />
+
+        <include
+            android:id="@+id/layout_profile"
+            layout="@layout/fragment_other_chat_profile"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/tv_typing_status"
+            android:layout_below="@+id/tab_layout" />
+
+        <TextView
+            android:id="@+id/tv_typing_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/ll_attachment_preview_container"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="5dp"
+            android:textColor="@color/black"
+            android:textSize="13sp"
+            android:visibility="gone"
+            tools:text="Alexparvus is typing..." />
+
+        <LinearLayout
+            android:id="@+id/ll_attachment_preview_container"
+            android:layout_width="match_parent"
+            android:layout_height="96dp"
+            android:layout_above="@+id/rl_chat_send_container"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:visibility="gone"
+            tools:visibility="gone">
+
+            <!--        <View-->
+            <!--            android:id="@+id/divider_chat_attachments"-->
+            <!--            style="@style/HorizontalDividerStyle" />-->
+
+            <!--        <com.quickblox.sample.chat.kotlin.ui.views.AttachmentPreviewAdapterView-->
+            <!--            android:id="@+id/adapter_attachment_preview"-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="wrap_content"/>-->
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divider_chat"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_above="@+id/rl_chat_send_container"
+            android:background="@color/outlin_grey"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:id="@+id/rl_chat_send_container"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/bg_top_round_white"
+            android:elevation="@dimen/_5sdp"
+            android:gravity="center">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_chat_attachment"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:paddingLeft="9dp"
+                android:paddingTop="7dp"
+                android:paddingRight="9dp"
+                android:paddingBottom="7dp"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_chat_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/iv_chat_send"
+                android:background="@color/transparent"
+                android:hint="@string/chat_edit_text_hint"
+                android:inputType="textMultiLine|textCapSentences"
+                android:maxLength="1000"
+                android:maxLines="4"
+                android:minLines="4"
+                android:paddingStart="@dimen/_14sdp"
+                android:scrollbars="vertical"
+                android:textColorHint="@color/icons_color"
+                android:textSize="15sp" />
+
+            <ProgressBar
+                android:id="@+id/progress_bar_reLogin"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_toStartOf="@id/iv_chat_send"
+                android:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_chat_send"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:paddingLeft="2.5dp"
+                android:paddingTop="8dp"
+                android:paddingRight="10.5dp"
+                android:paddingBottom="8dp"
+                android:src="@drawable/ic_button_send" />
+
+            <ProgressBar
+                android:id="@+id/progressBarMedium"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:layout_marginEnd="@dimen/_13sdp"
+                android:indeterminateTint="#A2A5B9"
+                android:visibility="gone" />
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>

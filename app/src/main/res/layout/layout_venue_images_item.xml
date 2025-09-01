@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.radarqr.dating.android.utility.cutomImageViews.SquareImageView
+            android:id="@+id/ivUser"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_1sdp"
+            android:layout_marginTop="@dimen/_1sdp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_transparent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_6sdp"
+            android:src="@drawable/ic_round_transparent_white"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/ivUser"
+            app:layout_constraintEnd_toEndOf="@id/ivUser"
+            tools:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivDelete"
+            android:layout_width="19dp"
+            android:layout_height="18dp"
+            android:layout_margin="@dimen/_10sdp"
+            android:background="@drawable/ic_delete_white"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/iv_transparent"
+            app:layout_constraintEnd_toEndOf="@id/iv_transparent"
+            app:layout_constraintStart_toStartOf="@id/iv_transparent"
+            app:layout_constraintTop_toTopOf="@id/iv_transparent"
+            tools:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_user_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_user_teal"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/ivUser"
+            app:layout_constraintEnd_toEndOf="@id/ivUser"
+            app:layout_constraintStart_toStartOf="@id/ivUser"
+            app:layout_constraintTop_toTopOf="@id/ivUser"
+            tools:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_add1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="@dimen/_5sdp"
+            android:src="@drawable/ic_add_round"
+            app:layout_constraintBottom_toBottomOf="@id/ivUser"
+            app:layout_constraintStart_toStartOf="@id/ivUser"
+            app:layout_constraintEnd_toEndOf="@id/ivUser"
+            app:layout_constraintTop_toTopOf="@id/ivUser" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

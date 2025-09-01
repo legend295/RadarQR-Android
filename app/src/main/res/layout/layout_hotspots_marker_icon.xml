@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivMarker"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:src="@drawable/ic_cluster_background_single"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.radarqr.dating.android.utility.ballScaleAnimation.AVLoadingIndicatorViewJava
+            android:id="@+id/accelerate"
+            style="@style/AVLoadingIndicatorView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:indicatorColor="@color/teal_200"
+            android:visibility="gone"
+            app:indicatorName="BallScaleRippleMultipleIndicator"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCount"
+            style="@style/Widget.Radar.Text.Small"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_8sdp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/ivMarker"
+            app:layout_constraintEnd_toEndOf="@id/ivMarker"
+            app:layout_constraintStart_toStartOf="@id/ivMarker"
+            app:layout_constraintTop_toTopOf="@id/ivMarker"
+            tools:text="10000" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

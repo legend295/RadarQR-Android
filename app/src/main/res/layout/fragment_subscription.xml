@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewClickHandler"
+            type="com.radarqr.dating.android.utility.handler.ViewClickHandler" />
+
+        <variable
+            name="viewModel"
+            type="com.radarqr.dating.android.ui.subscription.SubscriptionViewModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            tools:context=".ui.subscription.SubscriptionFragment">
+            <!--#region background-->
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivPlaceHolder"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_330sdp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_subscription_placeholder"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!--#endregion-->
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivClose"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_margin="@dimen/_10sdp"
+                android:elevation="@dimen/_2sdp"
+                android:onClick="@{viewClickHandler::onClick}"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/ic_close_round"
+                android:tint="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvRadarQRPlus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_round_black_stroke_fill_white"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_3sdp"
+                android:text="@string/radarqr_plus"
+                android:textSize="@dimen/_13sdp"
+                app:fontFamily="@font/poppins_bold"
+                app:layout_constraintBottom_toBottomOf="@id/ivPlaceHolder"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias=".65" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvSubscriptionActiveMsg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_round_black_stroke_fill_white"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_3sdp"
+                android:text="@string/radarqr_plus_activated"
+                android:textSize="@dimen/_13sdp"
+                android:visibility="gone"
+                app:fontFamily="@font/poppins_bold"
+                app:layout_constraintBottom_toBottomOf="@id/ivPlaceHolder"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias=".65" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvMsg"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:gravity="center"
+                android:text="@string/enhance_your_dating_game_with_our_exclusive_features"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_13sdp"
+                app:fontFamily="@font/poppins_bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvRadarQRPlus" />
+
+
+            <com.radarqr.dating.android.utility.discretemanager.DiscreteScrollView
+                android:id="@+id/rvHorizontalFeatures"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivPlaceHolder" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvSeeAll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/bg_round_stroke"
+                android:drawableEnd="@{viewModel.isSeeAllClicked()? @drawable/ic_drop_up: @drawable/ic_drop_down, default=@drawable/ic_drop_down}"
+                android:drawablePadding="@dimen/_5sdp"
+                android:onClick="@{viewModel::onSeeAllClick}"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingTop="@dimen/_4sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_3sdp"
+                android:text="@string/see_all_benefits"
+                android:textSize="@dimen/_11sdp"
+                android:visibility="@{viewModel.isSeeAllClicked()? View.GONE: View.VISIBLE}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rvHorizontalFeatures" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvVerticalFeatures"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:visibility="@{viewModel.isSeeAllClicked()? View.VISIBLE: View.GONE,default=gone}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvSeeAll" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvSubscriptionItems"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_5sdp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rvVerticalFeatures"
+                tools:itemCount="2" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:background="#F3F3F3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rvSubscriptionItems" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTerms"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:gravity="center"
+                android:text="@string/subscriptionInfoTxt"
+                android:textColor="#7B7B81"
+                android:textSize="@dimen/_9sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/view" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvSubscribe"
+                style="@style/Widget.Radar.Text.Content.SemiBold"
+                android:layout_width="0dp"
+                android:layout_margin="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/green_fill_rect"
+                android:backgroundTint="@color/black_color"
+                android:gravity="center"
+                android:onClick="@{viewClickHandler::onClick}"
+                android:padding="@dimen/_10sdp"
+                android:textColor="@color/white"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@id/tvCancel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvTerms"
+                app:layout_constraintVertical_bias="1"
+                tools:visibility="visible" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDifferentDeviceSubTxt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:gravity="center"
+                android:text="@string/to_manage_your_subscription_please_refer_to_the_device_on_which_the_original_purchase_was_made"
+                android:textColor="#7B7B81"
+                android:textSize="@dimen/_9sdp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@id/tvSubscriptionId"
+                app:layout_constraintEnd_toEndOf="@id/tvCancel"
+                app:layout_constraintStart_toStartOf="@id/tvCancel"
+                app:layout_constraintTop_toBottomOf="@id/rvVerticalFeatures"
+                app:layout_constraintVertical_bias="0.96"
+                tools:visibility="visible" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvSubscriptionId"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:gravity="center"
+                android:textColor="#7B7B81"
+                android:textSize="@dimen/_9sdp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@id/tvSubscriptionExpirationDate"
+                app:layout_constraintEnd_toEndOf="@id/tvCancel"
+                app:layout_constraintStart_toStartOf="@id/tvCancel"
+                app:layout_constraintVertical_bias="0.96" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvSubscriptionExpirationDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:gravity="center"
+                android:textColor="#7B7B81"
+                android:textSize="@dimen/_9sdp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@id/tvCancel"
+                app:layout_constraintEnd_toEndOf="@id/tvCancel"
+                app:layout_constraintStart_toStartOf="@id/tvCancel"
+                app:layout_constraintTop_toBottomOf="@id/rvVerticalFeatures"
+                app:layout_constraintVertical_bias="0.96" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvCancel"
+                style="@style/Widget.Radar.Text.Content.SemiBold"
+                android:layout_width="0dp"
+                android:layout_margin="@dimen/_11sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/bg_round_stroke_with_radius_6"
+                android:gravity="center"
+                android:onClick="@{viewClickHandler::onClick}"
+                android:padding="@dimen/_9sdp"
+                android:text="@string/not_now"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintVertical_bias="1" />
+
+            <androidx.core.widget.ContentLoadingProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:indeterminateTint="@color/white"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/tvSubscribe"
+                app:layout_constraintEnd_toEndOf="@id/tvSubscribe"
+                app:layout_constraintTop_toTopOf="@id/tvSubscribe" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="rvSubscriptionItems,view,tvTerms,tvSubscribe" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</layout>

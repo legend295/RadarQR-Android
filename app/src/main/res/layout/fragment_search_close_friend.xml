@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/searchViewFriend"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="@drawable/bg_round_white"
+            android:drawableStart="@drawable/ic_search_friend"
+            android:drawablePadding="@dimen/_10sdp"
+            android:hint="Search"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:maxLines="1"
+            android:minLines="1"
+            android:padding="@dimen/_6sdp"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintEnd_toStartOf="@id/tvCancel"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCancel"
+            style="@style/Widget.Radar.Text.Content"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:gravity="center"
+            android:text="@string/cancel"
+            app:layout_constraintBottom_toBottomOf="@id/searchViewFriend"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/searchViewFriend" />
+
+        <ProgressBar
+            android:id="@+id/progressBarSearch"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/searchViewFriend"
+            app:layout_constraintEnd_toEndOf="@id/searchViewFriend"
+            app:layout_constraintTop_toTopOf="@id/searchViewFriend" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+
+            style="@style/Widget.Radar.Text.MediumBody"
+            android:layout_width="0dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Tag your Close Friends, search your close friends UserName."
+            android:textColor="@color/text_light"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@id/tvCancel"
+            app:layout_constraintStart_toStartOf="@id/searchViewFriend"
+            app:layout_constraintTop_toBottomOf="@id/searchViewFriend" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvMessage"
+            style="@style/Widget.Radar.Text"
+            android:layout_width="0dp"
+            android:layout_marginTop="12dp"
+            app:fontFamily="@font/poppins_bold"
+            android:text="Ready, Set, Tag!  Tag Yourself &amp; Close\nFriends! "
+            app:layout_constraintEnd_toEndOf="@id/tvCancel"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/searchViewFriend"
+            app:layout_constraintTop_toBottomOf="@id/searchViewFriend" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvFriends"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvMessage" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvEmptyMessage"
+            style="@style/Widget.Radar.Text"
+            android:text="User not found in your Close Friends list.\nTo add them, navigate to the Settings\npage."
+            android:visibility="gone"
+            android:gravity="center"
+            tools:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/progressBarData"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

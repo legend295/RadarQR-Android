@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewClickHandler"
+            type="com.radarqr.dating.android.utility.handler.ViewClickHandler" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/screen_back">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivLogo"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:src="@drawable/ic_logo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvHeader"
+                style="@style/Widget.Radar.Text.Content.Bold"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="@string/welcome_to_radarqr"
+                android:textAllCaps="true"
+                android:textSize="@dimen/_20sdp"
+                app:layout_constraintEnd_toEndOf="@id/ivLogo"
+                app:layout_constraintStart_toStartOf="@id/ivLogo"
+                app:layout_constraintTop_toBottomOf="@id/ivLogo" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvBody"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:gravity="center"
+                android:paddingStart="@dimen/_15sdp"
+                android:paddingEnd="@dimen/_15sdp"
+                android:text="@string/welcome_message"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_13sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvHeader" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivDotFirst"
+                android:layout_width="@dimen/_5sdp"
+                android:layout_height="@dimen/_5sdp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:src="@drawable/round_circle"
+                app:layout_constraintBottom_toBottomOf="@id/tvFirstLine"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvFirstLine"
+                app:layout_constraintVertical_bias="0.15" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvFirstLine"
+                style="@style/Widget.Radar.Text"
+                android:layout_width="0dp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:textSize="@dimen/_13sdp"
+                android:text="@string/share_your_profile_qr_code_to_match_on_nthe_go_check_out_our_swag_shop_for_ninspiration_and_orders"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivDotFirst"
+                app:layout_constraintTop_toBottomOf="@id/tvBody" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivDotSecond"
+                android:layout_width="@dimen/_5sdp"
+                android:layout_height="@dimen/_5sdp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:src="@drawable/round_circle"
+                app:layout_constraintBottom_toBottomOf="@id/tvSecondLine"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvSecondLine"
+                app:layout_constraintVertical_bias="0.15" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvSecondLine"
+                style="@style/Widget.Radar.Text"
+                android:layout_width="0dp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:textSize="@dimen/_13sdp"
+                android:text="@string/go_to_hot_spots_to_be_where_the_nsingles_are_amp_learn_who_they_are_once_nyou_check_in"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivDotSecond"
+                app:layout_constraintTop_toBottomOf="@id/tvFirstLine" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivDotThird"
+                android:layout_width="@dimen/_5sdp"
+                android:layout_height="@dimen/_5sdp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:src="@drawable/round_circle"
+                app:layout_constraintBottom_toBottomOf="@id/tvThirdLine"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvThirdLine"
+                app:layout_constraintVertical_bias="0.15" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvThirdLine"
+                style="@style/Widget.Radar.Text"
+                android:layout_width="0dp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:textSize="@dimen/_13sdp"
+                android:text="@string/play_matchmaker_amp_tag_your_close_friends_nin_hot_spots_turn_dating_into_a_fun_nsocial_experience"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivDotSecond"
+                app:layout_constraintTop_toBottomOf="@id/tvSecondLine" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivDotForth"
+                android:layout_width="@dimen/_5sdp"
+                android:layout_height="@dimen/_5sdp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:src="@drawable/round_circle"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/tvForthLine"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvForthLine"
+                app:layout_constraintVertical_bias="0.15" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvForthLine"
+                style="@style/Widget.Radar.Text"
+                android:layout_width="0dp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:visibility="gone"
+                android:textSize="@dimen/_13sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:text="@string/browse_albums_in_hot_spots_to_discover_nnew_singles_who_are_tagged_in_the_photos"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivDotSecond"
+                app:layout_constraintTop_toBottomOf="@id/tvThirdLine" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/Widget.Radar.Text.Bold"
+                android:layout_width="0dp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:gravity="center"
+                android:textSize="@dimen/_13sdp"
+                android:text="@string/remember_have_fun_stay_safe_and_enjoy_nthis_revolutionary_dating_experience"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvForthLine" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvThankYou"
+                style="@style/Widget.Radar.Text.Content.SemiBold"
+                android:layout_width="match_parent"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@drawable/green_fill_rect"
+                android:fontFamily="@font/hkgrotesk_medium"
+                android:gravity="center"
+                android:onClick="@{viewClickHandler::onClick}"
+                android:padding="@dimen/_10sdp"
+                android:text="@string/thank_you"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15sdp"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</layout>

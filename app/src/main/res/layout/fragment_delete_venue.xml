@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewHandler"
+            type="com.radarqr.dating.android.utility.handler.ViewClickHandler" />
+
+        <variable
+            name="isChecked"
+            type="Boolean" />
+    </data>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/screen_back"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <include
+                android:id="@+id/toolbar"
+                layout="@layout/layout_header_with_back"
+                app:viewHandler="@{viewHandler}" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivDelete"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:src="@drawable/ic_delete_white"
+                android:tint="@color/red"
+                app:layout_constraintBottom_toTopOf="@id/tvHeader"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias=".8" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvHeader"
+                style="@style/Widget.Radar.Text.HeaderLarge.Bold"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:text="@string/delete_venue"
+                app:layout_constraintBottom_toTopOf="@id/tvDeleteMessage"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDeleteMessage"
+                style="@style/Widget.Radar.Text"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:text="@string/are_you_sure_want_to_delete_venue"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/cbAgree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/teal_200"
+                android:checked="@={isChecked}"
+                android:text="@string/i_agree"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvDeleteMessage"
+                app:layout_constraintVertical_bias="0.1" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDelete"
+                style="@style/Widget.Radar.Text.Content.SemiBold"
+                android:layout_width="0dp"
+                android:layout_margin="@dimen/_10sdp"
+                android:backgroundTint="@{isChecked?@color/mobile_back :@color/colorGreyLt}"
+                android:background="@drawable/green_fill_rect"
+                android:enabled="@{isChecked}"
+                android:fontFamily="@font/hkgrotesk_medium"
+                android:gravity="center"
+                android:onClick="@{viewHandler::onClick}"
+                android:padding="@dimen/_10sdp"
+                android:text="@string/dlg_delete"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1" />
+
+            <ProgressBar
+                android:id="@+id/progressBarApi"
+                style="?android:attr/progressBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:indeterminateTint="@color/white"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/tvDelete"
+                app:layout_constraintStart_toStartOf="@id/tvDelete"
+                app:layout_constraintTop_toTopOf="@id/tvDelete" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</layout>

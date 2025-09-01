@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="title"
+            type="String" />
+
+        <variable
+            name="body"
+            type="String" />
+
+        <variable
+            name="buttonText"
+            type="String" />
+
+        <variable
+            name="type"
+            type="EditProfileGeneralContentTypes" />
+
+        <variable
+            name="fromPreferences"
+            type="Boolean" />
+
+        <variable
+            name="isOpenToAll"
+            type="Boolean" />
+
+        <variable
+            name="subscriptionStatus"
+            type="SubscriptionStatus" />
+
+        <import type="com.radarqr.dating.android.subscription.SubscriptionStatus"/>
+
+        <import type="com.radarqr.dating.android.utility.EditProfileGeneralContentTypes" />
+
+        <import type="android.view.View" />
+
+        <import type="android.text.InputType" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/clParent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_top_round_white"
+        android:orientation="vertical"
+        android:padding="@dimen/_10sdp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_line_bottom_sheet" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitle"
+            style="@style/Widget.Radar.Text.Bold"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:text="@{title}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="asdfadf" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvBody"
+            style="@style/Widget.Radar.Text.Body"
+            android:layout_width="wrap_content"
+            android:text="@{body,default=`Name`}"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+        <!--android:visibility="@{body.isEmpty()?View.GONE: View.VISIBLE}"-->
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etInput"
+            style="@style/Widget.Radar.Text.MediumBody"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/rect_white_small_r"
+            android:backgroundTint="#F6F6F6"
+            android:gravity="start"
+            android:hint="@{type== EditProfileGeneralContentTypes.NAME? `Enter your first name`: type== EditProfileGeneralContentTypes.JOB_TITLE? `Enter your job title` :`Enter`}"
+            android:imeOptions="actionDone"
+            android:inputType="@{type== EditProfileGeneralContentTypes.NAME? (InputType.TYPE_TEXT_VARIATION_PERSON_NAME | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES): (InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES)}"
+            android:maxLines="1"
+            android:minLines="1"
+            android:padding="@dimen/_10sdp"
+            android:visibility="@{(type == EditProfileGeneralContentTypes.NAME || type == EditProfileGeneralContentTypes.JOB_TITLE || type == EditProfileGeneralContentTypes.JOB || type == EditProfileGeneralContentTypes.SCHOOL)? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toTopOf="@id/clBottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvBody"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvOptions"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            app:contentType="@{type}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@id/clBottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvBody" />
+
+        <LinearLayout
+            android:id="@+id/ll_seek"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:orientation="vertical"
+            android:visibility="@{(type==EditProfileGeneralContentTypes.HEIGHT || type==EditProfileGeneralContentTypes.MAX_DISTANCE)? View.VISIBLE: View.GONE}"
+            app:layout_constraintBottom_toTopOf="@id/clBottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvBody"
+            app:layout_constraintVertical_bias="0.0">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_seek_no"
+                style="@style/Widget.Radar.Text"
+                android:fontFamily="@font/hkgrotesk_semibold"
+                android:text="0"
+                android:textColor="@color/mobile_back"
+                android:textSize="@dimen/_10sdp" />
+
+            <SeekBar
+                android:id="@+id/seekBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:maxWidth="15dp"
+                android:maxHeight="5dp"
+                android:minWidth="15dp"
+                android:minHeight="5dp"
+                android:progressDrawable="@drawable/custom_progress_bar"
+                android:thumb="@drawable/seek_thumb"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rl_toolbar" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_min_range1"
+                    style="@style/Widget.Radar.Text.MediumBody"
+                    android:layout_gravity="start"
+                    android:layout_weight="1"
+                    android:text="0 mi"
+                    android:textColor="@color/mobile_back"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rangeSeekBar" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_max_range1"
+                    style="@style/Widget.Radar.Text.MediumBody"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/hkgrotesk_regular"
+                    android:gravity="end"
+                    android:text="100 mi"
+                    android:textColor="@color/mobile_back"
+                    android:textSize="@dimen/_10sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rangeSeekBar" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_calender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:visibility="@{type == EditProfileGeneralContentTypes.AGE? View.VISIBLE: View.GONE}"
+            app:layout_constraintBottom_toTopOf="@id/clBottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvBody">
+
+            <com.radarqr.dating.android.datePicker.SingleDateAndTimePicker
+                android:id="@+id/picker"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_170sdp"
+                app:fontFamily="@font/poppins_semibold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:picker_curved="true"
+                app:picker_cyclic="false"
+                app:picker_displayDays="false"
+                app:picker_displayDaysOfMonth="true"
+                app:picker_displayHours="false"
+                app:picker_displayMinutes="false"
+                app:picker_displayMonth="true"
+                app:picker_displayYears="true"
+                app:picker_selectedTextColor="@color/black"
+                app:picker_textColor="@color/text_light"
+                app:picker_textSize="@dimen/_14sdp"
+                app:picker_visibleItemCount="5" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_calculate"
+                style="@style/Widget.Radar.Text.Content.SemiBold"
+                android:fontFamily="@font/hkgrotesk_bold"
+                android:text="Age 0"
+                android:textColor="@color/black"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/picker" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_cant"
+                style="@style/Widget.Radar.Text"
+                android:fontFamily="@font/hkgrotesk_bold"
+                android:text="This can\'t be change later"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_calculate" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_range"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:visibility="@{(type == EditProfileGeneralContentTypes.AGE_RANGE|| type == EditProfileGeneralContentTypes.HEIGHT_PREF)? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toTopOf="@id/clBottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvBody">
+
+            <com.radarqr.dating.android.utility.seekbar.RangeSeekBar
+                android:id="@+id/rangeSeekBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                app:active="true"
+                app:additionalTextMargin="6dp"
+                app:centerColor="@color/mobile_back"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:maxValue="80"
+                app:minValue="18"
+                app:roundedCorners="true"
+                app:showThumbsText="above"
+                app:sideColor="#A2A5B9"
+                app:textColor="@color/mobile_back"
+                app:textFont="@font/hkgrotesk_medium"
+                app:textSize="@dimen/_9sdp"
+                app:thumbsDisabled="@drawable/ic_g_thumb"
+                app:thumbsNormal="@drawable/ic_g_thumb"
+                app:thumbsPressed="@drawable/ic_g_thumb_pressed"
+                app:thumbsTextMargin="@dimen/_9sdp"
+                app:transitionColor="@color/mobile_back" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_min_range"
+                style="@style/Widget.Radar.Text.MediumBody"
+                android:textColor="@color/mobile_back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rangeSeekBar" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_max_range"
+                style="@style/Widget.Radar.Text.MediumBody"
+                android:textColor="@color/mobile_back"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rangeSeekBar" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clBottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvNonNegotiable"
+                style="@style/Widget.Radar.Text"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:text="@string/non_negotiable"
+                android:visibility="@{fromPreferences? ((type == EditProfileGeneralContentTypes.I_WANT_TO_MEET || type == EditProfileGeneralContentTypes.LOCATION) || isOpenToAll)? View.INVISIBLE: View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toTopOf="@id/tv_continue"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0"
+                tools:visibility="visible" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivLock"
+                android:layout_width="@dimen/_10sdp"
+                android:layout_height="0dp"
+                tools:visibility="visible"
+                android:layout_marginStart="@dimen/_3sdp"
+                android:visibility="@{subscriptionStatus == SubscriptionStatus.NON_PLUS? fromPreferences? ((type == EditProfileGeneralContentTypes.I_WANT_TO_MEET || type == EditProfileGeneralContentTypes.LOCATION) || isOpenToAll)? View.INVISIBLE: View.VISIBLE : View.GONE : View.GONE,default=gone}"
+                android:layout_marginTop="@dimen/_1sdp"
+                android:src="@drawable/ic_lock_black_non_negotiable"
+                app:layout_constraintTop_toTopOf="@id/tvNonNegotiable"
+                app:layout_constraintStart_toEndOf="@id/tvNonNegotiable" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/nonNegotiableSwitch"
+                style="@style/SwitchCompatStyle"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:layout_height="@dimen/_20sdp"
+                android:padding="@dimen/_5sdp"
+                android:visibility="@{fromPreferences? ((type == EditProfileGeneralContentTypes.I_WANT_TO_MEET || type == EditProfileGeneralContentTypes.LOCATION) || isOpenToAll)? View.INVISIBLE: View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="@id/tvNonNegotiable"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tvNonNegotiable" />
+
+            <View
+                android:id="@+id/viewNonNegotiableSwitch"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/nonNegotiableSwitch"
+                app:layout_constraintEnd_toEndOf="@id/nonNegotiableSwitch"
+                app:layout_constraintStart_toStartOf="@id/nonNegotiableSwitch"
+                app:layout_constraintTop_toTopOf="@id/nonNegotiableSwitch" />
+
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_48sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:background="@drawable/bg_white_dark_stroke"
+                android:visibility="@{type == EditProfileGeneralContentTypes.AGE? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toTopOf="@id/tv_continue"
+                app:layout_constraintEnd_toEndOf="@id/tv_continue"
+                app:layout_constraintStart_toStartOf="@id/tv_continue"
+                tools:visibility="gone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/Widget.Radar.Text"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:gravity="center|start"
+                android:text="Age is just a number! Exclude my\nage as a filter for others."
+                app:layout_constraintBottom_toBottomOf="@id/view"
+                app:layout_constraintEnd_toStartOf="@id/scExcludeAge"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="@id/view"
+                app:layout_constraintTop_toTopOf="@id/view" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/scExcludeAge"
+                style="@style/SwitchCompatStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                app:layout_constraintBottom_toBottomOf="@id/view"
+                app:layout_constraintEnd_toEndOf="@id/view"
+                app:layout_constraintTop_toTopOf="@id/view" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_continue"
+                style="@style/Widget.Radar.Text.Content.SemiBold"
+                android:layout_width="0dp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:background="@drawable/green_fill_rect"
+                android:gravity="center"
+                android:padding="@dimen/_10sdp"
+                android:text="@{buttonText}"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </LinearLayout>
+
+</layout>

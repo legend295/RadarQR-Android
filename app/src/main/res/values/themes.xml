@@ -1,0 +1,89 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.RadarDating" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/teal_200</item>
+        <item name="colorPrimaryVariant">@color/black_color</item>
+        <item name="colorOnPrimary">@color/iconsColorDark</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/iconsColorDark</item>
+
+        <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">@color/black_color</item>
+        <item name="fontFamily">@font/poppins_regular</item>
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:textColor">@color/iconsColorDark</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="MyTabLayoutTextAppearance" parent="TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse">
+        <item name="android:textSize">@dimen/_13sdp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/hkgrotesk_medium</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.App.CornerSize5Percent" parent="">
+        <item name="cornerSize">5%</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.App.CornerSize8Percent" parent="">
+        <item name="cornerSize">8%</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.App.CornerSize50Percent" parent="">
+        <item name="cornerSize">10%</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.App.CornerSize18Percent" parent="">
+        <item name="cornerSize">18%</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.App.CornerSize20Percent" parent="">
+        <item name="cornerSize">20%</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.App.CornerSize30Percent" parent="">
+        <item name="cornerSize">30%</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay." parent="ShapeAppearanceOverlay.App.CornerSize50Percent">
+        <item name="cornerSize">40%</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.50" parent="ShapeAppearanceOverlay.App.CornerSize50Percent">
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.100" parent="ShapeAppearanceOverlay.App.CornerSize50Percent">
+        <item name="cornerSize">100%</item>
+    </style>
+
+    <style name="CustomProgressBar" parent="android:Widget.ProgressBar.Horizontal">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/custom_progress_bar_horizontal</item>
+        <item name="android:minHeight">10dip</item>
+        <item name="android:maxHeight">20dip</item>
+    </style>
+
+    <style name="myDialog" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:textColor">@color/black_color</item>
+        <item name="android:textColorPrimary">@color/black_color</item>
+        <item name="android:buttonTint">@color/black_color</item>
+        <item name="buttonBarNeutralButtonStyle">@style/NeutralButtonStyle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
+    </style>
+
+    <style name="NeutralButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/black_color</item>
+    </style>
+
+    <style name="PositiveButtonStyle" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/black_color</item>
+        <item name="android:gravity">center</item>
+    </style>
+</resources>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewHandler"
+            type="com.radarqr.dating.android.utility.handler.ViewClickHandler" />
+
+        <variable
+            name="viewModel"
+            type="com.radarqr.dating.android.hotspots.createvenue.VenueUpdateViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvAddress"
+            style="@style/Widget.Radar.Text"
+            android:layout_width="0dp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:text="Address"
+            app:fontFamily="@font/poppins_semibold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvAddressValue"
+            style="@style/Widget.Radar.Text.MediumBody"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/rect_white_small_r"
+            android:backgroundTint="#F6F6F6"
+            android:gravity="start"
+            android:hint="Address"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:maxLines="1"
+            android:minLines="1"
+            android:onClick="@{viewHandler::onClick}"
+            android:padding="@dimen/_10sdp"
+            android:text="@{viewModel.address}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAddress"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvPhone"
+            style="@style/Widget.Radar.Text"
+            android:layout_width="0dp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:text="@string/phone"
+            app:fontFamily="@font/poppins_semibold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAddressValue" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etPhone"
+            style="@style/Widget.Radar.Text.MediumBody"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/rect_white_small_r"
+            android:backgroundTint="#F6F6F6"
+            android:digits="+0123456789"
+            android:gravity="start"
+            android:hint="@string/phone"
+            android:imeOptions="actionNext"
+            android:inputType="phone"
+            android:maxLength="20"
+            android:maxLines="1"
+            android:minLines="1"
+            android:padding="@dimen/_10sdp"
+            android:text="@={viewModel.phoneNumber}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvPhone"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvWebsite"
+            style="@style/Widget.Radar.Text"
+            android:layout_width="0dp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:text="Website"
+            app:fontFamily="@font/poppins_semibold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etPhone" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etWebsite"
+            style="@style/Widget.Radar.Text.MediumBody"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/rect_white_small_r"
+            android:backgroundTint="#F6F6F6"
+            android:gravity="start"
+            android:hint="Website"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:maxLength="50"
+            android:maxLines="1"
+            android:minLines="1"
+            android:padding="@dimen/_10sdp"
+            android:text="@={viewModel.website}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvWebsite"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

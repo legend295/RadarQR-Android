@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="welcomeSignupFragment"
+            type="com.radarqr.dating.android.ui.welcome.welcome_afterSignup.WelcomeAfterSignupFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/sv_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_above="@+id/tv_gotIt"
+            android:fillViewport="true"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toTopOf="@+id/tv_bottom_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent=".1" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_image"
+                    android:layout_width="@dimen/_220sdp"
+                    android:layout_height="@dimen/_110sdp"
+                    android:src="@drawable/illustration"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/guideline" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_message_red"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_30sdp"
+                    android:src="@drawable/ic_illustration_message"
+                    app:layout_constraintStart_toStartOf="@id/iv_image"
+                    app:layout_constraintTop_toTopOf="@id/iv_image" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:src="@drawable/ic_illustration_heart"
+                    app:layout_constraintBottom_toTopOf="@id/iv_message_green"
+                    app:layout_constraintEnd_toStartOf="@id/iv_message_green" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/_15sdp"
+                    android:layout_height="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:rotation="35"
+                    android:src="@drawable/ic_illustration_heart"
+                    app:layout_constraintEnd_toStartOf="@id/iv_message_red"
+                    app:layout_constraintTop_toBottomOf="@id/iv_message_red" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/_9sdp"
+                    android:layout_height="@dimen/_9sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:rotation="10"
+                    android:src="@drawable/ic_illustration_heart"
+                    app:layout_constraintStart_toEndOf="@id/iv_message_green"
+                    app:layout_constraintTop_toBottomOf="@id/iv_message_green" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_message_green"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:src="@drawable/ic_illustration_message_green"
+                    app:layout_constraintStart_toEndOf="@id/iv_telegram"
+                    app:layout_constraintTop_toBottomOf="@id/iv_telegram" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_telegram"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_illustration_telegram"
+                    app:layout_constraintBottom_toTopOf="@id/iv_image"
+                    app:layout_constraintEnd_toEndOf="@id/iv_image"
+                    app:layout_constraintStart_toStartOf="@id/iv_image"
+                    app:layout_constraintTop_toTopOf="@id/iv_image" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_text1"
+                    style="@style/Widget.Radar.Text.Content.Bold"
+                    android:text="@string/you_deserve_to_choose"
+                    android:textColor="#FC5B55"
+                    android:textSize="@dimen/_20sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv_image" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_follow_radar"
+                    style="@style/Widget.Radar.Text.Content.Bold"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:text="@string/follow_your"
+                    android:textSize="@dimen/_20sdp"
+                    app:layout_constraintStart_toStartOf="@id/tv_text1"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_text1" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/_3sdp"
+                    android:layout_marginBottom="@dimen/_4sdp"
+                    android:src="@drawable/ic_logo"
+                    app:layout_constraintBottom_toBottomOf="@id/tv_follow_radar"
+                    app:layout_constraintStart_toEndOf="@id/tv_follow_radar"
+                    app:layout_constraintTop_toTopOf="@id/tv_follow_radar" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_text3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/_25sdp"
+                    android:paddingEnd="@dimen/_15sdp"
+                    android:text="Follow your internal ''Radar'' and choose who you connect with by sharing your profile QR code with singles IN REAL LIFE or by swiping.\n\nDownload your code and get creative with Swag! Share your FUN methods with us to be featured (videos and photos welcome)."
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_12sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_follow_radar" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_bottom_title"
+            style="@style/Widget.Radar.Text.Content.Bold"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:text="“SWIPING IS COOL BUT HAVE YOU\nTRIED FOLLOWING YOUR RADAR?”"
+            android:textColor="#FC5B55"
+            android:textStyle="italic"
+            app:layout_constraintBottom_toTopOf="@id/tv_gotIt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_gotIt"
+            style="@style/Widget.Radar.Text.Content.SemiBold"
+            android:layout_width="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/_10sdp"
+            android:background="@drawable/green_fill_rect"
+            android:gravity="center"
+            android:padding="@dimen/_10sdp"
+            android:text="@string/got_it"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15sdp"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

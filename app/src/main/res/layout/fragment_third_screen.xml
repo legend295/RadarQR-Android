@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="center"
+            android:src="@drawable/ic_third_screen_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_three"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".72" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_white_background"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_union_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/iv_image"
+            app:layout_constraintStart_toStartOf="@id/iv_image"
+            app:layout_constraintTop_toBottomOf="@id/guideline" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:src="@drawable/ic_logo"
+            app:layout_constraintBottom_toTopOf="@id/guideline_three"
+            app:layout_constraintEnd_toEndOf="@id/iv_image"
+            app:layout_constraintStart_toStartOf="@id/iv_image" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_large"
+            style="@style/Widget.Radar.Text.Large.ExtraBold"
+            android:layout_width="0dp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:gravity="center"
+            android:text="@string/the_app_with_swag"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@id/iv_image"
+            app:layout_constraintStart_toStartOf="@id/iv_image"
+            app:layout_constraintTop_toBottomOf="@id/ivLogo" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_bottom"
+            style="@style/Widget.Radar.Text"
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:paddingStart="@dimen/_3sdp"
+            android:paddingEnd="@dimen/_3sdp"
+            android:text="@string/maximize_your_reach_with_qr_swag_think_t_shirts_hello_festivals_stickers_tag_you_re_cute_backpacks_fake_tattoos_and_more_you_ve_got_swag_baby_don_t_let_dating_apps_take_that_away"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@id/iv_image"
+            app:layout_constraintStart_toStartOf="@id/iv_image"
+            app:layout_constraintTop_toBottomOf="@id/tv_large" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_bottom_lower"
+            style="@style/Widget.Radar.Text"
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:text="@string/yolo"
+            android:textColor="@color/black"
+            app:fontFamily="@font/poppins_bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/iv_image"
+            app:layout_constraintStart_toStartOf="@id/iv_image"
+            app:layout_constraintTop_toBottomOf="@id/tv_bottom"
+            app:layout_constraintVertical_bias="0" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

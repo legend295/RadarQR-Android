@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewHandler"
+            type="com.radarqr.dating.android.utility.handler.ViewClickHandler" />
+    </data>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/screen_back">
+
+            <include
+                android:id="@+id/layoutHeader"
+                layout="@layout/layout_header_with_back"
+                android:visibility="gone"
+                app:viewHandler="@{viewHandler}" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivIcon"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_50sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:src="@drawable/ic_your_venues"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layoutHeader" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvHeader"
+                style="@style/Widget.Radar.Text.HeaderLarge.Bold"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@string/your_venues"
+                app:layout_constraintEnd_toEndOf="@id/ivIcon"
+                app:layout_constraintStart_toStartOf="@id/ivIcon"
+                app:layout_constraintTop_toBottomOf="@id/ivIcon" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvMessage"
+                style="@style/Widget.Radar.Text"
+                android:gravity="center"
+                android:text="@string/add_or_edit_your_n_hot_spot_nvenues"
+                app:layout_constraintEnd_toEndOf="@id/tvHeader"
+                app:layout_constraintStart_toStartOf="@id/tvHeader"
+                app:layout_constraintTop_toBottomOf="@id/tvHeader" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvAddNewHotspot"
+                style="@style/Widget.Radar.Text.Content"
+                android:layout_width="0dp"
+                android:layout_margin="@dimen/_8sdp"
+                android:background="@drawable/rect_white"
+                android:drawablePadding="@dimen/_8sdp"
+                android:onClick="@{viewHandler::onClick}"
+                android:padding="@dimen/_10sdp"
+                android:text="@string/add_a_new_hot_spot"
+                android:textAllCaps="true"
+                android:textColor="@color/textRed"
+                app:drawableStartCompat="@drawable/ic_add_round_corners"
+                app:drawableTint="@color/textRed"
+                app:fontFamily="@font/poppins_medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvMessage" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvVenues"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="@dimen/_8sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvAddNewHotspot" />
+
+            <ProgressBar
+                android:id="@+id/progressBarDataLoading"
+                style="?android:attr/progressBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvAddNewHotspot" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+</layout>

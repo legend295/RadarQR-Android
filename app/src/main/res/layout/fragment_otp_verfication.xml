@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="otpFragment"
+            type="com.radarqr.dating.android.ui.welcome.otpVerify.OtpVerifyFragment" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_verify"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:src="@drawable/ic_otp_background_icon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_enter_phone_number"
+                style="@style/Widget.Radar.Text.Title.Bold"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:text="@string/verification_code"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/iv_verify" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_body"
+                style="@style/Widget.Radar.Text"
+                android:layout_width="0dp"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_enter_phone_number" />
+
+
+            <!-- <com.mukeshsolanki.OtpView
+                 android:id="@+id/otp_view"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:layout_marginStart="@dimen/_30sdp"
+                 android:layout_marginTop="@dimen/_10sdp"
+                 android:layout_marginEnd="@dimen/_25sdp"
+                 android:itemBackground="@drawable/rect_white_half_round"
+                 android:textColor="@color/black"
+                 app:OtpItemCount="4"
+                 app:OtpItemHeight="@dimen/_50sdp"
+                 app:OtpItemRadius="@dimen/_8sdp"
+                 app:OtpItemSpacing="@dimen/_20sdp"
+                 app:OtpItemWidth="@dimen/_45sdp"
+                 app:OtpLineColor="#F6F6F6"
+                 app:OtpLineWidth="1dp"
+                 app:OtpViewType="rectangle"
+                 app:layout_constraintEnd_toEndOf="parent"
+                 app:layout_constraintStart_toStartOf="parent"
+                 app:layout_constraintTop_toBottomOf="@+id/tv_body" />-->
+
+            <com.radarqr.dating.android.utility.otp.OtpTextView
+                android:id="@+id/otpView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:height="@dimen/_50sdp"
+                app:box_margin="@dimen/_5sdp"
+                app:width="@dimen/_45sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:otp_box_background="@drawable/rect_white_half_round"
+                app:layout_constraintTop_toBottomOf="@+id/tv_body" />
+
+            <!--<androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/rl_otp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_50sdp"
+                android:visibility="gone"
+                android:layout_marginStart="@dimen/_30sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_25sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_body">
+
+                <EditText
+                    android:id="@+id/et_otp1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:background="@drawable/rect_white_half_round"
+                    android:fontFamily="@font/hkgrotesk_regular"
+                    android:gravity="center"
+                    android:hint="@string/number"
+                    android:imeOptions="actionNext"
+                    android:inputType="numberSigned"
+                    android:maxLength="1"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/text_light"
+                    android:textSize="@dimen/_15sdp"
+                    app:layout_constraintEnd_toStartOf="@+id/et_otp2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/et_otp2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_toRightOf="@+id/et_otp1"
+
+                    android:background="@drawable/rect_white_half_round"
+                    android:fontFamily="@font/hkgrotesk_regular"
+                    android:gravity="center"
+                    android:hint="@string/number"
+                    android:imeOptions="actionNext"
+                    android:inputType="numberSigned"
+                    android:maxLength="1"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/text_light"
+                    android:textSize="@dimen/_15sdp"
+                    app:layout_constraintEnd_toStartOf="@+id/et_otp3"
+                    app:layout_constraintStart_toEndOf="@+id/et_otp1"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/et_otp3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_toRightOf="@+id/et_otp2"
+                    android:background="@drawable/rect_white_half_round"
+                    android:fontFamily="@font/hkgrotesk_regular"
+                    android:gravity="center"
+                    android:hint="@string/number"
+                    android:imeOptions="actionNext"
+                    android:inputType="numberSigned"
+                    android:maxLength="1"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/text_light"
+                    android:textSize="@dimen/_15sdp"
+                    app:layout_constraintEnd_toStartOf="@+id/et_otp4"
+                    app:layout_constraintStart_toEndOf="@id/et_otp2"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/et_otp4"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:layout_toRightOf="@+id/et_otp3"
+                    android:background="@drawable/rect_white_half_round"
+                    android:fontFamily="@font/hkgrotesk_regular"
+                    android:gravity="center"
+                    android:hint="@string/number"
+                    android:imeOptions="actionDone"
+                    android:inputType="numberSigned"
+                    android:maxLength="1"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/text_light"
+                    android:textSize="@dimen/_15sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/et_otp3" />
+            </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_timer"
+                style="@style/Widget.Radar.Text.Content.Bold"
+                android:layout_marginTop="@dimen/_35sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:drawableStart="@drawable/ic_reload"
+                android:drawablePadding="@dimen/_5sdp"
+                android:fontFamily="@font/hkgrotesk_regular"
+                android:gravity="center"
+                android:text="@string/resend"
+                android:textSize="@dimen/_12sdp"
+                app:layout_constraintBottom_toTopOf="@id/cl_continue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_continue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@drawable/green_fill_rect"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_continue"
+                    style="@style/Widget.Radar.Text.Content.SemiBold"
+                    android:layout_width="0dp"
+                    android:gravity="center"
+                    android:padding="@dimen/_10sdp"
+                    android:text="@string/continuee"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ProgressBar
+                    android:id="@+id/progress_bar"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_25sdp"
+                    android:indeterminateTint="@color/white"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

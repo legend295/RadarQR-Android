@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="title"
+            type="String" />
+
+        <variable
+            name="viewHandler"
+            type="com.radarqr.dating.android.utility.handler.ViewClickHandler" />
+
+        <variable
+            name="viewModel"
+            type="com.radarqr.dating.android.hotspots.createvenue.VenueUpdateViewModel" />
+
+        <variable
+            name="venue"
+            type="com.radarqr.dating.android.hotspots.helpers.VenueUtils.Venue" />
+
+        <import type="com.radarqr.dating.android.hotspots.helpers.VenueUtils.Venue" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_top_round_white"
+        android:orientation="vertical"
+        android:padding="@dimen/_10sdp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_line_bottom_sheet" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitle"
+            style="@style/Widget.Radar.Text.Content.Bold"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:text="@{title}"
+            tools:text="Title" />
+
+        <include
+            android:id="@+id/layoutVenueDescriptionAndOffer"
+            layout="@layout/layout_venue_title_message_with_edit_field"
+            android:visibility="@{venue == Venue.DESCRIPTION ? View.VISIBLE : View.GONE, default=gone}"
+            app:textValue="@={viewModel.description}"
+            app:venue="@{venue}"
+            app:viewModel="@{viewModel}" />
+
+        <include
+            android:id="@+id/layoutVenueOffer"
+            layout="@layout/layout_venue_title_message_with_edit_field"
+            android:visibility="@{ venue == Venue.SPECIAL_OFFERS? View.VISIBLE : View.GONE, default=gone}"
+            app:textValue="@={viewModel.updateVenueRequest.specialoffer}"
+            app:venue="@{venue}"
+            app:viewModel="@{viewModel}" />
+
+        <include
+            android:id="@+id/layoutContactInfo"
+            layout="@layout/layout_venue_contact_info"
+            android:visibility="@{venue == Venue.CONTACT_INFO? View.VISIBLE : View.GONE, default=gone}"
+            app:viewHandler="@{viewHandler}"
+            app:viewModel="@{viewModel}" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvVenueItems"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="@{(venue == Venue.VENUE_TYPE || venue == Venue.AMBIANCE)? View.VISIBLE : View.GONE,default=gone}" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_continue"
+            style="@style/Widget.Radar.Text.Content.SemiBold"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/green_fill_rect"
+            android:gravity="center"
+            android:onClick="@{viewHandler::onClick}"
+            android:padding="@dimen/_10sdp"
+            android:text="@string/done"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </LinearLayout>
+</layout>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewHandler"
+            type="com.radarqr.dating.android.utility.handler.ViewClickHandler" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/layoutHeader"
+            android:visibility="gone"
+            layout="@layout/layout_header_with_back"
+            app:viewHandler="@{viewHandler}" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivVenueType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:src="@drawable/ic_venue_type"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutHeader" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvHeader"
+            style="@style/Widget.Radar.Text.HeaderLarge.Bold"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="@string/tell_us_about_your_venue"
+            app:layout_constraintEnd_toEndOf="@id/ivVenueType"
+            app:layout_constraintStart_toStartOf="@id/ivVenueType"
+            app:layout_constraintTop_toBottomOf="@id/ivVenueType" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvMessage"
+            style="@style/Widget.Radar.Text"
+            android:gravity="center"
+            android:text="@string/click_buttons_for_options"
+            app:layout_constraintEnd_toEndOf="@id/tvHeader"
+            app:layout_constraintStart_toStartOf="@id/tvHeader"
+            app:layout_constraintTop_toBottomOf="@id/tvHeader" />
+
+        <ProgressBar
+            android:id="@+id/venueProgress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_4sdp"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_4sdp"
+            android:progressDrawable="@drawable/round_croner_progress_bar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvMessage" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvVenueComplete"
+            style="@style/Widget.Radar.Text.Body"
+            android:textSize="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_3sdp"
+            android:textColor="@color/icons_color"
+            app:layout_constraintStart_toStartOf="@id/venueProgress"
+            app:layout_constraintEnd_toEndOf="@id/venueProgress"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintTop_toBottomOf="@id/venueProgress"
+            tools:text="65% complete" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvVenueType"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            tools:itemCount="2"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvVenueComplete" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

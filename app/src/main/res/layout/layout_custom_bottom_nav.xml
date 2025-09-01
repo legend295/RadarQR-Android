@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="bottomNavType"
+            type="BottomNavType" />
+
+        <variable
+            name="clickHandler"
+            type="com.radarqr.dating.android.utility.handler.ViewClickHandler" />
+
+        <import type="com.radarqr.dating.android.ui.home.main.HomeActivity.BottomNavType" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_38sdp"
+        android:background="@drawable/round_white_bg"
+        android:elevation="@dimen/_1sdp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivSettings"
+            android:layout_width="@dimen/_21sdp"
+            android:layout_height="@dimen/_21sdp"
+            android:onClick="@{clickHandler::onClick}"
+            android:padding="@dimen/_3sdp"
+            android:src="@drawable/ic_nav_user"
+            android:tint="@{bottomNavType == BottomNavType.SETTING? @color/teal_200 : @color/icons_color}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ivLike"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/viewSettings"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:onClick="@{clickHandler::onClick}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/ivSettings"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivLike"
+            android:layout_width="@dimen/_21sdp"
+            android:layout_height="@dimen/_21sdp"
+            android:onClick="@{clickHandler::onClick}"
+            android:padding="@dimen/_3sdp"
+            android:src="@drawable/ic_nav_heart"
+            android:tint="@{bottomNavType == BottomNavType.LIKE? @color/teal_200 : @color/icons_color}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ivHotspot"
+            app:layout_constraintStart_toEndOf="@+id/ivSettings"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvLikeBadge"
+            android:layout_width="@dimen/_10sdp"
+            android:layout_height="@dimen/_10sdp"
+            android:layout_marginEnd="-3dp"
+            android:background="@drawable/bg_dot"
+            android:gravity="center"
+            android:paddingTop="1dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_6sdp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@id/ivLike"
+            app:layout_constraintTop_toTopOf="@id/ivLike"
+            tools:text="999"
+            tools:visibility="visible" />
+
+        <View
+            android:id="@+id/viewLike"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:onClick="@{clickHandler::onClick}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/viewHotspot"
+            app:layout_constraintStart_toEndOf="@id/viewSettings"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivHotspot"
+            android:layout_width="@dimen/_21sdp"
+            android:layout_height="@dimen/_21sdp"
+            android:onClick="@{clickHandler::onClick}"
+            android:padding="@dimen/_3sdp"
+            android:src="@drawable/ic_fire_hot_spot"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ivRecommendation"
+            app:layout_constraintStart_toEndOf="@+id/ivLike"
+
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/viewHotspot"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:onClick="@{clickHandler::onClick}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/viewRecommendation"
+            app:layout_constraintStart_toEndOf="@id/viewLike"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivRecommendation"
+            android:layout_width="@dimen/_21sdp"
+            android:layout_height="@dimen/_21sdp"
+            android:onClick="@{clickHandler::onClick}"
+            android:padding="@dimen/_3sdp"
+            android:src="@drawable/ic_nav_radar"
+            android:tint="@{bottomNavType == BottomNavType.RECOMMENDATION? @color/teal_200 : @color/icons_color}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ivChat"
+            app:layout_constraintStart_toEndOf="@+id/ivHotspot"
+
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/viewRecommendation"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:onClick="@{clickHandler::onClick}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/viewChat"
+            app:layout_constraintStart_toEndOf="@id/viewHotspot"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivChat"
+            android:layout_width="@dimen/_21sdp"
+            android:layout_height="@dimen/_21sdp"
+            android:onClick="@{clickHandler::onClick}"
+            android:padding="@dimen/_3sdp"
+            android:src="@drawable/ic_nav_chat"
+            android:tint="@{bottomNavType == BottomNavType.CHAT? @color/teal_200 : @color/icons_color}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivRecommendation"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvChatBadge"
+            android:layout_width="@dimen/_10sdp"
+            android:layout_height="@dimen/_10sdp"
+            android:background="@drawable/bg_dot"
+            android:gravity="center"
+            android:paddingTop="1dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_6sdp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@id/ivChat"
+            app:layout_constraintTop_toTopOf="@id/ivChat"
+            tools:visibility="visible" />
+
+        <View
+            android:id="@+id/viewChat"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:onClick="@{clickHandler::onClick}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/viewRecommendation"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

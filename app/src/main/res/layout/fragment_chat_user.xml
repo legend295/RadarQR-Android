@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="type"
+            type="com.radarqr.dating.android.ui.home.chat.ChatUserFragment.ChatType" />
+
+        <variable
+            name="clickHandler"
+            type="com.radarqr.dating.android.utility.handler.ViewClickHandler" />
+
+
+        <import type="android.view.View" />
+
+        <import type="com.radarqr.dating.android.utility.BaseUtils" />
+
+        <import type="com.radarqr.dating.android.ui.home.chat.ChatUserFragment.ChatType" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/screen_back">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvAllConnections"
+            style="@style/Widget.Radar.Text.MediumBody"
+            android:background="@{type == ChatType.ALL? @drawable/bg_round_teal_fill : @drawable/round_cetacean_blue_stroke_round}"
+            android:onClick="@{clickHandler::onClick}"
+            android:paddingStart="@dimen/_15sdp"
+            android:paddingTop="@dimen/_7sdp"
+            android:paddingEnd="@dimen/_15sdp"
+            android:paddingBottom="@dimen/_7sdp"
+            android:text="@string/all_connections"
+            android:textColor="@{type ==  ChatType.ALL? @color/white :@color/iconsColorDark}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvRealLife"
+            style="@style/Widget.Radar.Text.MediumBody"
+            android:layout_width="@dimen/_65sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:background="@{type == ChatType.REAL_LIFE? @drawable/bg_round_teal_fill : @drawable/round_cetacean_blue_stroke_round}"
+            android:gravity="center"
+            android:onClick="@{clickHandler::onClick}"
+            android:padding="@dimen/_7sdp"
+            android:text="@string/real_life"
+            android:textColor="@{type ==  ChatType.REAL_LIFE? @color/white :@color/iconsColorDark}"
+            app:layout_constraintBottom_toBottomOf="@id/tvAllConnections"
+            app:layout_constraintStart_toEndOf="@id/tvAllConnections"
+            app:layout_constraintTop_toTopOf="@id/tvAllConnections" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvFavourites"
+            style="@style/Widget.Radar.Text.MediumBody"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:background="@{type == ChatType.FAVOURITES? @drawable/bg_round_teal_fill : @drawable/round_cetacean_blue_stroke_round}"
+            android:gravity="center"
+            android:onClick="@{clickHandler::onClick}"
+            android:padding="@dimen/_7sdp"
+            android:text="@string/favorites"
+            android:textColor="@{type ==  ChatType.FAVOURITES? @color/white :@color/iconsColorDark}"
+            app:layout_constraintBottom_toBottomOf="@id/tvRealLife"
+            app:layout_constraintStart_toEndOf="@id/tvRealLife"
+            app:layout_constraintTop_toTopOf="@id/tvRealLife" />
+
+        <ProgressBar
+            android:id="@+id/progressBarConnection"
+            android:visibility="gone"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/tvFavourites"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvFavourites"
+            app:layout_constraintTop_toTopOf="@id/tvFavourites" />
+
+        <FrameLayout
+            android:id="@+id/container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAllConnections" />
+
+
+        <!-- <ImageView
+             android:id="@+id/iv_heart"
+             android:layout_width="@dimen/_15sdp"
+             android:layout_height="@dimen/_15sdp"
+             android:layout_marginStart="@dimen/_15sdp"
+             android:layout_marginTop="@dimen/_5sdp"
+             android:background="@drawable/ic_message"
+             app:layout_constraintBottom_toBottomOf="@+id/tv_title"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="@+id/tv_title" />
+
+         <TextView
+             android:id="@+id/tv_title"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginStart="@dimen/_10sdp"
+             android:layout_marginTop="@dimen/_10sdp"
+             android:fontFamily="@font/hkgrotesk_bold"
+             android:gravity="center"
+             android:text="@string/connections"
+             android:textColor="@color/black"
+             android:textSize="@dimen/_20sdp"
+             app:layout_constraintStart_toEndOf="@+id/iv_heart"
+             app:layout_constraintTop_toTopOf="parent" />
+
+         <ProgressBar
+             android:id="@+id/progress_bar_header"
+             style="?android:attr/progressBarStyle"
+             android:layout_width="@dimen/_20sdp"
+             android:layout_height="@dimen/_20sdp"
+             android:layout_marginStart="@dimen/_10sdp"
+             android:visibility="gone"
+             app:layout_constraintBottom_toBottomOf="@id/tv_title"
+             app:layout_constraintStart_toEndOf="@id/tv_title"
+             app:layout_constraintTop_toTopOf="@id/tv_title" />
+
+         <ImageView
+             android:id="@+id/iv_search"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_marginTop="@dimen/_19sdp"
+             android:layout_marginEnd="@dimen/_15sdp"
+             android:background="@drawable/ic_search"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintTop_toTopOf="parent" />
+
+
+         <View
+             android:id="@+id/view1"
+             android:layout_width="match_parent"
+             android:layout_height="@dimen/_1sdp"
+             android:layout_marginTop="@dimen/_5sdp"
+             android:background="@color/screen_back"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+         <LinearLayout
+             android:id="@+id/ll_search"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:background="@color/white"
+             android:orientation="horizontal"
+             android:visibility="gone"
+             app:layout_constraintBottom_toTopOf="@+id/tab_layout"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="parent">
+
+             <androidx.appcompat.widget.SearchView
+                 android:id="@+id/searchView"
+                 android:layout_width="0dp"
+                 android:layout_height="wrap_content"
+                 android:layout_weight="1"
+                 android:background="@color/white"
+
+                 app:iconifiedByDefault="false"
+                 app:queryBackground="@color/white"
+                 app:queryHint="@string/search_hint" />
+
+             <androidx.appcompat.widget.AppCompatTextView
+                 android:id="@+id/tv_cancel"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center"
+                 android:layout_margin="@dimen/_5sdp"
+                 android:text="@string/cancel"
+                 android:textColor="@color/black"
+                 android:textSize="@dimen/_14sdp" />
+         </LinearLayout>
+
+
+         <com.google.android.material.tabs.TabLayout
+             android:id="@+id/tab_layout"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toBottomOf="@+id/view1"
+             app:tabGravity="fill"
+             app:tabIconTint="@color/mobile_back"
+             app:tabIndicator="@color/mobile_back"
+             app:tabIndicatorColor="@color/mobile_back"
+             app:tabIndicatorHeight="@dimen/_2sdp"
+             app:tabInlineLabel="true"
+             app:tabMode="fixed"
+             app:tabSelectedTextColor="@color/mobile_back"
+             app:tabTextAppearance="@style/MyTabLayoutTextAppearance">
+
+             <com.google.android.material.tabs.TabItem
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="@string/all" />
+
+             <com.google.android.material.tabs.TabItem
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="@string/online" />
+
+             <com.google.android.material.tabs.TabItem
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="@string/inperson" />
+
+         </com.google.android.material.tabs.TabLayout>
+
+
+         <androidx.recyclerview.widget.RecyclerView
+             android:id="@+id/rv_all_dialogs"
+             android:layout_width="0dp"
+             android:layout_height="0dp"
+             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+             app:layout_constraintBottom_toBottomOf="parent"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toBottomOf="@+id/tab_layout"
+             tools:listitem="@layout/layout_item_dialogs" />
+
+         <androidx.recyclerview.widget.RecyclerView
+             android:id="@+id/rv_online_dialogs"
+             android:layout_width="0dp"
+             android:layout_height="0dp"
+             android:visibility="gone"
+             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+             app:layout_constraintBottom_toBottomOf="parent"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toBottomOf="@+id/tab_layout"
+             tools:listitem="@layout/layout_item_dialogs" />
+
+         <androidx.recyclerview.widget.RecyclerView
+             android:id="@+id/rv_in_person_dialogs"
+             android:layout_width="0dp"
+             android:layout_height="0dp"
+             android:visibility="gone"
+             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+             app:layout_constraintBottom_toBottomOf="parent"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toBottomOf="@+id/tab_layout"
+             tools:listitem="@layout/layout_item_dialogs" />
+
+         <ProgressBar
+             android:id="@+id/progress_bar"
+             style="?android:attr/progressBarStyle"
+             android:layout_width="@dimen/_20sdp"
+             android:layout_height="@dimen/_20sdp"
+             android:layout_centerInParent="true"
+             android:indeterminateTint="@color/mobile_back"
+             android:visibility="gone"
+             app:layout_constraintBottom_toBottomOf="parent"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="parent" />
+
+         <androidx.appcompat.widget.AppCompatTextView
+             android:id="@+id/tv_no_internet"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:fontFamily="@font/hkgrotesk_semibold"
+             android:gravity="center"
+             android:padding="@dimen/_4sdp"
+             android:text="@string/no_internet_msg"
+             android:textSize="@dimen/_12sdp"
+             android:visibility="gone"
+             app:layout_constraintBottom_toBottomOf="parent"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="parent" />
+
+         <LinearLayout
+             android:id="@+id/ll_chat_empty"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:layout_gravity="center"
+             android:gravity="center"
+             android:orientation="vertical"
+             android:visibility="gone"
+             app:layout_constraintBottom_toBottomOf="parent"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="parent">
+
+             <ImageView
+                 android:id="@+id/iv_image"
+                 android:layout_width="@dimen/_45sdp"
+                 android:layout_height="@dimen/_45sdp"
+                 android:layout_marginTop="@dimen/_10sdp"
+                 android:background="@drawable/ic_nav_chatd"
+                 app:layout_constraintEnd_toEndOf="parent"
+                 app:layout_constraintStart_toStartOf="parent"
+                 app:layout_constraintTop_toTopOf="parent" />
+
+             <TextView
+                 android:id="@+id/tv_view_profile"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_marginStart="@dimen/_30sdp"
+                 android:layout_marginTop="@dimen/_10sdp"
+                 android:layout_marginEnd="@dimen/_30sdp"
+                 android:fontFamily="@font/hkgrotesk_medium"
+                 android:gravity="center"
+                 android:text="@string/chat_error"
+                 android:textColor="@color/text_light"
+                 android:textSize="@dimen/_15sdp"
+                 app:layout_constraintEnd_toEndOf="parent"
+                 app:layout_constraintStart_toStartOf="parent"
+                 app:layout_constraintTop_toBottomOf="@+id/iv_image" />
+         </LinearLayout>
+-->
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_no_internet"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/hkgrotesk_semibold"
+            android:gravity="center"
+            android:padding="@dimen/_4sdp"
+            android:text="@string/no_internet_msg"
+            android:textSize="@dimen/_12sdp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_centerInParent="true"
+            android:indeterminateTint="@color/teal_200"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/ll_chat_empty"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_image"
+                android:layout_width="@dimen/_45sdp"
+                android:layout_height="@dimen/_45sdp"
+                android:background="@drawable/ic_nav_chatd"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_view_profile"
+                style="@style/Widget.Radar.Text.Content"
+                android:gravity="center"
+                android:text="@string/chat_error"
+                android:textColor="@color/icons_color"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_image" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

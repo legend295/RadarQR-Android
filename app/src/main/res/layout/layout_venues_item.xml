@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.radarqr.dating.android.hotspots.model.MyVenuesData" />
+
+        <import type="android.view.View" />
+
+        <import type="com.radarqr.dating.android.utility.BaseUtils" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/clParent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:background="@drawable/rect_white"
+        android:paddingBottom="@dimen/_5sdp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCount"
+            style="@style/Widget.Radar.Text.Content.SemiBold"
+            android:padding="@dimen/_8sdp"
+            android:textColor="@color/black_color_02"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="10" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvVenueName"
+            style="@style/Widget.Radar.Text.SemiBold"
+            android:layout_width="0dp"
+            android:layout_marginStart="@dimen/_6sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_3sdp"
+            android:maxLines="1"
+            android:text="@{data.name,default=``}"
+            app:layout_constraintEnd_toStartOf="@id/tvViewVenue"
+            app:layout_constraintStart_toEndOf="@id/tvCount"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Mad Oak" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvVenueAddress"
+            style="@style/Widget.Radar.Text.MediumBody"
+            android:layout_width="0dp"
+            android:layout_marginBottom="@dimen/_3sdp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:paddingBottom="@dimen/_3sdp"
+            android:text="@{data.contactinfo.address}"
+            android:visibility="@{(data.contactinfo.address==null || data.contactinfo.address.isEmpty())? View.GONE : View.VISIBLE,default=gone}"
+            app:layout_constraintEnd_toEndOf="@id/tvViewVenue"
+            app:layout_constraintStart_toStartOf="@id/tvVenueName"
+            app:layout_constraintTop_toBottomOf="@id/tvVenueName"
+            tools:text="1811 Lincoln, San Francisco"
+            tools:visibility="visible" />
+        <!--            android:text="@{BaseUtils.INSTANCE.getLocationString(data.contactinfo)}"-->
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvStatus"
+            style="@style/Widget.Radar.Text"
+            android:background="@drawable/bg_round_with_radius_4"
+            android:paddingStart="@dimen/_4sdp"
+            android:paddingTop="@dimen/_2sdp"
+            android:paddingEnd="@dimen/_4sdp"
+            android:gravity="center"
+            android:paddingBottom="@dimen/_2sdp"
+            android:drawablePadding="@dimen/_8sdp"
+            tools:text="@string/action_needed"
+            tools:backgroundTint="@color/fire_opal"
+            tools:drawableEnd="@drawable/ic_white_next_round"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="@id/tvVenueName"
+            app:layout_constraintTop_toBottomOf="@id/tvVenueAddress"
+            tools:visibility="visible" />
+        <!--android:text="@{data.status == 1? @string/approved : data.status}"-->
+        <!--android:visibility="@{data.status==3? View.VISIBLE : View.GONE,default=gone}"-->
+
+        <!--<androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvApproved"
+            style="@style/Widget.Radar.Text"
+            android:background="@drawable/bg_round_with_radius_4"
+            android:backgroundTint="@color/teal_200"
+            android:paddingStart="@dimen/_4sdp"
+            android:paddingTop="@dimen/_2sdp"
+            android:paddingEnd="@dimen/_4sdp"
+            android:paddingBottom="@dimen/_2sdp"
+            android:text="@string/approved"
+            android:textColor="@color/white"
+            android:visibility="@{data.status==1? View.VISIBLE : View.GONE,default=gone}"
+            app:layout_constraintStart_toStartOf="@id/tvVenueName"
+            app:layout_constraintTop_toBottomOf="@id/tvVenueAddress"
+            tools:visibility="visible" />-->
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvViewVenue"
+            style="@style/Widget.Radar.Text.Body"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:background="@drawable/bg_round_stroke_with_radius_2"
+            android:paddingStart="@dimen/_6sdp"
+            android:paddingTop="@dimen/_1sdp"
+            android:paddingEnd="@dimen/_6sdp"
+            android:paddingBottom="@dimen/_1sdp"
+            android:text="@string/view_venue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvVenueName"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

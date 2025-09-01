@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewHandler"
+            type="com.radarqr.dating.android.utility.handler.ViewClickHandler" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/screen_back"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <include
+                android:id="@+id/toolbar"
+                layout="@layout/layout_header_with_back"
+                app:viewHandler="@{viewHandler}" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivDummy"
+                android:layout_width="@dimen/_150sdp"
+                android:layout_height="@dimen/_100sdp"
+                android:scaleX="1.2"
+                android:scaleY="1.2"
+                android:src="@drawable/ic_register_to_be_hotspot"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvYouGotTheVenue"
+                style="@style/Widget.Radar.Text.Title.Bold"
+                android:text="YOU'VE GOT THE VENUE"
+                android:textColor="@color/radish"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivDummy" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvWeGotTheSingles"
+                style="@style/Widget.Radar.Text.Title.Bold"
+                android:text="WE'VE GOT THE SINGLES!"
+                android:textColor="@color/teal_200"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvYouGotTheVenue" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvLongMessage"
+                style="@style/Widget.Radar.Text"
+                android:layout_width="0dp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:gravity="center"
+                android:text="@string/register_to_be_hotspot_long_txt"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvWeGotTheSingles" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvRegisterToBeAHotspot"
+                style="@style/Widget.Radar.Text.Content.SemiBold"
+                android:layout_width="match_parent"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@drawable/green_fill_rect"
+                android:gravity="center"
+                android:onClick="@{viewHandler::onClick}"
+                android:padding="@dimen/_10sdp"
+                android:text="@string/register_to_be_a_hot_spot"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15sdp"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</layout>

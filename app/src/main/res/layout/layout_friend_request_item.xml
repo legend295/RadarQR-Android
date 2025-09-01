@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_5sdp"
+        android:background="@drawable/rect_white"
+        android:paddingStart="@dimen/_5sdp"
+        android:paddingTop="@dimen/_2sdp"
+        android:paddingEnd="@dimen/_5sdp"
+        android:paddingBottom="@dimen/_2sdp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivUser"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:scaleType="center"
+            android:background="@color/imageBackground"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvName"
+            style="@style/Widget.Radar.Text"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            tools:text="Marne Calzoni"
+            app:layout_constraintBottom_toTopOf="@id/tvUserName"
+            app:layout_constraintStart_toEndOf="@id/ivUser"
+            app:layout_constraintTop_toTopOf="@id/ivUser" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvUserName"
+            style="@style/Widget.Radar.Text"
+            android:layout_marginBottom="@dimen/_10sdp"
+            tools:text="\@Mar-900"
+            android:textColor="@color/teal_200"
+            app:layout_constraintBottom_toBottomOf="@id/ivUser"
+            app:layout_constraintStart_toStartOf="@id/tvName"
+            app:layout_constraintTop_toBottomOf="@id/tvName" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivRejectRequest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_dislike_request"
+            app:layout_constraintBottom_toBottomOf="@id/ivUser"
+            app:layout_constraintEnd_toStartOf="@id/ivAcceptRequest"
+            app:layout_constraintStart_toEndOf="@id/tvUserName"
+            app:layout_constraintHorizontal_bias="1"
+            android:layout_marginEnd="@dimen/_15sdp"
+            app:layout_constraintTop_toTopOf="@id/ivUser" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivAcceptRequest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_accept_request"
+            app:layout_constraintBottom_toBottomOf="@id/ivUser"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ivUser" />
+
+
+        <!--   <androidx.appcompat.widget.AppCompatTextView
+               style="@style/Widget.Radar.Text.Content"
+               android:background="@drawable/bg_round_stroke_with_radius_6_teal"
+               android:drawableStart="@drawable/ic_send_request"
+               android:drawablePadding="@dimen/_4sdp"
+               android:padding="@dimen/_8sdp"
+               android:text="Add"
+               android:textColor="@color/teal_200"
+               app:layout_constraintBottom_toBottomOf="@id/ivUser"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintTop_toTopOf="@id/ivUser" />-->
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#0CDEC2">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_second_ads_bg" />
+
+        <include
+            android:id="@+id/ivFirst"
+            layout="@layout/include_second_ads_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="-20dp"
+            android:layout_marginTop="-40dp"
+            app:icon="@{@drawable/ic_second_ads_first}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:msg="@{`6 Sizes`}"
+            app:title="@{`Temporary Tattoo`}" />
+
+        <include
+            android:id="@+id/ivSecond"
+            layout="@layout/include_second_ads_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="-100dp"
+            app:icon="@{@drawable/ic_second_ads_second}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivFirst"
+            app:msg="@{`2 Colors`}"
+            app:title="@{`Trucker hats`}" />
+
+        <include
+            android:id="@+id/ivThird"
+            layout="@layout/include_second_ads_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_40sdp"
+            app:icon="@{@drawable/ic_second_ads_third}"
+            app:layout_constraintStart_toEndOf="@id/ivSecond"
+            app:layout_constraintTop_toBottomOf="@id/ivFirst"
+            app:msg="@{`2 Styles`}"
+            app:title="@{`Tote`}" />
+
+        <include
+            android:id="@+id/ivForth"
+            layout="@layout/include_second_ads_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_40sdp"
+            android:layout_marginTop="-60dp"
+            app:icon="@{@drawable/ic_second_ads_forth}"
+            app:layout_constraintStart_toEndOf="@id/ivFirst"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_goneMarginStart="@dimen/_20sdp"
+            app:msg="@{`6 Styles`}"
+            app:title="@{`Keychains`}" />
+
+        <include
+            android:id="@+id/ivFifth"
+            layout="@layout/include_second_ads_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_35sdp"
+            android:layout_marginTop="-30dp"
+            app:icon="@{@drawable/ic_second_ads_fifth}"
+            app:layout_constraintStart_toEndOf="@id/ivThird"
+            app:layout_constraintTop_toBottomOf="@id/ivFirst"
+            app:msg="@{`2 Colors`}"
+            app:title="@{`Backpack`}" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:gravity="center"
+            android:text="@string/swag_shop"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_22sdp"
+            app:fontFamily="@font/poppins_bold"
+            app:layout_constraintBottom_toTopOf="@id/tvLifeShort" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvLifeShort"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:gravity="center"
+            android:layout_marginStart="@dimen/_1sdp"
+            android:layout_marginEnd="@dimen/_1sdp"
+            android:text="Hybrid-Dating is here! Show off and distribute your\nprofile QR code to connect with potential matches\nwherever you are. They scan it, you get likes, and\nthen you choose who to match with."
+            app:layout_constraintBottom_toTopOf="@id/tvOpenSwagShop"
+            app:layout_constraintEnd_toEndOf="@id/tvOpenSwagShop"
+            app:layout_constraintStart_toStartOf="@id/tvOpenSwagShop" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvOpenSwagShop"
+            style="@style/Widget.Radar.Text.Content.SemiBold"
+            android:layout_width="0dp"
+            android:layout_margin="@dimen/_10sdp"
+            android:background="@drawable/green_fill_rect"
+            android:backgroundTint="@color/black_color"
+            android:gravity="center"
+            android:padding="@dimen/_10sdp"
+            android:text="@string/open_swag_shop"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@id/tvUpgrade"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias="1" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvUpgrade"
+            style="@style/Widget.Radar.Text.Content.SemiBold"
+            android:layout_width="0dp"
+            android:layout_margin="@dimen/_10sdp"
+            android:background="@drawable/green_fill_rect"
+            android:backgroundTint="@color/black_color"
+            android:gravity="center"
+            android:padding="@dimen/_10sdp"
+            android:text="@string/upgrade_to_radarqr_plus"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias="1" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivClose"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_margin="@dimen/_10sdp"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_close_round"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

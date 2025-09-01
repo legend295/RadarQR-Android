@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.radarqr.dating.android.ui.subscription.model.StoreProducts" />
+
+        <import type="com.radarqr.dating.android.utility.Utility"/>
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="wrap_content"
+        android:id="@+id/cvParent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/_10sdp"
+        app:cardElevation="@dimen/_3sdp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clSubscriptionBackground"
+            android:layout_width="@dimen/_99sdp"
+            android:layout_height="@dimen/_108sdp"
+            android:background="@{data.selected? @drawable/ic_selected_price_bg: @drawable/ic_unselected_price_bg, default=@drawable/ic_selected_price_bg}">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvOffer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_8sdp"
+                android:text="@string/new_txt"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_10sdp"
+                app:fontFamily="@font/poppins_bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{data.storeProduct.period.value + ` ` + (data.storeProduct.period.value > 1 ? Utility.INSTANCE.getTextWithFirstCapital(data.storeProduct.period.unit.toString())+`s` :  Utility.INSTANCE.getTextWithFirstCapital(data.storeProduct.period.unit.toString()))}"
+                android:textSize="@dimen/_12sdp"
+                app:layout_constraintBottom_toTopOf="@id/tvPrice"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:text="@{data.amountPerWeek +`/wk`}"
+                android:textSize="@dimen/_11sdp"
+                app:fontFamily="@font/poppins_semibold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+
+</layout>

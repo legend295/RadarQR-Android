@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="homeFragment"
+            type="com.radarqr.dating.android.ui.home.main.HomeFragment" />
+
+        <variable
+            name="clickHandler"
+            type="com.radarqr.dating.android.utility.handler.ViewClickHandler" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvRecommended"
+            style="@style/Widget.Radar.Text.MediumBody"
+            android:background="@drawable/bg_round_teal_fill"
+            android:onClick="@{clickHandler::onClick}"
+            android:padding="@dimen/_7sdp"
+            android:text="@string/recommended"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvNearYou"
+            style="@style/Widget.Radar.Text.MediumBody"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:background="@drawable/round_cetacean_blue_stroke_round"
+            android:gravity="center"
+            android:onClick="@{clickHandler::onClick}"
+            android:padding="@dimen/_7sdp"
+            android:text="@string/near_you"
+            app:layout_constraintBottom_toBottomOf="@id/tvRecommended"
+            app:layout_constraintStart_toEndOf="@id/tvRecommended"
+            app:layout_constraintTop_toTopOf="@id/tvRecommended" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvMap"
+            style="@style/Widget.Radar.Text.MediumBody"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:background="@drawable/round_cetacean_blue_stroke_round"
+            android:gravity="center"
+            android:onClick="@{clickHandler::onClick}"
+            android:visibility="gone"
+            android:padding="@dimen/_7sdp"
+            android:text="Map"
+            app:layout_constraintBottom_toBottomOf="@id/tvNearYou"
+            app:layout_constraintStart_toEndOf="@id/tvNearYou"
+            app:layout_constraintTop_toTopOf="@id/tvNearYou" />
+
+        <FrameLayout
+            android:id="@+id/container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvRecommended" />
+
+
+        <include
+            android:id="@+id/ll_error"
+            layout="@layout/layout_error_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_no_internet"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/hkgrotesk_semibold"
+            android:gravity="center"
+            android:padding="@dimen/_4sdp"
+            android:text="@string/no_internet_msg"
+            android:textSize="@dimen/_12sdp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

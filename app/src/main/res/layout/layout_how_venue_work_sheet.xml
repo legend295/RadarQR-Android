@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_top_round_white"
+        android:padding="@dimen/_10sdp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivSlider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_line_bottom_sheet"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitle"
+            style="@style/Widget.Radar.Text.Title"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:gravity="center"
+            android:text="@string/how_venue_s_work"
+            app:fontFamily="@font/poppins_semibold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivSlider"
+            tools:text="Discover singles of your \nfavorite hot spots" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivDotFirst"
+            android:layout_width="@dimen/_8sdp"
+            android:layout_height="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:src="@drawable/round_circle"
+            android:tint="@color/teal_200"
+            app:layout_constraintBottom_toBottomOf="@id/tvFirstLine"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvFirstLine" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvFirstLine"
+            style="@style/Widget.Radar.Text"
+            android:layout_width="0dp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:text="@string/create_a_venue_name_and_unique_handle_to_it"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivDotFirst"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivDotSecond"
+            android:layout_width="@dimen/_8sdp"
+            android:layout_height="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:src="@drawable/round_circle"
+            android:tint="@color/teal_200"
+            app:layout_constraintBottom_toBottomOf="@id/tvSecondLine"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvSecondLine" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSecondLine"
+            style="@style/Widget.Radar.Text"
+            android:layout_width="0dp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="@string/add_required_details_to_venue_and_submit_for_approval"
+            app:layout_constraintEnd_toEndOf="@id/tvFirstLine"
+            app:layout_constraintStart_toEndOf="@id/ivDotSecond"
+            app:layout_constraintTop_toBottomOf="@id/tvFirstLine" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivDotThird"
+            android:layout_width="@dimen/_8sdp"
+            android:layout_height="@dimen/_8sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:src="@drawable/round_circle"
+            android:tint="@color/teal_200"
+            app:layout_constraintBottom_toBottomOf="@id/tvThirdLine"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvThirdLine" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvThirdLine"
+            style="@style/Widget.Radar.Text"
+            android:layout_width="0dp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="@string/get_your_venue_approved_and_let_singles_explore_it"
+            app:layout_constraintEnd_toEndOf="@id/tvFirstLine"
+            app:layout_constraintStart_toEndOf="@id/ivDotThird"
+            app:layout_constraintTop_toBottomOf="@id/tvSecondLine" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="header"
+            type="String" />
+
+        <variable
+            name="buttonMessage"
+            type="String" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_15sdp"
+        android:background="@drawable/rect_white_age"
+        android:minWidth="@dimen/_250sdp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tv_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:fontFamily="@font/hkgrotesk_semibold"
+            android:text="Message"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_18sdp" />
+
+        <TextView
+            android:id="@+id/tv_make_sure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_7sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:fontFamily="@font/hkgrotesk_light"
+            android:gravity="center"
+            android:text="@{header, default=@string/user_not}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13sdp" />
+
+
+        <TextView
+            android:id="@+id/cl_continue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_13sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/green_fill_rect"
+            android:fontFamily="@font/hkgrotesk_medium"
+            android:gravity="center"
+            android:paddingStart="@dimen/_30sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingEnd="@dimen/_30sdp"
+            android:paddingBottom="@dimen/_7sdp"
+            android:text="@{buttonMessage, default=@string/cancel}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_15sdp" />
+
+    </LinearLayout>
+
+</layout>

@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/initial_navigation"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.radarqr.dating.android.ui.welcome.splash.SplashFragment"
+        android:label="splash_fragment"
+        tools:layout="@layout/fragment_splash">
+
+        <action
+            android:id="@+id/action_splashFragment_to_goThroughFragment"
+            app:destination="@id/goThroughFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@id/splashFragment"
+
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splash_to_firstName"
+            app:destination="@+id/firstNameFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@+id/OtpVerifyFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splash_to_addPhotoFragment"
+            app:destination="@+id/addPhotoFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@+id/otpVerifyFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splash_to_ageFragment"
+            app:destination="@+id/ageFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@+id/otpVerifyFragment"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_splash_to_identityFragment"
+            app:destination="@+id/identityFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@+id/otpVerifyFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splash_to_interestedInFragment"
+            app:destination="@+id/interestedinFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@+id/otpVerifyFragment"
+            app:popUpToInclusive="true" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/goThroughFragment"
+        android:name="com.radarqr.dating.android.ui.welcome.goThrough.GoThroughFragment"
+        android:label="GoThroughFragment"
+        tools:layout="@layout/fragment_welcome_screens">
+        <action
+            android:id="@+id/action_goThroughFragment_to_loginMainFragment"
+            app:destination="@id/loginMainFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@id/goThroughFragment"
+            app:popUpToInclusive="true">
+
+        </action>
+
+    </fragment>
+    <fragment
+        android:id="@+id/loginMainFragment"
+        android:name="com.radarqr.dating.android.ui.welcome.login_main.LoginMainFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login_main">
+        <action
+            android:id="@+id/action_loginMainFragment_to_mobileFragment"
+            app:destination="@id/mobileFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@id/loginMainFragment"
+            app:popUpToInclusive="false">
+
+        </action>
+
+        <action
+            android:id="@+id/action_account_details_to_web_view_fragment"
+            app:destination="@id/web_view_fragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@id/accountDetailsFragment"
+            app:popUpToInclusive="false" />
+
+        <action
+            android:id="@+id/action_otp_to_mobile"
+            app:destination="@+id/mobileFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@+id/OtpVerifyFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_otp_to_firstName"
+            app:destination="@+id/firstNameFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@+id/OtpVerifyFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_otp_to_addPhotoFragment"
+            app:destination="@+id/addPhotoFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@+id/otpVerifyFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_otp_to_ageFragment"
+            app:destination="@+id/ageFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@+id/otpVerifyFragment"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_otp_to_identityFragment"
+            app:destination="@+id/identityFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@+id/otpVerifyFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_otp_to_interestedInFragment"
+            app:destination="@+id/interestedinFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@+id/otpVerifyFragment"
+            app:popUpToInclusive="true" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/web_view_fragment"
+        android:name="com.radarqr.dating.android.ui.home.settings.web.WebViewFragment"
+        android:label="WebViewFragment"
+        tools:layout="@layout/fragment_web_view" />
+
+    <fragment
+        android:id="@+id/mobileFragment"
+        android:name="com.radarqr.dating.android.ui.welcome.mobileLogin.MobileFragment"
+        android:label="MobileFragment"
+        tools:layout="@layout/fragment_phone_number">
+        <action
+            android:id="@+id/action_mobileFragment_to_otpFragment"
+            app:destination="@id/otpVerifyFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@id/mobileFragment"
+            app:popUpToInclusive="false">
+
+        </action>
+
+        <action
+            android:id="@+id/action_loginMainFragment_to_mobileFragment"
+            app:destination="@id/mobileFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@id/loginMainFragment"
+            app:popUpToInclusive="false">
+
+        </action>
+
+    </fragment>
+    <fragment
+        android:id="@+id/otpVerifyFragment"
+        android:name="com.radarqr.dating.android.ui.welcome.otpVerify.OtpVerifyFragment"
+        android:label="OtpVerifyFragment"
+        tools:layout="@layout/fragment_otp_verfication">
+
+        <action
+            android:id="@+id/action_otp_to_mobile"
+            app:destination="@+id/mobileFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@+id/OtpVerifyFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_otp_to_firstName"
+            app:destination="@+id/firstNameFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@+id/OtpVerifyFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_otp_to_addPhotoFragment"
+            app:destination="@+id/addPhotoFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@+id/otpVerifyFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_otp_to_ageFragment"
+            app:destination="@+id/ageFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@+id/otpVerifyFragment"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_otp_to_identityFragment"
+            app:destination="@+id/identityFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@+id/otpVerifyFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_otp_to_interestedInFragment"
+            app:destination="@+id/interestedinFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@+id/otpVerifyFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/firstNameFragment"
+        android:name="com.radarqr.dating.android.ui.welcome.registerScreens.FirstNameFragment"
+        android:label="FirstNameFragment"
+        tools:layout="@layout/fragment_first_name">
+        <action
+            android:id="@+id/action_first_to_addPhotoFragment"
+            app:destination="@+id/addPhotoFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@+id/fragment_first_name"
+
+            app:popUpToInclusive="false" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/addPhotoFragment"
+        android:name="com.radarqr.dating.android.ui.welcome.registerScreens.AddPictureFragment"
+        android:label="AddPhotoFragment"
+        tools:layout="@layout/fragment_add_photo">
+        <!--  <action
+              android:id="@+id/action_addPhoto_to_addMorePhotoFragment"
+              app:destination="@+id/imageUploadFragment"
+              app:enterAnim="@anim/fadein"
+              app:exitAnim="@anim/fadeout"
+              app:popUpTo="@+id/addPhotoFragment"
+              app:popUpToInclusive="false" />-->
+
+        <action
+            android:id="@+id/action_addPhoto_to_addMorePhotoFragment"
+            app:destination="@+id/uploadFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@+id/addPhotoFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addMorePhotoFragment"
+        android:name="com.radarqr.dating.android.ui.welcome.registerScreens.AddMorePictureFragment"
+        android:label="AddMoreFragment"
+        tools:layout="@layout/fragment_add_more_photo">
+        <action
+            android:id="@+id/action_addmorePhoto_to_ageFragment"
+            app:destination="@+id/ageFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+        <!--  <action
+              android:id="@+id/action_addmorePhoto_to_imageUploadFragment"
+              app:destination="@+id/imageUploadFragment"
+              app:enterAnim="@anim/fadein"
+              app:exitAnim="@anim/fadeout"
+              app:popUpTo="@+id/addMorePhotoFragment"
+              app:popUpToInclusive="false" />-->
+
+        <action
+            android:id="@+id/action_addmorePhoto_to_imageUploadFragment"
+            app:destination="@+id/uploadFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@+id/addMorePhotoFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/imageUploadFragment"
+        android:name="com.radarqr.dating.android.ui.welcome.registerScreens.ImageUploadFragment"
+        android:label="ImageFragment"
+        tools:layout="@layout/fragment_image_upload">
+
+        <!-- <action
+             android:id="@+id/action_imageUpload_to_addMorePhotoFragment"
+             app:destination="@+id/addMorePhotoFragment"
+             app:enterAnim="@anim/fadein"
+             app:exitAnim="@anim/fadeout"
+             app:popUpTo="@+id/imageUploadFragment"
+             app:popUpToInclusive="false" />-->
+    </fragment>
+
+    <fragment
+        android:id="@+id/uploadFragment"
+        android:name="com.radarqr.dating.android.ui.upload.UploadFragment"
+        android:label="UploadFragment"
+        tools:layout="@layout/fragment_upload">
+        <action
+            android:id="@+id/action_imageUpload_to_addMorePhotoFragment"
+            app:destination="@+id/addMorePhotoFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+             />
+        <!--app:popUpTo="@+id/uploadFragment"
+            app:popUpToInclusive="false"-->
+    </fragment>
+
+    <fragment
+        android:id="@+id/ageFragment"
+        android:name="com.radarqr.dating.android.ui.welcome.registerScreens.AgeSelectorFragment"
+        android:label="AgeFragment"
+        tools:layout="@layout/fragment_age_selector">
+        <action
+            android:id="@+id/action_ageFragment_to_identityFragment"
+            app:destination="@+id/identityFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@+id/ageFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/identityFragment"
+        android:name="com.radarqr.dating.android.ui.welcome.registerScreens.IdentityFragment"
+        android:label="IdentityFragment"
+        tools:layout="@layout/fragment_identity">
+        <action
+            android:id="@+id/action_identityFragment_to_interestedInFragment"
+            app:destination="@+id/interestedinFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popEnterAnim="@anim/fadein"
+            app:popExitAnim="@anim/fadeout"
+            app:popUpTo="@+id/identityFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/interestedinFragment"
+        android:name="com.radarqr.dating.android.ui.welcome.registerScreens.InterestedInFragment"
+        android:label="InterestedInFragment"
+        tools:layout="@layout/fragment_interested_in">
+        <action
+            android:id="@+id/action_interestedInFragment_to_emailAddress"
+            app:destination="@+id/emailFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@+id/interestedinFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/emailFragment"
+        android:name="com.radarqr.dating.android.ui.welcome.registerScreens.EmailAddressFragment"
+        android:label="EmailFragment"
+        tools:layout="@layout/fragment_email">
+        <action
+            android:id="@+id/action_emailAddress_to_wecomeSignupFragment"
+            app:destination="@+id/welcome_Fragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@+id/emailFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/welcome_Fragment"
+        android:name="com.radarqr.dating.android.ui.welcome.welcome_afterSignup.WelcomeAfterSignupFragment"
+        android:label="welcomeSignupFragment"
+        tools:layout="@layout/fragment_welcome_after_signup">
+        <action
+            android:id="@+id/action_welcomeFragment_to_beforeUseFragment"
+            app:destination="@+id/beforeUse_Fragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@+id/welcome_Fragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/beforeUse_Fragment"
+        android:name="com.radarqr.dating.android.ui.welcome.welcome_afterSignup.BeforeUseFragment"
+        android:label="beforeUseFragment"
+        tools:layout="@layout/fragment_before_use">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/enableLocationFragment"
+        android:name="com.radarqr.dating.android.ui.location.EnableLocationFragment"
+        tools:layout="@layout/fragment_enable_location"
+        android:label="ENABLE_LOCATION"/>
+
+</navigation>

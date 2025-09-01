@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="ageSelectoreFragment"
+            type="com.radarqr.dating.android.ui.welcome.registerScreens.AgeSelectorFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toTopOf="@+id/tv_continue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_birthday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:src="@drawable/ic_birthday_image"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_header"
+                    style="@style/Widget.Radar.Text.Title.Bold"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:text="@string/when_is_your_birthday"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iv_birthday" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_body"
+                    style="@style/Widget.Radar.Text"
+                    android:layout_width="0dp"
+                    android:gravity="center"
+                    android:text="@string/choose_the_right_date_to_get_accurate_matches"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_header" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_choose_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:src="@drawable/ic_choose_date"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_body" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/cl_calender"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_170sdp"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:paddingLeft="@dimen/_25sdp"
+                    android:paddingRight="@dimen/_25sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_body">
+
+                    <com.radarqr.dating.android.datePicker.SingleDateAndTimePicker
+                        android:id="@+id/picker"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/hkgrotesk_semibold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:picker_curved="true"
+                        app:picker_cyclic="false"
+                        app:picker_displayDays="false"
+                        app:picker_displayDaysOfMonth="true"
+                        app:picker_displayHours="false"
+                        app:picker_displayMinutes="false"
+                        app:picker_displayMonth="true"
+                        app:picker_displayYears="true"
+                        app:picker_selectedTextColor="@color/black"
+                        app:picker_textColor="@color/text_light"
+                        app:picker_textSize="@dimen/_14sdp"
+                        app:picker_visibleItemCount="5" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_48sdp"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:background="@drawable/bg_white_dark_stroke"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cl_calender" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/Widget.Radar.Text"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:gravity="center|start"
+                    android:textStyle="italic"
+                    android:text="Age is just a number! Exclude age\nfrom being visible in my profile."
+                    app:layout_constraintBottom_toBottomOf="@id/view"
+                    app:layout_constraintEnd_toStartOf="@id/scExcludeAge"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintStart_toStartOf="@id/view"
+                    app:layout_constraintTop_toTopOf="@id/view" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/scExcludeAge"
+                    style="@style/SwitchCompatStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    app:layout_constraintBottom_toBottomOf="@id/view"
+                    app:layout_constraintEnd_toEndOf="@id/view"
+                    app:layout_constraintTop_toTopOf="@id/view" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_calculate"
+                    style="@style/Widget.Radar.Text"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:text="@string/age_18"
+                    android:visibility="gone"
+                    android:textSize="@dimen/_22sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_cant"
+                    style="@style/Widget.Radar.Text"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:text="@string/this_can_t_be_changed_later"
+                    android:textSize="@dimen/_12sdp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_calculate" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/rl_photo"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginStart="@dimen/_30sdp"
+                    android:layout_marginTop="@dimen/_45sdp"
+                    android:layout_marginEnd="@dimen/_25sdp"
+                    android:background="@drawable/dotted_outline"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_verification">
+
+                    <ImageView
+                        android:id="@+id/iv_camera"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_30sdp"
+                        android:background="@drawable/ic_camera_green"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/tv_add_more"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_add_more"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="@dimen/_20sdp"
+                        android:gravity="center"
+                        android:text="@string/add_more"
+                        android:textColor="@color/mobile_back"
+                        android:textSize="@dimen/_14sdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/iv_camera"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_continue"
+            style="@style/Widget.Radar.Text.Content.SemiBold"
+            android:layout_width="0dp"
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:background="@drawable/green_fill_rect"
+            android:gravity="center"
+            android:padding="@dimen/_10sdp"
+            android:text="@string/next"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

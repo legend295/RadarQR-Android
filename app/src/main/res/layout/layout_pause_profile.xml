@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="response"
+            type="com.radarqr.dating.android.data.model.accountdetails.AccountDetailsResponse" />
+
+        <variable
+            name="clickHandler"
+            type="com.radarqr.dating.android.utility.handler.ViewClickHandler" />
+
+        <variable
+            name="isPausedOrNot"
+            type="Boolean" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!--<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            android:elevation="@dimen/_10sdp"
+            android:visibility="gone">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:src="@drawable/logo_black" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_120sdp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_50sdp">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/iv_user_image"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:scaleType="fitCenter"
+                android:src="@drawable/unpaused_user_profile" />
+            &lt;!&ndash;android:src="@{isPausedOrNot? @drawable/paused_user_profile : @drawable/unpaused_user_profile, default=@drawable/paused_user_profile}" />&ndash;&gt;
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_alignBottom="@id/iv_user_image"
+                android:layout_centerInParent="true"
+                android:layout_marginBottom="-20dp"
+                android:background="@drawable/bg_pause_round"
+                android:padding="@dimen/_13sdp"
+                android:src="@drawable/pause"
+                android:visibility="@{isPausedOrNot? View.VISIBLE : View.GONE}" />
+
+            &lt;!&ndash;  <androidx.appcompat.widget.AppCompatImageView
+                  android:id="@+id/iv_user_image"
+                  android:layout_width="@dimen/_80sdp"
+                  android:layout_height="@dimen/_150sdp"
+                  android:layout_gravity="center"
+                  android:layout_margin="@dimen/_40sdp"
+                  android:src="@drawable/unpaused_user_profile" />
+              &lt;!&ndash;android:src="@{isPausedOrNot? @drawable/paused_user_profile : @drawable/unpaused_user_profile, default=@drawable/paused_user_profile}" />&ndash;&gt;
+
+              <androidx.appcompat.widget.AppCompatImageView
+                  android:layout_width="@dimen/_80sdp"
+                  android:layout_height="wrap_content"
+                  android:layout_centerHorizontal="true"
+                  android:layout_marginTop="@dimen/_70sdp"
+                  android:src="@drawable/ic_pause"
+                  android:visibility="@{isPausedOrNot? View.VISIBLE : View.GONE}" />&ndash;&gt;
+        </RelativeLayout>-->
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivPause"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:src="@drawable/pause"
+            app:layout_constraintBottom_toTopOf="@id/tvBreak"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+        <!--android:visibility="@{isPausedOrNot? View.VISIBLE : View.GONE}"-->
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvBreak"
+            style="@style/Widget.Radar.Text.Header.Bold"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:text="@string/take_a_break"
+            app:layout_constraintVertical_bias=".43"
+            app:layout_constraintBottom_toTopOf="@id/tv_pause_unpause_profile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            style="@style/Widget.Radar.Text.Content"
+            android:layout_width="0dp"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/_5sdp"
+            android:gravity="center"
+            android:text="@{isPausedOrNot ? @string/unpause_long_txt : @string/you_ve_requested_to_pause_your_profile_n_nyou_will_be_unable_to_search_and_your_profile_will_only_be_visible_to_your_connections_and_those_you_ve_previously_liked}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvBreak"
+            tools:text="@string/you_ve_requested_to_pause_your_profile_n_nyou_will_be_unable_to_search_and_your_profile_will_only_be_visible_to_your_connections_and_those_you_ve_previously_liked" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_pause_unpause_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_15sdp"
+            android:background="@drawable/green_fill_rect"
+            android:gravity="center"
+            android:onClick="@{clickHandler::onClick}"
+            android:padding="@dimen/_10sdp"
+            android:text="@{isPausedOrNot? `Unpause Profile` : @string/confirm}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

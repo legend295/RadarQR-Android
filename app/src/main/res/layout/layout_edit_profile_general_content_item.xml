@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.radarqr.dating.android.ui.home.settings.model.EditProfileGeneralContentData" />
+
+        <variable
+            name="fromEditProfile"
+            type="Boolean" />
+
+        <import type="androidx.core.text.HtmlCompat" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_1sdp"
+        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginEnd="@dimen/_1sdp"
+        android:layout_marginBottom="@dimen/_4sdp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/_8sdp"
+        app:cardElevation="1dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_2sdp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                style="@style/Widget.Radar.Text"
+                android:layout_width="0dp"
+                android:padding="@dimen/_10sdp"
+                android:text="@{data.title}"
+                android:textColor="@color/icons_color"
+                tools:text="@string/select"
+                app:layout_constraintEnd_toStartOf="@id/guideline"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".4" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvData"
+                style="@style/Widget.Radar.Text.Bold"
+                android:layout_width="0dp"
+                android:gravity="end"
+                tools:text="@string/select"
+                android:padding="@dimen/_10sdp"
+                android:text="@{ data.value.isEmpty()? fromEditProfile? `` : @string/select : data.value}"
+                android:textColor="@{data.value.isEmpty()? @color/icons_color : @color/iconsColorDark}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/guideline"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

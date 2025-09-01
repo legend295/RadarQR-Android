@@ -1,0 +1,348 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+//    id 'kotlin-android-extensions'
+    id 'kotlin-parcelize'
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
+}
+
+def keyStoreProperties = new Properties()
+keyStoreProperties.load(new FileInputStream(rootProject.file("keystore.properties")))
+
+def versionProperties = new Properties()
+versionProperties.load(new FileInputStream(rootProject.file("version.properties")))
+repositories {
+    google()
+    jcenter()
+    maven {
+        url "https://github.com/QuickBlox/quickblox-android-sdk-releases/raw/master/"
+    }
+
+}
+
+android {
+    signingConfigs {
+        release {
+            storeFile file(keyStoreProperties["storeFile"])
+            storePassword keyStoreProperties["storePassword"]
+            keyPassword keyStoreProperties["keyPassword"]
+            keyAlias keyStoreProperties["keyAlias"]
+        }
+    }
+    compileSdkVersion 33
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.radarqr.dating.android"
+        minSdkVersion 21
+        targetSdkVersion 33
+        versionCode 16
+        versionName "1"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', 'BASE_URL', keyStoreProperties['BASE_URL_PRODUCTION']
+            buildConfigField 'String', 'SERVER_URL', keyStoreProperties['SERVER_URL_PRODUCTION']
+            resValue 'string', 'api_key', keyStoreProperties['API_KEY_PRODUCTION']
+            resValue 'string', 'sender_id', keyStoreProperties['SENDER_ID_PRODUCTION']
+            resValue 'string', 'qb_environment_manifest', keyStoreProperties['QB_ENVIRONMENT_MANIFEST_PRODUCTION']
+            buildConfigField 'String', 'BUCKET_NAME', keyStoreProperties['BUCKET_NAME_PRODUCTION']
+            buildConfigField 'String', 'BUCKET_NAME_MEDIUM', keyStoreProperties['BUCKET_NAME_MEDIUM_PRODUCTION']
+            buildConfigField 'String', 'BUCKET_NAME_THUMB', keyStoreProperties['BUCKET_NAME_THUMB_PRODUCTION']
+            buildConfigField 'String', 'BUCKET_NAME_VENUE', keyStoreProperties['BUCKET_NAME_VENUE_PRODUCTION']
+            buildConfigField 'String', 'BUCKET_NAME_VENUE_MEDIUM', keyStoreProperties['BUCKET_NAME_VENUE_PRODUCTION_MEDIUM']
+            buildConfigField 'String', 'BUCKET_NAME_VENUE_THUMB', keyStoreProperties['BUCKET_NAME_VENUE_PRODUCTION_THUMB']
+            buildConfigField 'String', 'APPLICATION_ID', keyStoreProperties['QUICK_BLOX_APPLICATION_ID_PRODUCTION']
+            buildConfigField 'String', 'AUTH_KEY', keyStoreProperties['QUICK_BLOX_AUTH_KEY_PRODUCTION']
+            buildConfigField 'String', 'AUTH_SECRET', keyStoreProperties['QUICK_BLOX_AUTH_SECRET_PRODUCTION']
+            buildConfigField 'String', 'ACCOUNT_KEY', keyStoreProperties['QUICK_BLOX_ACCOUNT_KEY_PRODUCTION']
+            buildConfigField 'String', 'QB_ENVIRONMENT', keyStoreProperties['QB_ENVIRONMENT_PRODUCTION']
+            buildConfigField 'String', 'ENVIRONMENT_TYPE', keyStoreProperties['ENVIRONMENT_TYPE_RELEASE']
+            buildConfigField 'String', 'COUNTRY_CODE', keyStoreProperties['COUNTRY_CODE_RELEASE']
+            buildConfigField 'String', 'RC_API_KEY', keyStoreProperties['RC_GOOGLE_API_KEY']
+            resValue 'string', 'web_client_id', keyStoreProperties['WEB_CLIENT_ID_PRODUCTION']
+            signingConfig signingConfigs.release
+//            initWith prod
+        }
+
+        debug {
+            buildConfigField 'String', 'BASE_URL', keyStoreProperties['BASE_URL_DEVELOPMENT']
+            buildConfigField 'String', 'SERVER_URL', keyStoreProperties['SERVER_URL_DEVELOPMENT']
+            resValue 'string', 'api_key', keyStoreProperties['API_KEY_DEVELOPMENT']
+            resValue 'string', 'sender_id', keyStoreProperties['SENDER_ID_DEVELOPMENT']
+            resValue 'string', 'qb_environment_manifest', keyStoreProperties['QB_ENVIRONMENT_MANIFEST_DEVELOPMENT']
+            buildConfigField 'String', 'BUCKET_NAME', keyStoreProperties['BUCKET_NAME_DEVELOPMENT']
+            buildConfigField 'String', 'BUCKET_NAME_MEDIUM', keyStoreProperties['BUCKET_NAME_MEDIUM_DEVELOPMENT']
+            buildConfigField 'String', 'BUCKET_NAME_THUMB', keyStoreProperties['BUCKET_NAME_THUMB_DEVELOPMENT']
+            buildConfigField 'String', 'BUCKET_NAME_VENUE', keyStoreProperties['BUCKET_NAME_VENUE_DEVELOPMENT']
+            buildConfigField 'String', 'BUCKET_NAME_VENUE_MEDIUM', keyStoreProperties['BUCKET_NAME_VENUE_DEVELOPMENT_MEDIUM']
+            buildConfigField 'String', 'BUCKET_NAME_VENUE_THUMB', keyStoreProperties['BUCKET_NAME_VENUE_DEVELOPMENT_THUMB']
+            buildConfigField 'String', 'APPLICATION_ID', keyStoreProperties['QUICK_BLOX_APPLICATION_ID_DEVELOPMENT']
+            buildConfigField 'String', 'AUTH_KEY', keyStoreProperties['QUICK_BLOX_AUTH_KEY_DEVELOPMENT']
+            buildConfigField 'String', 'AUTH_SECRET', keyStoreProperties['QUICK_BLOX_AUTH_SECRET_DEVELOPMENT']
+            buildConfigField 'String', 'ACCOUNT_KEY', keyStoreProperties['QUICK_BLOX_ACCOUNT_KEY_DEVELOPMENT']
+            buildConfigField 'String', 'QB_ENVIRONMENT', keyStoreProperties['QB_ENVIRONMENT_DEVELOPMENT']
+            buildConfigField 'String', 'ENVIRONMENT_TYPE', keyStoreProperties['ENVIRONMENT_TYPE_DEVELOPMENT']
+            buildConfigField 'String', 'COUNTRY_CODE', keyStoreProperties['COUNTRY_CODE_DEVELOPMENT']
+            buildConfigField 'String', 'RC_API_KEY', keyStoreProperties['RC_GOOGLE_API_KEY']
+            resValue 'string', 'web_client_id', keyStoreProperties['WEB_CLIENT_ID_DEVELOPMENT']
+        }
+        staging {
+            initWith debug  // Comment this when uploading staging build over playstore
+            buildConfigField 'String', 'BASE_URL', keyStoreProperties['BASE_URL_STAGING']
+            buildConfigField 'String', 'SERVER_URL', keyStoreProperties['SERVER_URL_STAGING']
+            resValue 'string', 'api_key', keyStoreProperties['API_KEY_STAGING']
+            resValue 'string', 'sender_id', keyStoreProperties['SENDER_ID_STAGING']
+            resValue 'string', 'qb_environment_manifest', keyStoreProperties['QB_ENVIRONMENT_MANIFEST_STAGING']
+            buildConfigField 'String', 'BUCKET_NAME', keyStoreProperties['BUCKET_NAME_STAGING']
+            buildConfigField 'String', 'BUCKET_NAME_MEDIUM', keyStoreProperties['BUCKET_NAME_MEDIUM_STAGING']
+            buildConfigField 'String', 'BUCKET_NAME_THUMB', keyStoreProperties['BUCKET_NAME_THUMB_STAGING']
+            buildConfigField 'String', 'BUCKET_NAME_VENUE', keyStoreProperties['BUCKET_NAME_VENUE_DEVELOPMENT']
+            buildConfigField 'String', 'BUCKET_NAME_VENUE_MEDIUM', keyStoreProperties['BUCKET_NAME_VENUE_DEVELOPMENT_MEDIUM']
+            buildConfigField 'String', 'BUCKET_NAME_VENUE_THUMB', keyStoreProperties['BUCKET_NAME_VENUE_DEVELOPMENT_THUMB']
+            buildConfigField 'String', 'APPLICATION_ID', keyStoreProperties['QUICK_BLOX_APPLICATION_ID_STAGING']
+            buildConfigField 'String', 'AUTH_KEY', keyStoreProperties['QUICK_BLOX_AUTH_KEY_STAGING']
+            buildConfigField 'String', 'AUTH_SECRET', keyStoreProperties['QUICK_BLOX_AUTH_SECRET_STAGING']
+            buildConfigField 'String', 'ACCOUNT_KEY', keyStoreProperties['QUICK_BLOX_ACCOUNT_KEY_STAGING']
+            buildConfigField 'String', 'QB_ENVIRONMENT', keyStoreProperties['QB_ENVIRONMENT_STAGING']
+            buildConfigField 'String', 'ENVIRONMENT_TYPE', keyStoreProperties['ENVIRONMENT_TYPE_STAGING']
+            buildConfigField 'String', 'COUNTRY_CODE', keyStoreProperties['COUNTRY_CODE_STAGING']
+            buildConfigField 'String', 'RC_API_KEY', keyStoreProperties['RC_GOOGLE_API_KEY']
+            resValue 'string', 'web_client_id', keyStoreProperties['WEB_CLIENT_ID_STAGING']
+        }
+        prod {
+            initWith debug
+            buildConfigField 'String', 'BASE_URL', keyStoreProperties['BASE_URL_PRODUCTION']
+            buildConfigField 'String', 'SERVER_URL', keyStoreProperties['SERVER_URL_PRODUCTION']
+            resValue 'string', 'api_key', keyStoreProperties['API_KEY_PRODUCTION']
+            resValue 'string', 'sender_id', keyStoreProperties['SENDER_ID_PRODUCTION']
+            resValue 'string', 'qb_environment_manifest', keyStoreProperties['QB_ENVIRONMENT_MANIFEST_PRODUCTION']
+            buildConfigField 'String', 'BUCKET_NAME', keyStoreProperties['BUCKET_NAME_PRODUCTION']
+            buildConfigField 'String', 'BUCKET_NAME_MEDIUM', keyStoreProperties['BUCKET_NAME_MEDIUM_PRODUCTION']
+            buildConfigField 'String', 'BUCKET_NAME_THUMB', keyStoreProperties['BUCKET_NAME_THUMB_PRODUCTION']
+            buildConfigField 'String', 'BUCKET_NAME_VENUE', keyStoreProperties['BUCKET_NAME_VENUE_PRODUCTION']
+            buildConfigField 'String', 'BUCKET_NAME_VENUE_MEDIUM', keyStoreProperties['BUCKET_NAME_VENUE_PRODUCTION_MEDIUM']
+            buildConfigField 'String', 'BUCKET_NAME_VENUE_THUMB', keyStoreProperties['BUCKET_NAME_VENUE_PRODUCTION_THUMB']
+            buildConfigField 'String', 'APPLICATION_ID', keyStoreProperties['QUICK_BLOX_APPLICATION_ID_PRODUCTION']
+            buildConfigField 'String', 'AUTH_KEY', keyStoreProperties['QUICK_BLOX_AUTH_KEY_PRODUCTION']
+            buildConfigField 'String', 'AUTH_SECRET', keyStoreProperties['QUICK_BLOX_AUTH_SECRET_PRODUCTION']
+            buildConfigField 'String', 'ACCOUNT_KEY', keyStoreProperties['QUICK_BLOX_ACCOUNT_KEY_PRODUCTION']
+            buildConfigField 'String', 'QB_ENVIRONMENT', keyStoreProperties['QB_ENVIRONMENT_PRODUCTION']
+            buildConfigField 'String', 'ENVIRONMENT_TYPE', keyStoreProperties['ENVIRONMENT_TYPE_PRODUCTION']
+            buildConfigField 'String', 'COUNTRY_CODE', keyStoreProperties['COUNTRY_CODE_PRODUCTION']
+            buildConfigField 'String', 'RC_API_KEY', keyStoreProperties['RC_GOOGLE_API_KEY']
+            resValue 'string', 'web_client_id', keyStoreProperties['WEB_CLIENT_ID_PRODUCTION']
+        }
+
+    }
+    flavorDimensions 'type'
+    productFlavors {
+        devlopment {
+            dimension 'type'
+            applicationIdSuffix ".dev"
+            versionNameSuffix '.0.9'
+           /* manifestPlaceholders = [appIcon     : "@drawable/ic_new_logo",
+                                    appIconRound: "@drawable/ic_new_logo"]*/
+        }
+        dev {
+            dimension 'type'
+            versionNameSuffix '.0.13'
+        }
+        production {
+            dimension 'type'
+            versionNameSuffix '.0.15'
+            /*manifestPlaceholders = [appIcon     : "@drawable/ic_new_logo",
+                                    appIconRound: "@drawable/ic_new_logo"]*/
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+    configurations.all {
+        resolutionStrategy.force 'com.google.code.findbugs:jsr305:1.3.9'
+        exclude module: 'httpclient'
+    }
+    buildFeatures {
+        dataBinding = true
+    }
+    namespace 'com.radarqr.dating.android'
+
+    /*viewBinding {
+        enabled = true
+    }*/
+
+}
+
+
+dependencies {
+    implementation project(":library")
+    //    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.0"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.6.10"
+    implementation 'androidx.core:core-ktx:1.6.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    //view model save state
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-savedstate:1.0.0-alpha02'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
+    //    implementation 'com.ablanco.zoomy:zoomy:1.1.0'
+
+    //    implementation 'com.yashoid:instacropper:1.2.0'
+    implementation 'com.intuit.sdp:sdp-android:1.1.0'
+    implementation 'com.github.florent37:singledateandtimepicker:2.2.7'
+    //chips layout manager
+//    implementation 'com.beloo.widget:ChipsLayoutManager:0.3.7@aar'
+    //s3 bucket
+    implementation('com.amazonaws:aws-android-sdk-mobile-client:2.6.31@aar') { transitive = true }
+    implementation 'com.amazonaws:aws-android-sdk-cognito:2.18.0'
+    implementation 'com.amazonaws:aws-android-sdk-s3:2.23.0'
+    implementation 'com.amazonaws:aws-android-sdk-cognitoidentityprovider:2.23.0'
+    //phone number util
+    //    implementation 'com.googlecode.libphonenumber:libphonenumber:7.2.2'
+    //    implementation 'com.github.dhaval2404:imagepicker:1.7.5'
+    //QR Code generation library
+//    implementation 'androidmads.library.qrgenearator:QRGenearator:1.0.5'
+    //    implementation 'com.google.zxing:core:3.3.2'
+    //scaner
+    implementation 'com.github.yuriy-budiyev:code-scanner:2.3.2'
+    //Koin
+//    implementation "org.koin:koin-androidx-scope:$koin_version"
+//    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
+//    implementation "org.koin:koin-android:$koin_version"
+//    implementation "org.koin:koin-androidx-fragment:$koin_version"
+    implementation "io.insert-koin:koin-android:3.3.2"
+//    implementation 'me.jessyan:retrofit-url-manager:1.4.0'
+    //range seekbar
+    //    implementation "com.rizlee.view:rangeseekbar:1.0.0"
+    //    implementation 'com.crystal:crystalrangeseekbar:1.1.3'
+    implementation 'com.github.hearsilent:DiscreteSlider:1.2.1'
+    //quick blox
+    implementation "com.quickblox:quickblox-android-sdk-messages:$qbSdkVersion"
+    implementation "com.quickblox:quickblox-android-sdk-chat:$qbSdkVersion"
+    implementation "com.quickblox:quickblox-android-sdk-content:$qbSdkVersion"
+    implementation "com.quickblox:quickblox-android-sdk-customobjects:$qbSdkVersion"
+    implementation "com.google.android.gms:play-services-gcm:17.0.0"
+    implementation "com.quickblox:quickblox-android-sdk-core:$qbSdkVersion"
+    //    implementation "com.google.firebase:firebase-messaging:17.0.0"
+    implementation "com.google.firebase:firebase-core:20.0.0"
+    // ViewModel and LiveData
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
+    //swipe refersh
+    //    implementation "com.github.orangegangsters:swipy:1.2.3@aar"
+
+    implementation "com.timehop.stickyheadersrecyclerview:library:0.4.2@aar"
+
+    //data store preference data
+    implementation "androidx.datastore:datastore-preferences:1.0.0"
+    implementation "androidx.datastore:datastore-core:1.0.0"
+//    image compressor
+    implementation 'id.zelory:compressor:3.0.1'
+    implementation 'com.android.volley:volley:1.2.1'
+    //circle viewpager indicator
+//    implementation 'me.relex:circleindicator:2.1.4'
+
+//    implementation 'com.hbb20:ccp:2.4.2'
+    implementation 'io.michaelrocks:libphonenumber-android:8.12.52'
+    // Retrofit 2
+    implementation deps.retrofit
+    implementation deps.retrofitgson
+    implementation deps.retrofitrx
+    implementation deps.okhttplogger
+    //coroutine
+    implementation deps.coroutineCore
+    implementation deps.coroutineAndroid
+    //app compact
+    implementation deps.appcompatv7
+    implementation deps.design
+
+    implementation deps.glide
+
+    //for image
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+    //otp library
+    //    implementation 'io.github.chaosleung:pinview:1.4.4'
+    //google services
+    implementation 'com.google.android.libraries.places:places:2.4.0'
+    implementation 'com.google.android.gms:play-services-location:21.1.0'
+    //map util
+    implementation 'com.google.maps.android:android-maps-utils:2.0.3'
+    implementation 'com.google.android.gms:play-services-maps:17.0.1'
+
+    //
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
+    //fire base messaging services
+    implementation 'com.google.firebase:firebase-messaging:17.0.0'
+
+    implementation platform('com.google.firebase:firebase-bom:28.4.0')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    implementation 'com.google.firebase:firebase-dynamic-links-ktx'
+
+    implementation 'com.airbnb.android:lottie:4.1.0'
+
+
+    //    implementation 'com.github.tizisdeepan:videoeditor:1.0.8'
+
+
+    //exoplayer
+    implementation 'com.google.android.exoplayer:exoplayer:2.15.0'
+
+    //facebook
+    implementation 'com.facebook.android:facebook-login:16.0.0'
+    //google
+    implementation 'com.google.android.gms:play-services-auth:19.2.0'
+
+    // Work
+    implementation 'androidx.work:work-runtime-ktx:2.7.1'
+
+    // Glide transformations
+    implementation 'jp.wasabeef:glide-transformations:4.3.0'
+
+//    implementation 'com.github.aarsy.googlemapsanimations:googlemapsanimations:1.0.5'
+
+
+    //croper
+    //    implementation 'com.yashoid:instacropper:1.2.0'
+//    implementation 'com.gauravbhola.ripplepulsebackground:library:1.0.0'
+
+    def billing_version = "6.1.0"
+
+//    implementation "com.android.billingclient:billing:$billing_version"
+    implementation "com.android.billingclient:billing-ktx:$billing_version"
+
+    //revenueCat
+    implementation 'com.revenuecat.purchases:purchases:7.0.0'
+
+    //MixPanel
+    implementation 'com.mixpanel.android:mixpanel-android:7.5.2'
+
+    // Zxing library for QR code
+    implementation 'com.google.zxing:core:3.2.1'
+    implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
+}

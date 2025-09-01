@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="WheelPicker">
+        <attr name="wheel_data" format="reference"/>
+        <attr name="wheel_selected_item_position" format="integer"/>
+        <attr name="wheel_item_text_size" format="dimension"/>
+        <attr name="wheel_item_text_color" format="color"/>
+        <attr name="wheel_selected_item_text_color" format="color"/>
+        <attr name="wheel_same_width" format="boolean"/>
+        <attr name="wheel_maximum_width_text" format="string"/>
+        <attr name="wheel_maximum_width_text_position" format="integer"/>
+        <attr name="wheel_visible_item_count" format="integer"/>
+        <attr name="wheel_item_space" format="dimension"/>
+        <attr name="wheel_cyclic" format="boolean"/>
+        <attr name="wheel_indicator" format="boolean"/>
+        <attr name="wheel_indicator_color" format="color"/>
+        <attr name="wheel_indicator_size" format="dimension"/>
+        <attr name="wheel_curtain" format="boolean"/>
+        <attr name="wheel_curtain_color" format="color"/>
+        <attr name="wheel_atmospheric" format="boolean"/>
+        <attr name="wheel_curved" format="boolean"/>
+        <attr name="wheel_item_align" format="enum">
+            <enum name="center" value="0"/>
+            <enum name="left" value="1"/>
+            <enum name="right" value="2"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="SingleDateAndTimePicker">
+        <attr name="picker_todayText" format="string"/>
+        <attr name="picker_textColor" format="color"/>
+        <attr name="picker_selectedTextColor" format="color"/>
+        <attr name="picker_textSize" format="dimension"/>
+        <attr name="picker_curved" format="boolean"/>
+        <attr name="picker_curvedMaxAngle" format="integer"/>
+        <attr name="picker_cyclic" format="boolean"/>
+        <attr name="picker_mustBeOnFuture" format="boolean"/>
+        <attr name="picker_itemSpacing" format="dimension"/>
+        <attr name="picker_visibleItemCount" format="integer"/>
+        <attr name="picker_selectorColor" format="color"/>
+        <attr name="picker_selectorHeight" format="dimension"/>
+        <attr name="picker_displayMonth" format="boolean"/>
+        <attr name="picker_displayYears" format="boolean"/>
+        <attr name="picker_displayDays" format="boolean"/>
+        <attr name="picker_displayDaysOfMonth" format="boolean" />
+        <attr name="picker_displayMinutes" format="boolean"/>
+        <attr name="picker_displayHours" format="boolean"/>
+        <attr name="picker_displayMonthNumbers" format="boolean" />
+        <attr name="picker_dayCount" format="integer" />
+        <attr name="picker_stepSizeMinutes" format="integer" />
+        <attr name="picker_stepSizeHours" format="integer" />
+        <attr name="picker_monthFormat" format="string"/>
+        <attr name="picker_textAlign" format="enum">
+            <enum name="center" value="0"/>
+            <enum name="left" value="1"/>
+            <enum name="right" value="2"/>
+        </attr>
+        <attr name="android:fontFamily"/>
+        <attr name="fontFamily"/>
+    </declare-styleable>
+
+    <declare-styleable name="RangeSeekBar">
+        <attr name="minValue" format="float" />
+        <attr name="maxValue" format="float" />
+        <attr name="type" format="integer"/>
+        <attr name="stepValue" format="float" />
+        <attr name="valueType">
+            <enum name="intType" value="6" />
+            <enum name="floatType" value="7" />
+        </attr>
+
+        <!-- ready -->
+        <attr name="enableGradient" format="boolean" />
+        <attr name="textColor" format="color" />
+
+        <attr name="showThumbsText">
+            <enum name="none" value="0" />
+            <enum name="below" value="1" />
+            <enum name="above" value="2" />
+            <enum name="center" value="3" />
+        </attr>
+
+        <attr name="thumbsTextMargin" format="dimension" />
+        <attr name="additionalTextMargin" format="dimension" />
+
+        <attr name="showAdditionalText">
+            <enum name="none" value="0" />
+            <enum name="below" value="1" />
+            <enum name="above" value="2" />
+            <enum name="center" value="3" />
+        </attr>
+
+        <attr name="roundedCorners" format="boolean" />
+        <attr name="barHeight" format="dimension" />
+
+        <attr name="active" format="boolean" />
+
+        <attr name="textFont" format="reference" />
+        <attr name="textSize" format="dimension" />
+
+        <attr name="centerText" format="string" />
+        <attr name="rightText" format="string" />
+        <attr name="leftText" format="string" />
+
+        <attr name="thumbsNormal" format="reference" />
+        <attr name="thumbsPressed" format="reference" />
+        <attr name="thumbsDisabled" format="reference" />
+
+        <attr name="sideColor" format="color" />
+        <attr name="transitionColor" format="color" />
+        <attr name="centerColor" format="color" />
+    </declare-styleable>
+
+
+    <declare-styleable name="AVLoadingIndicatorView">
+        <attr name="minWidth" format="dimension" />
+        <attr name="maxWidth" format="dimension"/>
+        <attr name="minHeight" format="dimension" />
+        <attr name="maxHeight" format="dimension"/>
+        <attr name="indicatorName" format="string"/>
+        <attr name="indicatorColor" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="InstaTag">
+        <attr name="canWeAddTags" format="boolean"/>
+        <!--
+        Used for restricting taggedUser movement when we are not tagging photos.
+                (For example we are using InstaTag inside RecyclerView we have to provide false
+        -->
+        <attr name="overrideDefaultColor" format="color"/>
+        <!--
+        Used to change Default Color being used for Tag Background & Tag Top Carrot
+        -->
+        <attr name="instaTextColor" format="color"/>
+        <!-- Used for changing Tag text Color -->
+        <attr name="instaBackgroundColor" format="color"/>
+        <!--
+        Used for changing background color for Tag background
+        -->
+        <attr name="carrotTopColor" format="color"/>
+        <!-- Used for changing Top Carrot color -->
+        <attr name="tagTextBackground" format="reference"/>
+        <!--
+        Used for changing taggedUser background with custom background
+        -->
+        <attr name="carrotTopBackground" format="reference"/>
+        <!--
+        Used for replacing top carrot background with custom background
+        -->
+        <attr name="hideAnimation" format="reference"/>
+        <!-- Used for animating taggedUser while hiding -->
+        <attr name="showAnimation" format="reference"/>
+        <!-- Used for animating taggedUser while showing -->
+        <attr name="likeColor" format="color"/>
+        <!-- Used for setting like color -->
+        <attr name="likeSize" format="dimension"/>
+        <!-- Used for setting like size -->
+        <attr name="likeSrc" format="reference"/>
+        <!-- Used for setting source for like -->
+    </declare-styleable>
+
+    <declare-styleable name="OtpTextView">
+        <attr name="android:textColor" />
+        <attr name="otp" format="string" />
+        <attr name="hide_otp" format="boolean" />
+        <attr name="hide_otp_drawable" format="reference" />
+        <attr name="length" format="integer" />
+        <attr name="width" format="dimension" />
+        <attr name="height" format="dimension" />
+        <attr name="box_margin" format="dimension" />
+        <attr name="box_margin_left" format="dimension" />
+        <attr name="box_margin_right" format="dimension" />
+        <attr name="box_margin_top" format="dimension" />
+        <attr name="box_margin_bottom" format="dimension" />
+        <attr name="bar_height" format="dimension" />
+        <attr name="bar_enabled" format="boolean" />
+        <attr name="otp_box_background" format="reference" />
+        <attr name="otp_box_background_active" format="reference" />
+        <attr name="otp_box_background_inactive" format="reference" />
+        <attr name="otp_box_background_success" format="reference" />
+        <attr name="otp_box_background_error" format="reference" />
+        <attr name="bar_margin" format="dimension" />
+        <attr name="bar_margin_bottom" format="dimension" />
+        <attr name="bar_margin_right" format="dimension" />
+        <attr name="bar_margin_left" format="dimension" />
+        <attr name="bar_margin_top" format="dimension" />
+        <attr name="otp_text_size" format="dimension" />
+        <attr name="bar_active_color" format="color" />
+        <attr name="bar_inactive_color" format="color" />
+        <attr name="bar_error_color" format="color" />
+        <attr name="bar_success_color" format="color" />
+        <attr name="text_typeface" format="string" />
+        <attr name="otp_box_match_parent" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="DiscreteScrollView">
+        <attr name="dsv_orientation" format="enum">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <attr name="fastscroll__style" format="reference" />
+    <declare-styleable name="fastscroll__fastScroller">
+        <attr name="fastscroll__bubbleColor" format="color" />
+        <attr name="fastscroll__handleColor" format="color" />
+        <attr name="fastscroll__bubbleTextAppearance" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="CountryCodePicker">
+        <!--{@deprecated Use defaultNameCode instead.}-->
+        <attr name="ccp_defaultPhoneCode" format="integer" />
+        <attr name="ccp_contentColor" format="color" />
+        <attr name="ccp_arrowColor" format="color" />
+        <attr name="ccp_textSize" format="dimension" />
+        <attr name="ccp_arrowSize" format="dimension" />
+        <attr name="ccp_customMasterCountries" format="string" />
+        <attr name="ccp_excludedCountries" format="string" />
+        <attr name="ccp_flagBorderColor" format="color" />
+        <attr name="ccp_countryPreference" format="string" />
+        <attr name="ccp_defaultNameCode" format="string" />
+        <attr name="ccp_selectionMemoryTag" format="string" />
+        <attr name="ccp_useFlagEmoji" format="boolean" /> <!-- beta -->
+        <attr name="ccp_useDummyEmojiForPreview" format="boolean" /> <!-- beta -->
+
+        <attr name="ccp_textGravity" format="enum">
+            <enum name="LEFT" value="-1" />
+            <enum name="RIGHT" value="1" />
+            <enum name="CENTER" value="0" />
+        </attr>
+        <attr name="ccp_hintExampleNumberType" format="enum">
+            <enum name="MOBILE" value="0" />
+            <enum name="FIXED_LINE" value="1" />
+            <enum name="FIXED_LINE_OR_MOBILE" value="2" />
+            <enum name="TOLL_FREE" value="3" />
+            <enum name="PREMIUM_RATE" value="4" />
+            <enum name="SHARED_COST" value="5" />
+            <enum name="VOIP" value="6" />
+            <enum name="PERSONAL_NUMBER" value="7" />
+            <enum name="PAGER" value="8" />
+            <enum name="UAN" value="9" />
+            <enum name="VOICEMAIL" value="10" />
+            <enum name="UNKNOWN" value="11" />
+
+        </attr>
+
+
+        <!--CCP dimension properties-->
+        <attr name="ccp_padding" format="dimension" />
+
+        <!--CCP bool properties-->
+        <attr name="ccp_showNameCode" format="boolean" />
+        <attr name="ccp_showFlag" format="boolean" />
+        <attr name="ccp_showFullName" format="boolean" />
+        <attr name="ccp_internationalFormattingOnly" format="boolean" />
+        <attr name="ccp_clickable" format="boolean" />
+        <attr name="ccp_showPhoneCode" format="boolean" />
+        <attr name="ccp_autoDetectLanguage" format="boolean" />
+        <attr name="ccp_autoDetectCountry" format="boolean" />
+        <attr name="ccp_areaCodeDetectedCountry" format="boolean" />
+        <attr name="ccp_autoFormatNumber" format="boolean" />
+        <attr name="ccp_hintExampleNumber" format="boolean" />
+        <attr name="ccp_rememberLastSelection" format="boolean" />
+        <attr name="ccp_showArrow" format="boolean" />
+        <attr name="ccp_rippleEnable" format="boolean" />
+
+        <!--CCP Dialog properties-->
+        <attr name="ccpDialog_keyboardAutoPopup" format="boolean" />
+        <attr name="ccpDialog_allowSearch" format="boolean" />
+        <attr name="ccpDialog_showPhoneCode" format="boolean" />
+        <attr name="ccpDialog_showNameCode" format="boolean" />
+        <attr name="ccpDialog_showFlag" format="boolean" />
+        <attr name="ccpDialog_showFastScroller" format="boolean" />
+        <attr name="ccpDialog_fastScroller_bubbleColor" format="color" />
+        <attr name="ccpDialog_fastScroller_handleColor" format="color" />
+        <attr name="ccpDialog_fastScroller_bubbleTextAppearance" format="reference" />
+        <attr name="ccpDialog_backgroundColor" format="reference" />
+        <attr name="ccpDialog_background" format="reference" />
+        <attr name="ccpDialog_cornerRadius" format="dimension" />
+        <attr name="ccpDialog_textColor" format="color" />
+        <attr name="ccpDialog_searchEditTextTint" format="color" />
+        <attr name="ccpDialog_showCloseIcon" format="boolean" />
+        <attr name="ccpDialog_showTitle" format="boolean" />
+        <attr name="ccpDialog_initialScrollToSelection" format="boolean" />
+        <attr name="ccpDialog_rippleEnable" format="boolean" />
+        <!--list of languages-->
+        <!--Make sure: order in this list must match order of Language Enum in CountryCodePicker.java. Values must be ascending starting from 0.-->
+        <attr name="ccp_defaultLanguage" format="enum">
+            <enum name="AFRIKAANS" value="0" />
+            <enum name="ARABIC" value="1" />
+            <enum name="BASQUE" value="2" />
+            <enum name="BELARUSIAN" value="3" />
+            <enum name="BENGALI" value="4" />
+            <enum name="CHINESE_SIMPLIFIED" value="5" />
+            <enum name="CHINESE_TRADITIONAL" value="6" />
+            <enum name="CZECH" value="7" />
+            <enum name="DANISH" value="8" />
+            <enum name="DUTCH" value="9" />
+            <enum name="ENGLISH" value="10" />
+            <enum name="FARSI" value="11" />
+            <enum name="FRENCH" value="12" />
+            <enum name="GERMAN" value="13" />
+            <enum name="GREEK" value="14" />
+            <enum name="GUJARATI" value="15" />
+            <enum name="HAUSA" value="16" />
+            <enum name="HEBREW" value="17" />
+            <enum name="HINDI" value="18" />
+            <enum name="HUNGARIAN" value="19" />
+            <enum name="INDONESIA" value="20" />
+            <enum name="ITALIAN" value="21" />
+            <enum name="JAPANESE" value="22" />
+            <enum name="KAZAKH" value="23" />
+            <enum name="KOREAN" value="24" />
+            <enum name="LITHUANIAN" value="25" />
+            <enum name="MARATHI" value="26" />
+            <enum name="POLISH" value="27" />
+            <enum name="PORTUGUESE" value="28" />
+            <enum name="PUNJABI" value="29" />
+            <enum name="RUSSIAN" value="30" />
+            <enum name="SERBIAN" value="31" />
+            <enum name="SLOVAK" value="32" />
+            <enum name="SLOVENIAN" value="33" />
+            <enum name="SPANISH" value="34" />
+            <enum name="SWEDISH" value="35" />
+            <enum name="TAGALOG" value="36" />
+            <enum name="TAMIL" value="37" />
+            <enum name="THAI" value="38" />
+            <enum name="TURKISH" value="39" />
+            <enum name="UKRAINIAN" value="40" />
+            <enum name="URDU" value="41" />
+            <enum name="UZBEK" value="42" />
+            <enum name="VIETNAMESE" value="43" />
+        </attr>
+
+        <attr name="ccp_countryAutoDetectionPref" format="enum">
+            <enum name="SIM_ONLY" value="1" />
+            <enum name="NETWORK_ONLY" value="2" />
+            <enum name="LOCALE_ONLY" value="3" />
+            <enum name="SIM_NETWORK" value="12" />
+            <enum name="NETWORK_SIM" value="21" />
+            <enum name="SIM_LOCALE" value="13" />
+            <enum name="LOCALE_SIM" value="31" />
+            <enum name="NETWORK_LOCALE" value="23" />
+            <enum name="LOCALE_NETWORK" value="32" />
+            <enum name="SIM_NETWORK_LOCALE" value="123" />
+            <enum name="SIM_LOCALE_NETWORK" value="132" />
+            <enum name="NETWORK_SIM_LOCALE" value="213" />
+            <enum name="NETWORK_LOCALE_SIM" value="231" />
+            <enum name="LOCALE_SIM_NETWORK" value="312" />
+            <enum name="LOCALE_NETWORK_SIM" value="321" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="BaseCircleIndicator">
+        <attr name="ci_width" format="dimension"/>
+        <attr name="ci_height" format="dimension"/>
+        <attr name="ci_margin" format="dimension"/>
+        <attr name="ci_animator" format="reference"/>
+        <attr name="ci_animator_reverse" format="reference"/>
+        <attr name="ci_drawable" format="reference"/>
+        <attr name="ci_drawable_unselected" format="reference"/>
+
+        <attr name="ci_orientation" format="enum">
+            <!-- Defines an horizontal widget. -->
+            <enum name="horizontal" value="0"/>
+            <!-- Defines a vertical widget. -->
+            <enum name="vertical" value="1"/>
+        </attr>
+
+        <attr name="ci_gravity">
+            <!-- Push object to the top of its container, not changing its size. -->
+            <flag name="top" value="0x30"/>
+            <!-- Push object to the bottom of its container, not changing its size. -->
+            <flag name="bottom" value="0x50"/>
+            <!-- Push object to the left of its container, not changing its size. -->
+            <flag name="left" value="0x03"/>
+            <!-- Push object to the right of its container, not changing its size. -->
+            <flag name="right" value="0x05"/>
+            <!-- Place object in the vertical center of its container, not changing its size. -->
+            <flag name="center_vertical" value="0x10"/>
+            <!-- Grow the vertical size of the object if needed so it completely fills its container. -->
+            <flag name="fill_vertical" value="0x70"/>
+            <!-- Place object in the horizontal center of its container, not changing its size. -->
+            <flag name="center_horizontal" value="0x01"/>
+            <!-- Grow the horizontal size of the object if needed so it completely fills its container. -->
+            <flag name="fill_horizontal" value="0x07"/>
+            <!-- Place the object in the center of its container in both the vertical and horizontal axis, not changing its size. -->
+            <flag name="center" value="0x11"/>
+            <!-- Grow the horizontal and vertical size of the object if needed so it completely fills its container. -->
+            <flag name="fill" value="0x77"/>
+            <!-- Additional option that can be set to have the top and/or bottom edges of
+            the child clipped to its container's bounds.
+            The clip will be based on the vertical gravity: a top gravity will clip the bottom
+            edge, a bottom gravity will clip the top edge, and neither will clip both edges. -->
+            <flag name="clip_vertical" value="0x80"/>
+            <!-- Additional option that can be set to have the left and/or right edges of
+            the child clipped to its container's bounds.
+            The clip will be based on the horizontal gravity: a left gravity will clip the right
+            edge, a right gravity will clip the left edge, and neither will clip both edges. -->
+            <flag name="clip_horizontal" value="0x08"/>
+            <!-- Push object to the beginning of its container, not changing its size. -->
+            <flag name="start" value="0x00800003"/>
+            <!-- Push object to the end of its container, not changing its size. -->
+            <flag name="end" value="0x00800005"/>
+        </attr>
+
+    </declare-styleable>
+</resources>

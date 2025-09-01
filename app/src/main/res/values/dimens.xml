@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text_size_extra_large">@dimen/_30sdp</dimen>
+    <dimen name="text_size_large">@dimen/_23sdp</dimen>
+    <dimen name="text_size_heading">@dimen/_18sdp</dimen>
+    <dimen name="text_size_title">@dimen/_16sdp</dimen>
+    <dimen name="text_size_big_title">@dimen/_22sdp</dimen>
+    <dimen name="text_size_subtitle">@dimen/_15sdp</dimen>
+    <dimen name="text_size_body">@dimen/_13sdp</dimen>
+    <dimen name="text_size_menu">@dimen/_14sdp</dimen>
+    <dimen name="text_size_content">@dimen/_12sdp</dimen>
+    <dimen name="text_size_toolbar">@dimen/_12sdp</dimen>
+    <dimen name="text_size_small">@dimen/_10sdp</dimen>
+    <dimen name="text_size_tiny">@dimen/_8sdp</dimen>
+    <dimen name="text_size_footnote">@dimen/_12sdp</dimen>
+    <dimen name="text_size_button">@dimen/_13sdp</dimen>
+    <dimen name="text_size_medium">@dimen/_14sdp</dimen>
+
+    <dimen name="otp_view_item_size">48dp</dimen>
+    <dimen name="otp_view_item_radius">5dp</dimen>
+    <dimen name="otp_view_item_spacing">5dp</dimen>
+    <dimen name="otp_view_item_line_width">2dp</dimen>
+    <dimen name="otp_view_cursor_width">2dp</dimen>
+
+    <dimen name="top_margin">@dimen/_10sdp</dimen>
+
+    <dimen name="textview_text_size_normal">@dimen/_11sdp</dimen>
+    <dimen name="google_1x">8dp</dimen>
+    <dimen name="ccp_padding">8dp</dimen>
+    <dimen name="fastscroll__bubble_corner">20dp</dimen>
+    <dimen name="fastscroll__bubble_size">50dp</dimen>
+    <dimen name="fastscroll__handle_corner">3dp</dimen>
+    <dimen name="fastscroll__handle_height">30dp</dimen>
+    <dimen name="fastscroll__handle_width">6dp</dimen>
+    <dimen name="fastscroll__handle_inset">9dp</dimen>
+    <dimen name="fastscroll__handle_clickable_width">24dp</dimen>
+    <dimen name="fastscroll__handle_padding">2dp</dimen>
+</resources>

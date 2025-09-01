@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_image"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:scaleType="center"
+            android:src="@drawable/ic_first_screen_image"
+            app:layout_constraintBottom_toTopOf="@id/guideline_two"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".5" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".72" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_white_background"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_right_side_rectangle_background"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/iv_image"
+            app:layout_constraintStart_toStartOf="@id/iv_image"
+            app:layout_constraintTop_toBottomOf="@id/guideline" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:src="@drawable/ic_logo"
+            app:layout_constraintStart_toStartOf="@id/iv_image"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvBig"
+            style="@style/Widget.Radar.Text.Large.ExtraBold"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:gravity="end"
+            android:text="FREEDOM.\nREAL.\nBOLD."
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@id/guideline_two"
+            app:layout_constraintEnd_toEndOf="@id/iv_image"
+            app:layout_constraintTop_toTopOf="@id/guideline_two"
+            app:layout_constraintVertical_bias=".7" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_bottom"
+            style="@style/Widget.Radar.Text"
+            android:layout_width="0dp"
+
+            android:layout_marginEnd="@dimen/_6sdp"
+            android:gravity="end"
+            android:padding="@dimen/_3sdp"
+            android:text="FINALLY! A Dating App that lets you connect to \nANYONE ANYWHERE. Saw you, liked you, quietly \nmade my move! We make flirting social again in \na world of swipe culture! We are your Wingman!"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/iv_image"
+            app:layout_constraintStart_toStartOf="@id/iv_image"
+            app:layout_constraintTop_toBottomOf="@id/tvBig" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

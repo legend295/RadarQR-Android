@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.radarqr.dating.android.ui.subscription.SubscriptionViewModel.SubscriptionHorizontalFeaturesData" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_5sdp"
+        android:minHeight="@dimen/_90sdp"
+        android:background="@drawable/bg_round_stroke_with_radius_6_grey"
+        >
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivDummy"
+            android:layout_width="@dimen/_55sdp"
+            android:layout_height="@dimen/_55sdp"
+            android:src="@{data.icon}"
+            android:layout_marginStart="@dimen/_15sdp"
+            app:layout_constraintVertical_bias="0.3"
+            app:layout_constraintBottom_toBottomOf="@id/tvDescription"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvFeatureTitle"
+            tools:src="@drawable/ic_horizontal_subscription_second" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvFeatureTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:text="@{data.title}"
+            android:textSize="@dimen/_10sdp"
+            app:fontFamily="@font/poppins_bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintStart_toEndOf="@id/ivDummy"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/app_name" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{data.description}"
+            android:textSize="@dimen/_9sdp"
+            android:id="@+id/tvDescription"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tvFeatureTitle"
+            app:layout_constraintTop_toBottomOf="@id/tvFeatureTitle"
+            app:layout_constraintVertical_bias="0"
+            tools:text="Introduce yourself in a flash! Instantly connect with other singles at your preferred Hot Spots using this feature." />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

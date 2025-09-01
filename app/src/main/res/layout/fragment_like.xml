@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.radarqr.dating.android.ui.home.likes.model.LikesViewModel" />
+
+        <variable
+            name="type"
+            type="LikeType" />
+
+
+        <variable
+            name="clickHandler"
+            type="com.radarqr.dating.android.utility.handler.ViewClickHandler" />
+
+        <import type="com.radarqr.dating.android.ui.home.likenew.LikeFragment.LikeType" />
+
+        <import type="android.view.View" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvAllLikes"
+            style="@style/Widget.Radar.Text.MediumBody"
+            android:background="@{type == LikeType.ALL_LIKES? @drawable/bg_round_teal_fill : @drawable/round_cetacean_blue_stroke_round}"
+            android:onClick="@{clickHandler::onClick}"
+            android:paddingStart="@dimen/_15sdp"
+            android:paddingTop="@dimen/_7sdp"
+            android:paddingEnd="@dimen/_15sdp"
+            android:paddingBottom="@dimen/_7sdp"
+            android:text="@string/all_likes"
+            android:textColor="@{type ==  LikeType.ALL_LIKES? @color/white :@color/iconsColorDark}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvOnline"
+            style="@style/Widget.Radar.Text.MediumBody"
+            android:layout_width="@dimen/_65sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:background="@{type == LikeType.ONLINE? @drawable/bg_round_teal_fill : @drawable/round_cetacean_blue_stroke_round}"
+            android:gravity="center"
+            android:onClick="@{clickHandler::onClick}"
+            android:padding="@dimen/_7sdp"
+            android:text="@string/online"
+            android:textColor="@{type ==  LikeType.ONLINE? @color/white :@color/iconsColorDark}"
+            app:layout_constraintBottom_toBottomOf="@id/tvAllLikes"
+            app:layout_constraintStart_toEndOf="@id/tvAllLikes"
+            app:layout_constraintTop_toTopOf="@id/tvAllLikes" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvInPerson"
+            style="@style/Widget.Radar.Text.MediumBody"
+            android:layout_width="@dimen/_65sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:background="@{type == LikeType.IN_PERSON? @drawable/bg_round_teal_fill : @drawable/round_cetacean_blue_stroke_round}"
+            android:gravity="center"
+            android:onClick="@{clickHandler::onClick}"
+            android:padding="@dimen/_7sdp"
+            android:text="@string/inperson"
+            android:textColor="@{type ==  LikeType.IN_PERSON? @color/white :@color/iconsColorDark}"
+            app:layout_constraintBottom_toBottomOf="@id/tvOnline"
+            app:layout_constraintStart_toEndOf="@id/tvOnline"
+            app:layout_constraintTop_toTopOf="@id/tvOnline" />
+
+        <FrameLayout
+            android:id="@+id/container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAllLikes" />
+
+
+
+
+        <!--
+
+                <ImageView
+                    android:id="@+id/iv_heart"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:background="@drawable/ic_nav_heart_g"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_title"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tv_title" />
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_6sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/hkgrotesk_bold"
+                    android:text="@string/like"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_20sdp"
+                    app:layout_constraintStart_toEndOf="@+id/iv_heart"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/view1"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:background="@color/screen_back"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tab_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view1"
+                    app:tabGravity="fill"
+                    app:tabIconTint="@color/mobile_back"
+                    app:tabIndicator="@color/mobile_back"
+                    app:tabIndicatorColor="@color/mobile_back"
+                    app:tabIndicatorHeight="@dimen/_2sdp"
+                    app:tabInlineLabel="true"
+                    app:tabMode="fixed"
+                    app:tabSelectedTextColor="@color/mobile_back"
+                    app:tabTextAppearance="@style/MyTabLayoutTextAppearance">
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/all_likes" />
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/online" />
+
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/inperson" />
+                </com.google.android.material.tabs.TabLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tab_layout">
+
+                    <include
+                        android:id="@+id/include_all_likes"
+                        layout="@layout/layout_all_likes"
+                        android:visibility="@{viewModel.tabSelectedPosition == 0 &amp;&amp; !viewModel.isProfileSelected ? View.VISIBLE : View.GONE}"
+                        app:viewModel="@{viewModel}" />
+
+                    <include
+                        android:id="@+id/include_online_likes"
+                        layout="@layout/layout_online_likes"
+                        android:visibility="@{viewModel.tabSelectedPosition == 1  &amp;&amp; !viewModel.isProfileSelected ? View.VISIBLE : View.GONE}"
+                        app:viewModel="@{viewModel}"
+                        tools:visibility="gone" />
+
+                    <include
+                        android:id="@+id/include_in_person_likes"
+                        layout="@layout/layout_in_person_likes"
+                        android:visibility="@{viewModel.tabSelectedPosition == 2  &amp;&amp; !viewModel.isProfileSelected ? View.VISIBLE : View.GONE}"
+                        app:viewModel="@{viewModel}"
+                        tools:visibility="gone" />
+
+                    <include
+                        android:id="@+id/include_layout_other_profile"
+                        layout="@layout/layout_other_profile"
+                        android:visibility="@{viewModel.isProfileSelected? View.VISIBLE : View.GONE}"
+                        app:viewModel="@{viewModel}"
+                        tools:visibility="gone" />
+
+
+                </LinearLayout>
+
+               &lt;!&ndash; <include
+                    android:id="@+id/include_pause_profile"
+                    layout="@layout/fragment_pause_profile"
+                    app:clickHandler="@{clickHandler}" />&ndash;&gt;
+        -->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

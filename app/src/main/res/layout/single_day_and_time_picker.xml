@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="horizontal">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <View
+            android:id="@+id/dtSelector"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_gravity="center_vertical"
+
+            android:background="@color/picker_default_selector_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.radarqr.dating.android.datePicker.WheelDayPicker
+            android:id="@+id/daysPicker"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:wheel_atmospheric="true"
+            app:wheel_item_align="right" />
+
+        <com.radarqr.dating.android.datePicker.WheelMonthPicker
+            android:id="@+id/monthPicker"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/_7sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:wheel_atmospheric="true"
+
+            app:wheel_item_align="center" />
+
+        <com.radarqr.dating.android.datePicker.WheelDayOfMonthPicker
+            android:id="@+id/daysOfMonthPicker"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="match_parent"
+
+            app:layout_constraintEnd_toStartOf="@+id/yearPicker"
+            app:layout_constraintStart_toEndOf="@+id/monthPicker"
+            app:layout_constraintTop_toTopOf="parent"
+            app:wheel_atmospheric="true"
+            app:wheel_item_align="center" />
+
+
+        <com.radarqr.dating.android.datePicker.WheelYearPicker
+            android:id="@+id/yearPicker"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="match_parent"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/daysOfMonthPicker"
+            app:layout_constraintTop_toTopOf="parent"
+            app:wheel_atmospheric="true"
+            app:wheel_item_align="center" />
+
+        <com.radarqr.dating.android.datePicker.WheelHourPicker
+            android:id="@+id/hoursPicker"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:wheel_atmospheric="true"
+            app:wheel_item_align="center" />
+
+        <com.radarqr.dating.android.datePicker.WheelMinutePicker
+            android:id="@+id/minutesPicker"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:wheel_atmospheric="true"
+            app:wheel_item_align="center" />
+
+        <com.radarqr.dating.android.datePicker.WheelAmPmPicker
+            android:id="@+id/amPmPicker"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="30dp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:wheel_atmospheric="true"
+            app:wheel_item_align="center"
+            app:wheel_visible_item_count="2" />
+
+        <ImageView
+            android:id="@+id/iv_calender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/_15sdp"
+            android:background="@drawable/ic_calender"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!--    <RelativeLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="@dimen/wheelSelectorHeight"-->
+    <!--        android:layout_gravity="center_vertical"-->
+    <!--        android:orientation="vertical">-->
+
+    <!--        <View-->
+    <!--            android:id="@+id/picker_divider_1"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="@dimen/picker_default_divider_height"-->
+    <!--            android:layout_alignParentTop="true"-->
+    <!--            android:background="@drawable/rect_white"/>-->
+
+    <!--        <View-->
+    <!--            android:id="@+id/picker_divider_2"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="@dimen/picker_default_divider_height"-->
+    <!--            android:layout_alignParentBottom="true"-->
+    <!--            android:background="@drawable/rect_white"/>-->
+    <!--    </RelativeLayout>-->
+</RelativeLayout>

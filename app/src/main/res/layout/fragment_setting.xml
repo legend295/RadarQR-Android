@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="settingFragment"
+            type="com.radarqr.dating.android.ui.home.settings.SettingFragment" />
+
+        <variable
+            name="viewHandler"
+            type="com.radarqr.dating.android.utility.handler.ViewClickHandler" />
+
+        <variable
+            name="currentSubscription"
+            type="SubscriptionStatus" />
+
+        <import type="com.radarqr.dating.android.subscription.SubscriptionStatus" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/screen_back"
+        android:fillViewport="true"
+        android:paddingBottom="@dimen/_10sdp"
+        android:scrollbars="none">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_top"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="@dimen/_22sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvSetting"
+                style="@style/Widget.Radar.Text.Header.Bold"
+                android:text="@string/setting"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvShareProfile"
+                style="@style/Widget.Radar.Text.Title.Bold"
+                android:drawableEnd="@drawable/ic_upload_image"
+                android:drawablePadding="@dimen/_10sdp"
+                android:gravity="center"
+                android:onClick="@{viewHandler::onClick}"
+                android:singleLine="true"
+                android:text="@string/share_profile"
+                android:textColor="@color/teal_200"
+                android:textSize="@dimen/_9sdp"
+                app:layout_constraintBottom_toBottomOf="@id/tvSetting"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineVertical"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".5" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvParent"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_180sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:onClick="@{viewHandler::onClick}"
+                app:cardCornerRadius="@dimen/_20sdp"
+                app:layout_constraintEnd_toStartOf="@id/guidelineVertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvSetting">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ivUser"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:background="@color/imageBackground"
+                        android:scaleType="center"
+                        app:layout_constraintBottom_toTopOf="@id/guideline_image"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline_image"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintGuide_percent=".8" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintGuide_percent=".45" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guidelineLike"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:orientation="horizontal"
+                        app:layout_constraintGuide_percent=".55" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/ic_home_item_background"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/guideline" />
+
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ivEdit"
+                        android:layout_width="@dimen/_60sdp"
+                        android:layout_height="@dimen/_60sdp"
+                        android:onClick="@{viewHandler::onClick}"
+                        android:src="@drawable/ic_edit_profile"
+                        app:layout_constraintBottom_toBottomOf="@id/guidelineLike"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/guidelineLike" />
+
+                    <ProgressBar
+                        android:id="@+id/profileProgress"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_4sdp"
+                        android:layout_marginTop="-10dp"
+                        android:layout_marginBottom="@dimen/_4sdp"
+                        android:progressDrawable="@drawable/round_croner_progress_bar"
+                        app:layout_constraintBottom_toTopOf="@id/tvProfileComplete"
+                        app:layout_constraintEnd_toEndOf="@id/tvProfileComplete"
+                        app:layout_constraintTop_toBottomOf="@id/ivEdit" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvProfileComplete"
+                        style="@style/Widget.Radar.Text.Body"
+                        android:layout_marginEnd="@dimen/_3sdp"
+                        android:textColor="@color/icons_color"
+                        android:textSize="@dimen/_8sdp"
+                        app:layout_constraintBottom_toTopOf="@id/tvName"
+                        app:layout_constraintEnd_toEndOf="@id/tvName"
+                        app:layout_constraintTop_toBottomOf="@id/profileProgress"
+                        tools:text="65% complete" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvName"
+                        style="@style/Widget.Radar.Text.Bold"
+                        android:layout_width="0dp"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_7sdp"
+                        android:ellipsize="end"
+                        android:gravity="end|center"
+                        android:maxLines="2"
+                        android:textColor="@color/black_color"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvProfileComplete"
+                        tools:text="Jennifeasdfkjlahsdflkjsadhflkadsfhalsdkjfhsdlkfjajldsfr" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvBarCode"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_180sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:onClick="@{viewHandler::onClick}"
+                app:cardBackgroundColor="@color/radish"
+                app:cardCornerRadius="@dimen/_20sdp"
+                app:layout_constraintBottom_toBottomOf="@id/cvParent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/guidelineVertical"
+                app:layout_constraintTop_toTopOf="@id/cvParent">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ivBar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_10sdp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_qr_code_g"
+                        android:tint="@color/white"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_10sdp"
+                        android:src="@drawable/ic_next_round_white"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvShowCodw"
+                        style="@style/Widget.Radar.Text.Bold"
+                        android:layout_width="0dp"
+                        android:gravity="center"
+                        android:text="Show Code/\nOrder QR Cards"
+                        android:textColor="@color/white"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivSubscriptionPlaceholder"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_180sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:onClick="@{viewHandler::onClick}"
+                android:scaleType="centerCrop"
+                android:visibility="gone"
+                android:src="@drawable/ic_settings_subscription_bg"
+                app:layout_constraintTop_toBottomOf="@id/cvParent"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize8Percent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvSubscriptionNotActiveMsg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:background="@drawable/bg_round_black_stroke_fill_white"
+                android:onClick="@{viewHandler::onClick}"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_3sdp"
+                android:text="@string/upgrade_to_radarqr_plus"
+                android:textSize="@dimen/_13sdp"
+                android:visibility="gone"
+                app:fontFamily="@font/poppins_bold"
+                app:layout_constraintBottom_toBottomOf="@id/ivSubscriptionPlaceholder"
+                app:layout_constraintEnd_toEndOf="@id/ivSubscriptionPlaceholder"
+                app:layout_constraintStart_toStartOf="@id/ivSubscriptionPlaceholder"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvSubscriptionActiveMsg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:background="@drawable/bg_round_black_stroke_fill_white"
+                android:onClick="@{viewHandler::onClick}"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingTop="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_3sdp"
+                android:text="@string/radarqr_plus_activated"
+                android:textSize="@dimen/_13sdp"
+                android:visibility="gone"
+                app:fontFamily="@font/poppins_bold"
+                app:layout_constraintBottom_toBottomOf="@id/ivSubscriptionPlaceholder"
+                app:layout_constraintEnd_toEndOf="@id/ivSubscriptionPlaceholder"
+                app:layout_constraintStart_toStartOf="@id/ivSubscriptionPlaceholder" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivSwagBackground"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_70sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/bg_rectangle_teal"
+                android:onClick="@{viewHandler::onClick}"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_swag_shop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivSubscriptionPlaceholder" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_swag_text"
+                app:layout_constraintBottom_toBottomOf="@id/ivSwagBackground"
+                app:layout_constraintStart_toStartOf="@id/ivSwagBackground"
+                app:layout_constraintTop_toTopOf="@id/ivSwagBackground"
+                app:layout_constraintVertical_bias="1" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:src="@drawable/ic_next_round_white"
+                app:layout_constraintBottom_toBottomOf="@id/ivSwagBackground"
+                app:layout_constraintEnd_toEndOf="@id/ivSwagBackground" />
+
+            <!-- <androidx.appcompat.widget.AppCompatTextView
+                 android:id="@+id/tvTipsAndTricks"
+                 style="@style/Widget.Radar.Text.Content"
+                 android:layout_width="0dp"
+                 android:layout_marginStart="@dimen/_1sdp"
+                 android:layout_marginTop="@dimen/_10sdp"
+                 android:layout_marginEnd="@dimen/_1sdp"
+                 android:background="@drawable/rect_white"
+
+                 android:drawableStart="@drawable/ic_help"
+                 android:drawablePadding="@dimen/_10sdp"
+
+                 android:onClick="@{viewHandler::onClick}"
+                 android:padding="@dimen/_13sdp"
+                 android:text="@string/tips_amp_tricks"
+                 app:layout_constraintEnd_toEndOf="parent"
+                 app:layout_constraintStart_toStartOf="parent"
+                 app:layout_constraintTop_toBottomOf="@id/ivSwagBackground" />
+
+
+             <androidx.appcompat.widget.AppCompatTextView
+                 android:id="@+id/tvPreferences"
+                 style="@style/Widget.Radar.Text.Content"
+                 android:layout_width="0dp"
+                 android:layout_marginStart="@dimen/_1sdp"
+                 android:layout_marginTop="@dimen/_10sdp"
+                 android:layout_marginEnd="@dimen/_1sdp"
+                 android:background="@drawable/rect_white"
+                 android:backgroundTint="@color/white"
+                 android:drawableStart="@drawable/ic_preference"
+                 android:drawablePadding="@dimen/_10sdp"
+                 android:onClick="@{viewHandler::onClick}"
+                 android:padding="@dimen/_13sdp"
+                 android:text="@string/preference"
+                 app:layout_constraintEnd_toEndOf="parent"
+                 app:layout_constraintStart_toStartOf="parent"
+                 app:layout_constraintTop_toBottomOf="@id/tvTipsAndTricks" />
+
+
+             <androidx.appcompat.widget.AppCompatTextView
+                 android:id="@+id/tvAccount"
+                 style="@style/Widget.Radar.Text.Content"
+                 android:layout_width="0dp"
+                 android:layout_marginStart="@dimen/_1sdp"
+                 android:layout_marginTop="@dimen/_10sdp"
+                 android:layout_marginEnd="@dimen/_1sdp"
+                 android:background="@drawable/rect_white"
+                 android:drawableStart="@drawable/ic_setting"
+                 android:drawablePadding="@dimen/_10sdp"
+
+                 android:onClick="@{viewHandler::onClick}"
+                 android:padding="@dimen/_13sdp"
+                 android:text="@string/account"
+                 app:layout_constraintEnd_toEndOf="parent"
+                 app:layout_constraintStart_toStartOf="parent"
+                 app:layout_constraintTop_toBottomOf="@id/tvPreferences" />
+
+             <androidx.appcompat.widget.AppCompatTextView
+                 android:id="@+id/tvCloseFriends"
+                 style="@style/Widget.Radar.Text.Content"
+                 android:layout_width="0dp"
+                 android:layout_marginStart="@dimen/_1sdp"
+                 android:layout_marginTop="@dimen/_10sdp"
+                 android:layout_marginEnd="@dimen/_1sdp"
+                 android:background="@drawable/rect_white"
+                 android:drawableStart="@drawable/ic_close_friend_icon_settings"
+                 android:drawablePadding="@dimen/_10sdp"
+                 android:onClick="@{viewHandler::onClick}"
+                 android:padding="@dimen/_13sdp"
+                 android:text="@string/close_friends"
+                 android:visibility="visible"
+                 app:layout_constraintEnd_toEndOf="parent"
+                 app:layout_constraintStart_toStartOf="parent"
+                 app:layout_constraintTop_toBottomOf="@id/tvHotspotsVenueAccount" />
+
+             <androidx.appcompat.widget.AppCompatTextView
+                 android:id="@+id/tvRequestsCount"
+                 style="@style/Widget.Radar.Text.Small"
+                 android:layout_width="@dimen/_15sdp"
+                 android:layout_height="@dimen/_15sdp"
+                 android:layout_marginEnd="@dimen/_10sdp"
+                 android:background="@drawable/ic_g_thumb_pressed"
+                 android:backgroundTint="@color/textRed"
+                 android:ellipsize="end"
+                 android:gravity="center"
+                 android:maxLines="1"
+                 android:padding="@dimen/_1sdp"
+                 android:text="183"
+                 android:textColor="@color/white"
+                 android:visibility="gone"
+                 app:layout_constraintBottom_toBottomOf="@id/tvCloseFriends"
+                 app:layout_constraintEnd_toEndOf="@id/tvCloseFriends"
+                 app:layout_constraintTop_toTopOf="@id/tvCloseFriends"
+                 tools:visibility="visible" />
+
+             <androidx.appcompat.widget.AppCompatTextView
+                 android:id="@+id/tvHotspotsVenueAccount"
+                 style="@style/Widget.Radar.Text.Content"
+                 android:layout_width="0dp"
+                 android:layout_marginStart="@dimen/_1sdp"
+                 android:layout_marginTop="@dimen/_10sdp"
+                 android:layout_marginEnd="@dimen/_1sdp"
+                 android:background="@drawable/rect_white"
+                 android:drawableStart="@drawable/ic_fire_icon"
+                 android:drawablePadding="@dimen/_10sdp"
+                 android:gravity="center|start"
+                 android:onClick="@{viewHandler::onClick}"
+                 android:padding="@dimen/_13sdp"
+                 android:text="@string/venues"
+                 app:layout_constraintEnd_toEndOf="parent"
+                 app:layout_constraintStart_toStartOf="parent"
+                 app:layout_constraintTop_toBottomOf="@id/tvAccount" />
+
+
+             <androidx.appcompat.widget.AppCompatTextView
+                 android:id="@+id/tvLogOut"
+                 style="@style/Widget.Radar.Text.Content"
+                 android:layout_width="0dp"
+                 android:layout_marginStart="@dimen/_1sdp"
+                 android:layout_marginTop="@dimen/_10sdp"
+                 android:layout_marginEnd="@dimen/_1sdp"
+                 android:layout_marginBottom="@dimen/_8sdp"
+                 android:background="@drawable/rect_white"
+                 android:backgroundTint="@color/white"
+                 android:drawableStart="@drawable/ic_logout"
+                 android:drawablePadding="@dimen/_10sdp"
+
+                 android:onClick="@{viewHandler::onClick}"
+                 android:padding="@dimen/_13sdp"
+                 android:text="@string/logout"
+                 app:layout_constraintBottom_toBottomOf="parent"
+                 app:layout_constraintEnd_toEndOf="parent"
+                 app:layout_constraintStart_toStartOf="parent"
+                 app:layout_constraintTop_toBottomOf="@id/tvCloseFriends" />-->
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvSettings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivSwagBackground" />
+
+            <!--                <FrameLayout-->
+            <!--                    android:layout_width="0dp"-->
+            <!--                    android:layout_height="0dp"-->
+            <!--                    android:background="@color/blurBackground"-->
+            <!--                    android:elevation="1dp"-->
+            <!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                    app:layout_constraintStart_toStartOf="parent"-->
+            <!--                    app:layout_constraintTop_toTopOf="parent" />-->
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

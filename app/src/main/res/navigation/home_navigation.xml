@@ -1,0 +1,872 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_navigation"
+    app:startDestination="@id/home_fragment">
+
+    <fragment
+        android:id="@+id/home_fragment"
+        android:name="com.radarqr.dating.android.ui.home.main.HomeFragment"
+        android:label="homeFragment"
+        tools:layout="@layout/home_fragment">
+
+        <action
+            android:id="@+id/action_home_to_forword_profile"
+            app:destination="@id/forword_profile"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+
+        <action
+            android:id="@+id/action_home_to_prefernce"
+            app:destination="@id/preference_main"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+
+        <action
+            android:id="@+id/action_connection_to_chat_frag"
+            app:destination="@id/chat_fragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+
+        <action
+            android:id="@+id/action_to_pauseProfile"
+            app:destination="@id/pauseProfile"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+
+        <action
+            android:id="@+id/action_recommendation_to_web_view_fragment"
+            app:destination="@id/web_view_fragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            />
+    </fragment>
+    <!-- <fragment
+         android:id="@+id/dialogs_fragment"
+         android:name="com.e.radardating.ui.home.quickBlox.ConnectionMainFragment"
+         android:label="dialogsFragment"
+         tools:layout="@layout/fragment_connection_main">
+
+
+     </fragment>-->
+
+    <fragment
+        android:id="@+id/dialogs_fragment"
+        android:name="com.radarqr.dating.android.ui.home.chat.ChatUserFragment"
+        android:label="dialogsFragment"
+        tools:layout="@layout/fragment_chat_user">
+        <action
+            android:id="@+id/action_connection_to_chat_frag"
+            app:destination="@id/chat_fragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+
+        <!--    <action
+                android:id="@+id/action_connection_to_chat_main"
+                app:destination="@id/connection_fragment"
+                app:enterAnim="@anim/fadein"
+                app:exitAnim="@anim/fadeout" />-->
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/chat_fragment"
+        android:name="com.radarqr.dating.android.ui.home.quickBlox.ChatFragment"
+        android:label="chatFragment"
+        tools:layout="@layout/activity_chat" />
+    <fragment
+        android:id="@+id/forword_profile"
+        android:name="com.radarqr.dating.android.ui.home.forwardProfile.ForwardProfileFragment"
+        android:label="forwordProfileFragment"
+        tools:layout="@layout/layout_forword_profile" />
+
+    <fragment
+        android:id="@+id/setting_fragment"
+        android:name="com.radarqr.dating.android.ui.home.settings.SettingFragment"
+        android:label="settingFragment"
+        tools:layout="@layout/fragment_setting">
+        <action
+            android:id="@+id/action_setting_to_scanFragment"
+            app:destination="@id/scan_main_fragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@id/setting_fragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_setting_to_preferenceFragment"
+            app:destination="@id/preference_main"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@id/setting_fragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_setting_to_ProfileMainFragment"
+            app:destination="@id/profile_main_fragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@id/setting_fragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_setting_to_accountDetailsFragment"
+            app:destination="@id/accountDetailsFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@id/setting_fragment"
+            app:popUpToInclusive="false" />
+
+        <action
+            android:id="@+id/action_account_details_to_web_view_fragment"
+            app:destination="@id/web_view_fragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@id/accountDetailsFragment"
+            app:popUpToInclusive="false" />
+
+        <action
+            android:id="@+id/action_connection_to_chat_frag"
+            app:destination="@id/chat_fragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+
+        <action
+            android:id="@+id/action_setting_to_editProfileFragment"
+            app:destination="@id/editProfileFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@id/setting_fragment"
+            app:popUpToInclusive="false" />
+
+        <action
+            android:id="@+id/action_setting_to_venuePromotionFragment"
+            app:destination="@id/fragmentVenuePromotion" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/preference_main"
+        android:name="com.radarqr.dating.android.ui.home.settings.PreferenceFragment"
+        android:label="preferenceFragment"
+        tools:layout="@layout/fragment_preferences">
+        <action
+            android:id="@+id/action_preference_to_CommonFragment"
+            app:destination="@id/common_fragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@id/preference_main"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_preference_to_LocationFragment"
+            app:destination="@id/location_Fragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@id/preference_main"
+            app:popUpToInclusive="false" />
+
+        <action
+            android:id="@+id/action_connection_to_chat_frag"
+            app:destination="@id/chat_fragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/profile_main_fragment"
+        android:name="com.radarqr.dating.android.ui.home.settings.ProfileMainFragment"
+        android:label="profileMainFragment"
+        tools:layout="@layout/fragment_profile_main">
+
+        <!-- <action
+             android:id="@+id/action_editProfile_to_CommonFragment"
+             app:destination="@id/common_fragment"
+             app:enterAnim="@anim/fadein"
+             app:exitAnim="@anim/fadeout"
+             app:popUpTo="@id/profile_main_fragment"
+             app:popUpToInclusive="false" />
+
+         <action
+             android:id="@+id/action_editProfile_to_firstNameFragment"
+             app:destination="@id/firstNameFragment"
+             app:enterAnim="@anim/fadein"
+             app:exitAnim="@anim/fadeout"
+             app:popUpTo="@id/profile_main_fragment"
+             app:popUpToInclusive="false" />
+
+         <action
+             android:id="@+id/action_editProfile_to_locationFragment"
+             app:destination="@id/location_Fragment"
+             app:enterAnim="@anim/fadein"
+             app:exitAnim="@anim/fadeout"
+             app:popUpTo="@id/profile_main_fragment"
+             app:popUpToInclusive="false" />
+
+         <action
+             android:id="@+id/action_editProfile_to_ageFragment"
+             app:destination="@id/ageFragment"
+             app:enterAnim="@anim/fadein"
+             app:exitAnim="@anim/fadeout"
+             app:popUpTo="@id/profile_main_fragment"
+             app:popUpToInclusive="false" />
+         <action
+             android:id="@+id/action_editFragment_to_imageUploadFragment"
+             app:destination="@+id/imageUploadFragment"
+             app:enterAnim="@anim/fadein"
+             app:exitAnim="@anim/fadeout"
+             app:popUpTo="@+id/profile_main_fragment"
+             app:popUpToInclusive="false" />
+
+         <action
+             android:id="@+id/action_connection_to_chat_frag"
+             app:destination="@id/chat_fragment"
+             app:enterAnim="@anim/fadein"
+             app:exitAnim="@anim/fadeout" />
+
+         <action
+             android:id="@+id/action_editFragment_to_uploadFragment"
+             app:destination="@+id/uploadFragment"
+             app:enterAnim="@anim/fadein"
+             app:exitAnim="@anim/fadeout"
+             app:popUpTo="@+id/profile_main_fragment"
+             app:popUpToInclusive="false" />
+         <action
+             android:id="@+id/action_editProfile_to_emailFragment"
+             app:destination="@id/common_fragment"
+             app:enterAnim="@anim/fadein"
+             app:exitAnim="@anim/fadeout"
+             app:popUpTo="@id/profile_main_fragment"
+             app:popUpToInclusive="false" />
+
+         <action
+             android:id="@+id/action_editProfile_to_hobbiesAndInterest"
+             app:destination="@id/hobbiesAndInterestFragment"
+             app:enterAnim="@anim/fadein"
+             app:exitAnim="@anim/fadeout"
+             app:popUpTo="@id/profile_main_fragment"
+             app:popUpToInclusive="false" />-->
+    </fragment>
+
+    <!-- <fragment
+         android:id="@+id/likes_main_fragment"
+         android:name="com.e.radardating.ui.home.likes.LikesMainFragment"
+         android:label="likeMainFragment"
+         tools:layout="@layout/fragment_likes_main">
+         &lt;!&ndash;        <action&ndash;&gt;
+         &lt;!&ndash;            android:id="@+id/action_likes_to_otherProfile"&ndash;&gt;
+         &lt;!&ndash;            app:destination="@id/otherProfile_Fragment"&ndash;&gt;
+         &lt;!&ndash;            app:enterAnim="@anim/fadein"&ndash;&gt;
+         &lt;!&ndash;            app:exitAnim="@anim/fadeout"&ndash;&gt;
+         &lt;!&ndash;            app:popUpTo="@id/likes_main_fragment"&ndash;&gt;
+         &lt;!&ndash;            app:popUpToInclusive="false" />&ndash;&gt;
+     </fragment>-->
+    <fragment
+        android:id="@+id/likes_main_fragment"
+        android:name="com.radarqr.dating.android.ui.home.likenew.LikeFragment"
+        android:label="likeMainFragment"
+        tools:layout="@layout/fragment_like">
+
+        <action
+            android:id="@+id/action_connection_to_chat_frag"
+            app:destination="@id/chat_fragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+
+        <action
+            android:id="@+id/action_likeFragment_to_profileFragment"
+            app:destination="@id/profileFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/scan_main_fragment"
+        android:name="com.radarqr.dating.android.ui.home.qrCode.ScanMainFragment"
+        android:label="scanMainFragment"
+        tools:layout="@layout/fragment_scan_main">
+        <action
+            android:id="@+id/action_to_other_profile_fragment"
+            app:destination="@id/otherProfile_Fragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+        <action
+            android:id="@+id/action_to_common_dialog"
+            app:destination="@id/commonDialogScreen"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+
+        <action
+            android:id="@+id/action_connection_to_chat_frag"
+            app:destination="@id/chat_fragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+    </fragment>
+    <fragment
+        android:id="@+id/scan_fragment"
+        android:name="com.radarqr.dating.android.ui.home.qrCode.ScanQRFragment"
+        android:label="scanFragment"
+        tools:layout="@layout/layout_scan_qrcode">
+
+        <action
+            android:id="@+id/action_connection_to_chat_frag"
+            app:destination="@id/chat_fragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+
+        <action
+            android:id="@+id/action_scanFragment_to_profileFragment"
+            app:destination="@id/profileFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@id/showQR_fragment" />
+
+
+        <action
+            android:id="@+id/action_to_other_profile_fragment"
+            app:destination="@id/otherProfile_Fragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/showQR_fragment"
+        android:name="com.radarqr.dating.android.ui.home.qrCode.ShowQRFragment"
+        android:label="showQRFragment"
+        tools:layout="@layout/layout_show_qrcode">
+
+        <action
+            android:id="@+id/action_connection_to_chat_frag"
+            app:destination="@id/chat_fragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+
+        <action
+            android:id="@+id/action_showQRFragment_to_scanFragment"
+            app:destination="@id/scan_fragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/common_fragment"
+        android:name="com.radarqr.dating.android.ui.home.settings.CommonFragment"
+        android:label="commonFragment"
+        tools:layout="@layout/fragment_common">
+
+        <action
+            android:id="@+id/action_connection_to_chat_frag"
+            app:destination="@id/chat_fragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/firstNameFragment"
+        android:name="com.radarqr.dating.android.ui.welcome.registerScreens.FirstNameFragment"
+        android:label="FirstNameFragment"
+        tools:layout="@layout/fragment_first_name">
+        <action
+            android:id="@+id/action_connection_to_chat_frag"
+            app:destination="@id/chat_fragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+    </fragment>
+    <fragment
+        android:id="@+id/ageFragment"
+        android:name="com.radarqr.dating.android.ui.welcome.registerScreens.AgeSelectorFragment"
+        android:label="AgeFragment"
+        tools:layout="@layout/fragment_age_selector">
+        <action
+            android:id="@+id/action_connection_to_chat_frag"
+            app:destination="@id/chat_fragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+    </fragment>
+    <fragment
+        android:id="@+id/otherProfile_Fragment"
+        android:name="com.radarqr.dating.android.ui.home.profile.OtherProfileFragment"
+        android:label="otherprofileFragment"
+        tools:layout="@layout/fragment_other_profile">
+        <action
+            android:id="@+id/action_other_Profile_to_request_already_exist"
+            app:destination="@id/action_request_alreadyExist"
+            app:enterAnim="@anim/slide_in_top"
+            app:exitAnim="@anim/slide_out_top"
+            app:popUpTo="@id/scan_main_fragment" />
+
+        <action
+            android:id="@+id/action_connection_to_chat_frag"
+            app:destination="@id/chat_fragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/location_Fragment"
+        android:name="com.radarqr.dating.android.ui.home.settings.LocationFragment"
+        android:label="locationFragment"
+        tools:layout="@layout/fragment_location">
+
+        <action
+            android:id="@+id/action_connection_to_chat_frag"
+            app:destination="@id/chat_fragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/imageUploadFragment"
+        android:name="com.radarqr.dating.android.ui.welcome.registerScreens.ImageUploadFragment"
+        android:label="ImageFragment"
+        tools:layout="@layout/fragment_image_upload">
+        <action
+            android:id="@+id/action_connection_to_chat_frag"
+            app:destination="@id/chat_fragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/uploadFragment"
+        android:name="com.radarqr.dating.android.ui.upload.UploadFragment"
+        android:label="UploadFragment"
+        tools:layout="@layout/fragment_upload">
+        <action
+            android:id="@+id/action_connection_to_chat_frag"
+            app:destination="@id/chat_fragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/accountDetailsFragment"
+        android:name="com.radarqr.dating.android.ui.home.settings.AccountDetailsFragment"
+        android:label="AccountDetailFragment"
+        tools:layout="@layout/fragment_account_details">
+        <action
+            android:id="@+id/action_account_details_to_email_fragment"
+            app:destination="@id/emailFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@id/accountDetailsFragment"
+            app:popUpToInclusive="false" />
+
+        <action
+            android:id="@+id/action_account_details_to_web_view_fragment"
+            app:destination="@id/web_view_fragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@id/accountDetailsFragment"
+            app:popUpToInclusive="false" />
+
+        <action
+            android:id="@+id/action_account_details_to_mobile_fragment"
+            app:destination="@id/mobileFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@id/accountDetailsFragment"
+            app:popUpToInclusive="false" />
+
+        <action
+            android:id="@+id/action_connection_to_chat_frag"
+            app:destination="@id/chat_fragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/emailFragment"
+        android:name="com.radarqr.dating.android.ui.welcome.registerScreens.EmailAddressFragment"
+        android:label="EmailFragment"
+        tools:layout="@layout/fragment_email">
+        <action
+            android:id="@+id/action_connection_to_chat_frag"
+            app:destination="@id/chat_fragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/web_view_fragment"
+        android:name="com.radarqr.dating.android.ui.home.settings.web.WebViewFragment"
+        android:label="WebViewFragment"
+        tools:layout="@layout/fragment_web_view">
+        <action
+            android:id="@+id/action_connection_to_chat_frag"
+            app:destination="@id/chat_fragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/action_request_alreadyExist"
+        android:name="com.radarqr.dating.android.ui.home.request.RequestAlreadyExistFragment"
+        android:label="RequestAlreadyExist"
+        tools:layout="@layout/fragment_request_already_exist" />
+
+    <fragment
+        android:id="@+id/mobileFragment"
+        android:name="com.radarqr.dating.android.ui.welcome.mobileLogin.MobileFragment"
+        android:label="MobileFragment"
+        tools:layout="@layout/fragment_phone_number">
+        <action
+            android:id="@+id/action_mobileFragment_to_otpFragment"
+            app:destination="@id/otpVerifyFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@id/mobileFragment"
+            app:popUpToInclusive="false">
+
+        </action>
+
+        <action
+            android:id="@+id/action_connection_to_chat_frag"
+            app:destination="@id/chat_fragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/otpVerifyFragment"
+        android:name="com.radarqr.dating.android.ui.welcome.otpVerify.OtpVerifyFragment"
+        android:label="OtpVerifyFragment"
+        tools:layout="@layout/fragment_otp_verfication">
+        <action
+            android:id="@+id/action_connection_to_chat_frag"
+            app:destination="@id/chat_fragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/hobbiesAndInterestFragment"
+        android:name="com.radarqr.dating.android.ui.home.settings.hobbies.AddHobbiesAndInterestFragment"
+        android:label="HOBBIES"
+        tools:layout="@layout/fragment_add_hobbies_and_interest">
+        <action
+            android:id="@+id/action_connection_to_chat_frag"
+            app:destination="@id/chat_fragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/commonDialogScreen"
+        android:name="com.radarqr.dating.android.ui.common.CommonDialogScreen"
+        android:label="COMMON_DIALOG"
+        tools:layout="@layout/layout_screen_dialog_common">
+        <action
+            android:id="@+id/action_connection_to_chat_frag"
+            app:destination="@id/chat_fragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/pauseProfile"
+        android:name="com.radarqr.dating.android.ui.home.settings.PauseProfileFragment"
+        android:label="PAUSE_PROFILE"
+        tools:layout="@layout/fragment_pause_profile" />
+
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.radarqr.dating.android.ui.home.settings.EditProfileFragment"
+        android:label="EDIT_PROFILE"
+        tools:layout="@layout/fragment_edit_profile">
+
+        <action
+            android:id="@+id/action_editProfile_to_CommonFragment"
+            app:destination="@id/common_fragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@id/profile_main_fragment"
+            app:popUpToInclusive="false" />
+
+        <action
+            android:id="@+id/action_editProfile_to_firstNameFragment"
+            app:destination="@id/firstNameFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@id/profile_main_fragment"
+            app:popUpToInclusive="false" />
+
+        <action
+            android:id="@+id/action_editProfile_to_locationFragment"
+            app:destination="@id/location_Fragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@id/profile_main_fragment"
+            app:popUpToInclusive="false" />
+
+        <action
+            android:id="@+id/action_editProfile_to_ageFragment"
+            app:destination="@id/ageFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_editFragment_to_imageUploadFragment"
+            app:destination="@+id/imageUploadFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpToInclusive="false" />
+
+        <action
+            android:id="@+id/action_connection_to_chat_frag"
+            app:destination="@id/chat_fragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+
+        <action
+            android:id="@+id/action_editFragment_to_uploadFragment"
+            app:destination="@+id/uploadFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_editProfile_to_emailFragment"
+            app:destination="@id/common_fragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@id/profile_main_fragment"
+            app:popUpToInclusive="false" />
+
+        <action
+            android:id="@+id/action_editProfile_to_hobbiesAndInterest"
+            app:destination="@id/hobbiesAndInterestFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@id/profile_main_fragment"
+            app:popUpToInclusive="false" />
+
+        <action
+            android:id="@+id/action_editProfile_to_ProfileFragment"
+            app:destination="@id/profileFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/enableLocationFragment"
+        android:name="com.radarqr.dating.android.ui.location.EnableLocationFragment"
+        android:label="ENABLE_LOCATION"
+        tools:layout="@layout/fragment_enable_location" />
+
+    <fragment
+        android:id="@+id/enableLocationPermissionFragment"
+        android:name="com.radarqr.dating.android.ui.location.EnableLocationPermissionFragment" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.radarqr.dating.android.ui.home.settings.profile.ProfileFragment"
+        android:label="PROFILE"
+        tools:layout="@layout/fragment_profile">
+
+        <action
+            android:id="@+id/action_profileFragment_to_galleryFragment"
+            app:destination="@id/galleryFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+
+        <action
+            android:id="@+id/action_profile_to_chatFragment"
+            app:destination="@id/chat_fragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@id/likes_main_fragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/galleryFragment"
+        android:name="com.radarqr.dating.android.ui.home.settings.profile.GalleryFragment"
+        android:label="GALLERY"
+        tools:layout="@layout/fragment_gallery" />
+
+    <!--Hotspots fragments-->
+
+    <fragment
+        android:id="@+id/hotspotsFragment"
+        android:name="com.radarqr.dating.android.hotspots.map.HotspotsMapFragment"
+        android:label="HOTSPOTS"
+        tools:layout="@layout/fragment_hotspots_map" />
+
+    <fragment
+        android:id="@+id/yourVenueFragment"
+        android:name="com.radarqr.dating.android.hotspots.venue.MyVenuesFragment"
+        android:label="YOUR_VENUES"
+        tools:layout="@layout/fragment_my_venues">
+
+        <action
+            android:id="@+id/action_yourVenueFragment_to_venueDetailsFragment"
+            app:destination="@id/venueDetailsFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+
+        <action
+            android:id="@+id/action_yourVenueFragment_to_venueTypeFragment"
+            app:destination="@id/venueTypeFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+
+        <action
+            android:id="@+id/action_yourVenueFragment_to_NameFragment"
+            app:destination="@id/venueProfileAndUserNameFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/venueTypeFragment"
+        android:name="com.radarqr.dating.android.hotspots.createvenue.VenueUpdateFragment"
+        android:label="VENUE_TYPE" />
+
+    <fragment
+        android:id="@+id/deleteVenueFragment"
+        android:name="com.radarqr.dating.android.hotspots.delete.DeleteVenueFragment"
+        android:label="DELETE_VENUE" />
+
+    <fragment
+        android:id="@+id/venueDetailsFragment"
+        android:name="com.radarqr.dating.android.hotspots.venuedetail.VenueDetailsFragment"
+        android:label="VENUE_DETAILS">
+
+        <action
+            android:id="@+id/action_venueDetails_to_deleteFragment"
+            app:destination="@id/deleteVenueFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+
+        <action
+            android:id="@+id/action_venueDetails_to_uploadVenuePhotoFragment"
+            app:destination="@id/uploadVenuePhotoFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/venueProfileAndUserNameFragment"
+        android:name="com.radarqr.dating.android.hotspots.createvenue.VenueProfileAndUserNameFragment"
+        android:label="VENUE_PROFILE_AND_USERNAME">
+
+        <action
+            android:id="@+id/action_NameFragment_to_venueTypeFragment"
+            app:destination="@id/venueTypeFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@id/yourVenueFragment" />
+
+        <action
+            android:id="@+id/action_NameFragment_to_venuePromotionFragment"
+            app:destination="@id/fragmentVenuePromotion"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@id/yourVenueFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/uploadVenuePhotoFragment"
+        android:name="com.radarqr.dating.android.hotspots.upload.UploadVenuePhotoFragment"
+        android:label="UPLOAD_VENUE_PHOTO">
+        <action
+            android:id="@+id/action_from_uploadVenuePhotoFragment_to_imageTagFragment"
+            app:destination="@id/imageTagFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@id/venueDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/imageTagFragment"
+        android:name="com.radarqr.dating.android.hotspots.tag.ImageTagFragment"
+        android:label="IMAGE_TAG_FRAGMENT">
+
+        <action
+            android:id="@+id/action_from_imageTagFragment_to_shareTaggedImageFragment"
+            app:destination="@id/fragmentShareTaggedImage"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout"
+            app:popUpTo="@id/venueDetailsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/venueDetailSinglesFragment"
+        android:name="com.radarqr.dating.android.hotspots.venuedetailsingles.VenueDetailSinglesFragment"
+        android:label="VENUE_DETAILS_SINGLES" />
+
+    <fragment
+        android:id="@+id/venueAlbumFragment"
+        android:name="com.radarqr.dating.android.hotspots.venuealbum.VenueAlbumFragment"
+        android:label="VENUE_ALBUM" />
+
+    <fragment
+        android:id="@+id/createVenuePhotoFragment"
+        android:name="com.radarqr.dating.android.hotspots.createvenue.CreateVenuePhotoFragment"
+        android:label="CRATE_VENUE_PHOTO" />
+
+    <fragment
+        android:id="@+id/closeFriendAndRequestFragment"
+        android:name="com.radarqr.dating.android.hotspots.closefriend.CloseFriendAndRequestFragment"
+        android:label="CLOSE_FRIEND_REQUEST" />
+
+    <fragment
+        android:id="@+id/closeFriendFragment"
+        android:name="com.radarqr.dating.android.hotspots.closefriend.CloseFriendFragment"
+        android:label="CLOSE_FRIEND">
+        <action
+            android:id="@+id/action_closeFriend_to_profileFragment"
+            app:destination="@id/profileFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/friendRequestFragment"
+        android:name="com.radarqr.dating.android.hotspots.closefriend.FriendRequestFragment"
+        android:label="FRIEND_REQUEST" />
+
+    <fragment
+        android:id="@+id/fragmentUpdateUsername"
+        android:name="com.radarqr.dating.android.ui.home.settings.UpdateUsernameFragment"
+        android:label="UPDATE_USERNAME" />
+
+    <fragment
+        android:id="@+id/fragmentRoamingTimer"
+        android:name="com.radarqr.dating.android.hotspots.roamingtimer.RoamingTimerFragment"
+        android:label="ROAMING_TIMER" />
+
+    <fragment
+        android:id="@+id/fragmentSearchCloseFriend"
+        android:name="com.radarqr.dating.android.hotspots.tag.SearchCloseFriendFragment"
+        android:label="SEARCH_CLOSE_FRIEND" />
+
+    <fragment
+        android:id="@+id/fragmentShareTaggedImage"
+        android:name="com.radarqr.dating.android.hotspots.tag.ShareTaggedImageFragment"
+        android:label="SHARE_TAGGED_IMAGE" />
+
+    <fragment
+        android:id="@+id/fragmentVenuePromotion"
+        android:name="com.radarqr.dating.android.hotspots.venue.VenuePromotionFragment"
+        android:label="VENUE_PROMOTION">
+        <action
+            android:id="@+id/action_venuePromotion_to_venueFragment"
+            app:destination="@id/yourVenueFragment"
+            app:popUpTo="@id/setting_fragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/subscriptionFragment"
+        android:name="com.radarqr.dating.android.ui.subscription.SubscriptionFragment"
+        android:label="SubscriptionFragment">
+        <action
+            android:id="@+id/action_subscriptionFragment_to_webViewFragment"
+            app:destination="@id/web_view_fragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+    </fragment>
+</navigation>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.radarqr.dating.android.data.model.CloseFriendUser" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_5sdp"
+        android:background="@drawable/rect_white"
+        android:paddingStart="@dimen/_5sdp"
+        android:paddingTop="@dimen/_2sdp"
+        android:paddingEnd="@dimen/_5sdp"
+        android:paddingBottom="@dimen/_2sdp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivUser"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:scaleType="center"
+            android:background="@color/imageBackground"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvName"
+            style="@style/Widget.Radar.Text"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintBottom_toTopOf="@id/tvUserName"
+            app:layout_constraintStart_toEndOf="@id/ivUser"
+            app:layout_constraintTop_toTopOf="@id/ivUser"
+            tools:text="test" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvUserName"
+            style="@style/Widget.Radar.Text"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:textColor="@color/teal_200"
+            app:layout_constraintBottom_toBottomOf="@id/ivUser"
+            app:layout_constraintStart_toStartOf="@id/tvName"
+            app:layout_constraintTop_toBottomOf="@id/tvName"
+            tools:text="test" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSendRequest"
+            style="@style/Widget.Radar.Text.MediumBody"
+            android:background="@drawable/bg_round_stroke_with_radius_6_teal"
+            android:drawableStart="@drawable/ic_send_request"
+            android:drawablePadding="@dimen/_4sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            android:paddingStart="@dimen/_12sdp"
+            android:paddingEnd="@dimen/_12sdp"
+            android:text="@string/add"
+            android:textColor="@color/teal_200"
+            android:visibility="gone"
+            tools:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@id/ivUser"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ivUser" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvRequestStatus"
+            style="@style/Widget.Radar.Text.MediumBody"
+            android:drawablePadding="@dimen/_4sdp"
+            android:background="@drawable/bg_round_stroke_with_radius_6_teal"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            android:paddingStart="@dimen/_12sdp"
+            android:paddingEnd="@dimen/_12sdp"
+            android:textColor="@color/teal_200"
+            app:layout_constraintBottom_toBottomOf="@id/ivUser"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ivUser" />
+
+       <!-- <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivRemoveFriend"
+            android:visibility="gone"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:src="@drawable/ic_remove_close_friend"
+            app:layout_constraintBottom_toBottomOf="@id/ivUser"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ivUser" />-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
