@@ -3,7 +3,6 @@
     <string name="fb_login_protocol_scheme">fb291815899513836</string>
     <string name="facebook_client_token">01c26bdb17f4a367e2a6939e1bffb6f4</string>
     <string name="app_name">RadarQR</string>
-    <!--    <string name="google_api_key">AIzaSyBO4DkrT-Lcfqs23BZKD1T5DGE2y5nKR-w</string>-->
     <string name="continue_mobile">Continue with Phone Number</string>
     <string name="facebook">Continue with Facebook</string>
     <string name="google">Continue with Google</string>
