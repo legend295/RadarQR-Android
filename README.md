@@ -1,12 +1,14 @@
 # Radar-Dating-Android
 
-To show ads generate random number between 3-5 and then show ads on Recommendations screen, 
-Ads only be visible on Recommendation screen and While viewing Singles in hotspot
+RadarQR is not an event, it’s a lifestyle! No more awkward singles events or shallow swiping! Take control of your matches by inviting people who are on your radar in the real-world… to your dating profile on RadarQR!
 
-Shoot your shot(Send like with message)->
-1. Profile Screen
-2. Recommendation screen
-3. Near You - in-popups
+**Here’s how it works / Why We’re Different:** 
+
+**QR to Profile:**  We help you sort the people who like you IN REAL LIFE & ONLINE! Each profile comes with a unique QR code. Slap it on shirts, stickers, social media—you name it! Each new scan in the real-world equals a new “LIKE” at your fingertips! Live life, be real, and let the LIKES roll in as you go!
+
+**Hot Spots:**  Activate your SUPER-Powers and know where to connect in real-time with real people, EVERYDAY of the week! With our Hot Spots map, we show you WHERE the singles-hangouts are (bars, coffee shops, gyms, grocery stores, festivals, and more). Once you arrive and check yourself in, you’ll instantly see a list of WHO in the room is also seeking to connect! LOVE, Friends, and More!
+
+**Gen-AI:**  No other platform seamlessly combines Actual Intelligence with Artificial Intelligence to elevate the quality of in-person connections. Introducing “RAD,” your Gen-AI Best Friend. RAD offers tailored recommendations designed to enrich your social interactions, boosting your confidence in real-world situations!
 
 # How we work on Github:
 ``
@@ -27,4 +29,5 @@ Reference Link: https://buddy.works/blog/5-types-of-git-workflows
   branch used in production, replacing last sprint's release branch. Once the Release branch is
   verified by QA in production, the release branch is merged back into master (and dev, just to be
   safe). This is the only time we touch master, ensuring that it is as clean as possible.
+
 
